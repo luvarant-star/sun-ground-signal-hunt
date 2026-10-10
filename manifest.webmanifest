@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Sun Ground — Exotic Automatic: Signal Hunt",
+  "short_name": "Sun Ground",
+  "description": "A bilingual sound-sequence game inspired by Exotic Automatic.",
+  "lang": "it",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#08090c",
+  "theme_color": "#08090c",
+  "icons": [
+    { "src": "./sg-app-icon-192.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "./sg-app-icon.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "./exotic-automatic-cover.png", "sizes": "any", "type": "image/png", "purpose": "any" }
+  ]
+}
+
