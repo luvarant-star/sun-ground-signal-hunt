@@ -135,12 +135,18 @@ h1 span { color: #f6f6f5; font-weight: 400; }
 .unlocked-track > span, .unlocked-track strong { display: block; }
 .unlocked-track > span { color: var(--gold); font-size: 8px; }
 .unlocked-track strong { margin-top: 8px; font-size: 15px; font-weight: 600; }
-.reward-card { position: relative; aspect-ratio: 1; overflow: hidden; margin: 0 0 19px; border: 1px solid rgba(215,238,250,.55); border-radius: 4px; box-shadow: 0 14px 40px rgba(0,0,0,.36); text-align: left; }
+.reward-card { position: relative; aspect-ratio: 4 / 3; overflow: hidden; margin: 0 0 19px; border: 1px solid rgba(215,238,250,.55); border-radius: 4px; isolation: isolate; box-shadow: 0 14px 40px rgba(0,0,0,.36); text-align: left; --signal-hue: 190; }
 .reward-card > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.reward-card::after { position: absolute; z-index: 0; inset: 0; content: ''; pointer-events: none; background: linear-gradient(115deg, hsla(var(--signal-hue), 95%, 65%, .12), transparent 46%), linear-gradient(transparent 44%, rgba(4,7,10,.9) 100%); mix-blend-mode: screen; }
+.reward-signal { position: absolute; z-index: 1; inset: 12px 12px auto; height: 50%; color: hsl(var(--signal-hue), 95%, 78%); pointer-events: none; }
+.reward-signal svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 0 8px currentColor); }
+.reward-signal .signal-orbit { fill: none; stroke: currentColor; stroke-width: 1; opacity: .38; }
+.reward-signal .signal-line { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.reward-signal .signal-point { fill: currentColor; }
 .reward-copy { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; gap: 8px; padding: 42px 18px 18px; background: linear-gradient(transparent, rgba(4,7,10,.9) 30%); }
 .reward-copy span, .reward-copy small { color: #b5dcea; font: 8px var(--mono); letter-spacing: .14em; }
 .reward-copy strong { color: #fff; font-size: 25px; letter-spacing: .04em; }
-.reward-copy q { max-width: 100%; overflow: hidden; color: #e3eef4; font-size: 12px; line-height: 1.4; text-overflow: ellipsis; }
+.reward-copy small { max-width: 100%; overflow: hidden; color: #e3eef4; font-size: 11px; letter-spacing: .03em; text-overflow: ellipsis; white-space: nowrap; }
 .text-button { display: block; margin: 19px auto 0; padding: 7px; border: 0; color: var(--silver); background: none; font-size: 12px; cursor: pointer; }
 .text-button span { color: var(--gold-bright); }
 .toast { position: fixed; z-index: 10; inset: auto 16px calc(18px + env(safe-area-inset-bottom)); width: fit-content; max-width: calc(100vw - 32px); margin: auto; padding: 10px 14px; border: 1px solid rgba(240, 195, 125, .35); border-radius: 6px; color: var(--silver); background: #191a1e; box-shadow: 0 8px 30px rgba(0,0,0,.5); font-size: 11px; opacity: 0; transform: translateY(8px); pointer-events: none; transition: opacity .2s, transform .2s; }
