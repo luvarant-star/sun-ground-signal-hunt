@@ -1,6 +1,6 @@
-const CACHE_NAME = 'sun-ground-shell-v11';
+const CACHE_NAME = 'sun-ground-shell-v12';
 const APP_FILES = [
-  './', './index.html', './styles.css', './app.js', './app.js?v=20261011-5', './manifest.webmanifest',
+  './', './index.html', './styles.css', './app.js', './app.js?v=20261027-6', './manifest.webmanifest',
   './sg-app-icon.svg', './sg-app-icon-192.svg', './exotic-automatic-cover.jpg'
 ];
 

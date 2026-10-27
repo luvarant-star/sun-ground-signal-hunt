@@ -1,11 +1,11 @@
 # Sun Ground — Exotic Automatic: Signal Hunt
 
-Web app mobile gratuita in italiano, inglese, russo e giapponese. Il gioco di sequenze sonore inizia dalla traccia 7, “Nrkey my love”; progressi, lingua e Fan Pass restano nel browser. La copertina ufficiale accompagna la home e le card premio scaricabili.
+Web app mobile gratuita in italiano, inglese, russo e giapponese. Ogni missione offre tre modalità: memoria dei segnali, ritmo con drum pad e ricostruzione di un motivo synth ispirato alla traccia. La prima missione parte dalla traccia 7, “Nrkey my love”; progressi, lingua e Fan Pass restano nel browser. I motivi e i suoni sono generati localmente e non sono campioni o trascrizioni delle registrazioni originali. La copertina ufficiale accompagna la home e le card premio scaricabili.
 
 ## Avvio e installazione
 
 - Per vedere l’anteprima su Windows, apri `index.html` o usa `Apri Sun Ground.cmd`.
-- Per installarla come app sul telefono, pubblica prima la cartella su un sito HTTPS seguendo `PUBBLICAZIONE.md`. La modalità installabile e il salvataggio offline funzionano quando è pubblicata; il player musicale richiede internet.
+- Per installarla sul telefono, apri il sito HTTPS pubblicato e segui i passaggi in PUBBLICAZIONE.md. Il player musicale richiede internet.
 
 ## Fan Pass
 
@@ -14,4 +14,3 @@ Il percorso di anteprima offre Instagram, Spotify e una simulazione Google. I fo
 ## Limiti
 
 Il player Spotify tenta l’avvio automatico, ma browser e Spotify possono bloccarlo fino a un’interazione. Le note del puzzle sono synth generati nel browser, non campioni dei brani. Il gioco funziona offline dopo il primo caricamento online; player e azioni social richiedono connessione.
-
