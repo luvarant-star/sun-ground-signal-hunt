@@ -153,6 +153,8 @@ h1 span { color: #f6f6f5; font-weight: 400; }
 .reward-card canvas { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; }
 .text-button { display: block; margin: 19px auto 0; padding: 7px; border: 0; color: var(--silver); background: none; font-size: 12px; cursor: pointer; }
 .text-button span { color: var(--gold-bright); }
+.next-level-cta { width: 100%; margin: 18px 0 22px; padding: 14px 16px; border: 1px solid rgba(199,240,255,.38); border-radius: 6px; color: var(--gold-bright); background: rgba(102,201,236,.08); font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+.next-level-cta:active { background: rgba(102,201,236,.18); }
 .toast { position: fixed; z-index: 10; inset: auto 16px calc(18px + env(safe-area-inset-bottom)); width: fit-content; max-width: calc(100vw - 32px); margin: auto; padding: 10px 14px; border: 1px solid rgba(240, 195, 125, .35); border-radius: 6px; color: var(--silver); background: #191a1e; box-shadow: 0 8px 30px rgba(0,0,0,.5); font-size: 11px; opacity: 0; transform: translateY(8px); pointer-events: none; transition: opacity .2s, transform .2s; }
 .toast.is-visible { opacity: 1; transform: translateY(0); }
 [hidden] { display: none !important; }
@@ -222,3 +224,4 @@ h1 span { color: #f6f6f5; font-weight: 400; }
 @media (prefers-reduced-motion: reduce) {
   .mode-card { transition: none; }
 }
+

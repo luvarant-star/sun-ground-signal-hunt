@@ -119,7 +119,7 @@
   const save = () => { try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {} };
   const completedCount = () => new Set(state.completed).size;
   const nextLevel = () => { for (let i=0;i<tracks.length;i++) if (!state.completed.includes(i)) return i; return tracks.length-1; };
-  function updateContinueButton(){const replay=completedCount()>=tracks.length;$('continue-button').hidden=false;$('continue-button').querySelector('span').textContent=replay?say('Ricomincia dal livello 1','Replay from level 1','Начать с первого уровня','最初のレベルから再開'):say('Prossimo livello','Next level','Следующий уровень','次のレベルへ');}
+  function updateContinueButton(){const replay=completedCount()>=tracks.length,nextTrack=tracks[replay?0:nextLevel()];$('continue-button').hidden=false;$('continue-button').querySelector('span').textContent=replay?say('Ricomincia dal livello 1','Replay from level 1','Начать с первого уровня','最初のレベルから再開'):say(`Continua · traccia ${nextTrack.n}`,`Continue · track ${nextTrack.n}`,`Далее · трек ${nextTrack.n}`,`次へ · トラック${nextTrack.n}`);}
   function show(name) { Object.entries(screens).forEach(([key,el]) => { el.hidden = key !== name; }); window.scrollTo({top:0,behavior:'smooth'}); }
   function say(it,en,ru,ja){return ({it,en,ru,ja})[language]||en;}
   function setLanguage(lang) {
@@ -346,7 +346,13 @@
   }
   function completeLevel() {
     if (!state.completed.includes(level)) state.completed = [...state.completed,level];
-    save(); showReward();
+    save(); drawProgress(); showReward();
+  }
+  function continueToNextLevel() {
+    if (!state.completed.includes(level)) state.completed = [...state.completed,level];
+    if (completedCount() >= tracks.length) state.completed = [];
+    save(); drawProgress();
+    level = nextLevel(); updateModeScreen(); show('mode');
   }
   function chooseMode(mode) {
     if (!['memory','rhythm','melody'].includes(mode)) return;
@@ -380,7 +386,8 @@
   }
   function enterGame() {
     try { spotifyController?.pause(); } catch {}
-    level = completedCount() >= tracks.length ? 0 : nextLevel(); updateModeScreen(); show('mode');
+    if (completedCount() >= tracks.length) { state.completed = []; save(); }
+    level = nextLevel(); updateModeScreen(); show('mode');
   }
   function start(){if(state.fanAccess){enterGame();return;}show('fan');}
   function goHome() { cleanupGame(); show('home'); }
@@ -388,7 +395,7 @@
   async function shareLevel(){const t=currentTrack(),text=say(`Sto decifrando il segnale ${t.n} di Sun Ground — Exotic Automatic. Prova anche tu Signal Hunt!`,`I'm decoding Sun Ground's signal ${t.n} — Exotic Automatic. Try Signal Hunt!`,`Я расшифровываю сигнал ${t.n} Sun Ground — Exotic Automatic. Попробуй Signal Hunt!`,`Sun Ground「Exotic Automatic」のシグナル${t.n}を解読中。Signal Huntに挑戦！`);try{if(navigator.share)await navigator.share({title:'Sun Ground — Signal Hunt',text,url:location.href});else{await navigator.clipboard.writeText(`${text} ${location.href}`);toast(say('Invito copiato: mandalo a un amico','Invite copied — send it to a friend','Приглашение скопировано — отправь другу','招待リンクをコピーしました'));}}catch{}}
   async function share(){if(!rewardReady)return;const t=currentTrack(),name=getPlayerName(),text=say(`${name} ha decifrato il segnale ${t.n} di Sun Ground: Exotic Automatic. Tocca a te!`,`${name} decoded Sun Ground’s signal ${t.n} from Exotic Automatic. Your turn!`,`${name} расшифровал сигнал ${t.n} Sun Ground из Exotic Automatic. Твоя очередь!`,`${name}がSun Ground「Exotic Automatic」のシグナル${t.n}を解読！次はあなた！`);try{if(navigator.share){const canvas=$('reward-artwork'),blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png')),file=blob&&typeof File!=='undefined'?new File([blob],`sun-ground-signal-${t.n}.png`,{type:'image/png'}):null;if(file&&navigator.canShare?.({files:[file]}))await navigator.share({title:'Sun Ground — Signal Hunt',text,files:[file]});else await navigator.share({title:'Sun Ground — Signal Hunt',text,url:location.href});}else{await navigator.clipboard.writeText(`${text} ${location.href}`);toast(say('Link e messaggio copiati','Link and message copied','Ссылка и сообщение скопированы','リンクとメッセージをコピーしました'));}}catch{}}
   $('language-toggle').addEventListener('change',event=>setLanguage(event.target.value));
-  $('wordmark-home').addEventListener('click',event=>{event.preventDefault();goHome();});$('start-button').addEventListener('click',start);$('fan-back-button').addEventListener('click',goHome);$('back-button').addEventListener('click',goHome); $('mode-back-button').addEventListener('click',goHome); document.querySelectorAll('[data-game-mode]').forEach(button=>button.addEventListener('click',()=>chooseMode(button.dataset.gameMode))); $('melody-reset').addEventListener('click',resetMelody);$('result-home-button').addEventListener('click',()=>{drawProgress();goHome();});$('listen-button').addEventListener('click',()=>{if(gameMode==='memory')playSequence();else if(gameMode==='rhythm')playRhythm();else playMelody();});document.querySelectorAll('.tone-pad').forEach(b=>b.addEventListener('click',()=>handlePadPress(Number(b.dataset.pad))));document.querySelectorAll('[data-timbre]').forEach(button=>button.addEventListener('click',()=>{state.timbre=button.dataset.timbre;save();updateTimbrePicker();tone(0,.2);}));$('player-name-input').addEventListener('input',event=>{state.playerName=event.target.value.slice(0,20);save();drawRewardArtwork();});$('save-reward-button').addEventListener('click',makeCard);$('share-button').addEventListener('click',share);$('share-level-button').addEventListener('click',shareLevel);$('continue-button').addEventListener('click',enterGame);
+  $('wordmark-home').addEventListener('click',event=>{event.preventDefault();goHome();});$('start-button').addEventListener('click',start);$('fan-back-button').addEventListener('click',goHome);$('back-button').addEventListener('click',goHome); $('mode-back-button').addEventListener('click',goHome); document.querySelectorAll('[data-game-mode]').forEach(button=>button.addEventListener('click',()=>chooseMode(button.dataset.gameMode))); $('melody-reset').addEventListener('click',resetMelody);$('result-home-button').addEventListener('click',()=>{drawProgress();goHome();});$('listen-button').addEventListener('click',()=>{if(gameMode==='memory')playSequence();else if(gameMode==='rhythm')playRhythm();else playMelody();});document.querySelectorAll('.tone-pad').forEach(b=>b.addEventListener('click',()=>handlePadPress(Number(b.dataset.pad))));document.querySelectorAll('[data-timbre]').forEach(button=>button.addEventListener('click',()=>{state.timbre=button.dataset.timbre;save();updateTimbrePicker();tone(0,.2);}));$('player-name-input').addEventListener('input',event=>{state.playerName=event.target.value.slice(0,20);save();drawRewardArtwork();});$('save-reward-button').addEventListener('click',makeCard);$('share-button').addEventListener('click',share);$('share-level-button').addEventListener('click',shareLevel);$('continue-button').addEventListener('click',continueToNextLevel);
   window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferredInstallPrompt=event;$('install-app').hidden=false;});
   $('install-app').addEventListener('click',async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;$('install-app').hidden=true;});
   window.addEventListener('appinstalled',()=>{$('install-app').hidden=true;});
@@ -399,6 +406,7 @@
   if('serviceWorker' in navigator && location.protocol!=='file:')navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
   let savedLanguage='en';try{savedLanguage=localStorage.getItem('sun-ground-language-v4')||'en';}catch{}setLanguage(savedLanguage);drawProgress();updateFanBadge();
 })();
+
 
 
 
