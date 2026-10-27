@@ -13,4 +13,5 @@ Il percorso di anteprima offre Instagram, Spotify e una simulazione Google. I fo
 
 ## Limiti
 
-Il player Spotify tenta l’avvio automatico, ma browser e Spotify possono bloccarlo fino a un’interazione. Le note del puzzle sono synth generati nel browser, non campioni dei brani. Il gioco funziona offline dopo il primo caricamento online; player e azioni social richiedono connessione.
+Il player Spotify resta fermo finché l’utente non preme Play; entrando nel gioco la riproduzione viene messa in pausa e non riparte automaticamente tornando alla home. Le note del puzzle sono synth generati nel browser, non campioni dei brani. Il gioco funziona offline dopo il primo caricamento online; player e azioni social richiedono connessione.
+

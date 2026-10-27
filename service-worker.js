@@ -1,6 +1,6 @@
-const CACHE_NAME = 'sun-ground-shell-v12';
+const CACHE_NAME = 'sun-ground-shell-v13';
 const APP_FILES = [
-  './', './index.html', './styles.css', './app.js', './app.js?v=20261027-6', './manifest.webmanifest',
+  './', './index.html', './styles.css', './app.js', './app.js?v=20261027-7', './manifest.webmanifest',
   './sg-app-icon.svg', './sg-app-icon-192.svg', './exotic-automatic-cover.jpg'
 ];
 
@@ -35,6 +35,7 @@ self.addEventListener('fetch', event => {
     return cached || store(await fetch(request));
   })());
 });
+
 
 
 
