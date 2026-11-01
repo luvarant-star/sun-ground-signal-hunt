@@ -14,8 +14,8 @@
   <link rel="apple-touch-icon" href="./exotic-automatic-cover.jpg">
   <link rel="preload" as="image" href="./exotic-automatic-cover.jpg">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./styles-game.css?v=20261101-11">
-  <script src="./app.js?v=20261101-7" defer></script>
+  <link rel="stylesheet" href="./styles-game.css?v=20261101-12">
+  <script src="./app.js?v=20261101-8" defer></script>
 </head>
 <body>
   <main class="app-shell">
@@ -72,7 +72,13 @@
           </div>
           <div class="title-lockup" aria-label="Sun Ground: Exotic Automatic, The Magical Skull"><strong>SUN GROUND</strong><span>EXOTIC AUTOMATIC</span><em>THE MAGICAL SKULL</em></div>
           <div class="skull-counter"><span class="hud-skull" aria-hidden="true"></span><span id="shard-count">0/10</span></div>
-          <button class="music-hud-button" id="music-play-button" type="button" aria-label="Go to the current song player">▶ SONG</button>
+          <button class="music-hud-button" id="music-play-button" type="button" aria-expanded="false" aria-controls="music-popover" aria-label="Listen to this level’s song">♫ SONG</button>
+          <div class="music-popover" id="music-popover" hidden>
+            <div class="music-popover-heading"><span class="music-kicker" data-copy="musicHint">LEVEL SONG · PLAY ON BANDCAMP</span><button id="music-close-button" type="button" aria-label="Close song player">×</button></div>
+            <strong id="music-track-title">Exotic Automatic</strong>
+            <iframe id="bandcamp-player" title="Sun Ground track player" src="" width="100%" height="42" frameborder="0" allow="autoplay"></iframe>
+            <a id="bandcamp-track-link" href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noopener noreferrer" data-copy="openBandcamp">Open track on Bandcamp ↗</a>
+          </div>
           <div class="level-banner"><span id="stage-biome">LV.01</span><i>—</i><strong id="track-name">Exotic Automatic</strong></div>
         </div>
         <div class="canvas-hint" id="canvas-hint" data-copy="hint">MOVE → · JUMP SPACE · PUNCH X</div>
@@ -82,12 +88,6 @@
         <nav class="game-level-list" id="game-level-list" aria-label="Choose a level"></nav>
         <p class="skull-objective">TROVA I 10 FRAMMENTI E RICOMPONI IL TESCHIO MAGICO</p>
       </div>
-      <section class="music-player-panel" aria-label="Listen to the level track">
-        <div class="music-player-heading"><div><span class="music-kicker" data-copy="musicHint">LEVEL TRACK · TAP ▶ IN SPOTIFY TO LISTEN</span><strong id="music-track-title">Exotic Automatic</strong><span id="music-track-artist">SUN GROUND · EXOTIC AUTOMATIC</span></div><a id="spotify-link" href="https://open.spotify.com/album/3d7kjv4ECBPjboeupDRA4S" target="_blank" rel="noopener noreferrer">Spotify ↗</a></div>
-        <div class="spotify-embed" id="spotify-player">
-          <iframe id="spotify-fallback" title="Play the current Sun Ground song on Spotify" src="https://open.spotify.com/embed/track/3SNfYCuRsQBFwItmGZrCxc?utm_source=generator&amp;theme=0" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-      </section>
       <div class="game-status"><span id="gem-count">✦ 0 / 23</span><span id="boss-status">BOSS · AHEAD</span><span id="distance-status">0 m</span></div>
       <div id="game-progress" hidden aria-hidden="true"></div>
       <p class="play-tip" data-copy="tip">Punch enemies or stomp them. Hit the boss with a punch, then enter the glowing gate.</p>
