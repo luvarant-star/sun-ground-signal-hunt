@@ -1,95 +1,92 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#08090c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Sun Ground">
-<meta name="description" content="Sun Ground: Exotic Automatic Signal Hunt, a free sonic puzzle."><title>Sun Ground — Exotic Automatic / Signal Hunt</title><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./sg-app-icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./exotic-automatic-cover.jpg">
-<link rel="preload" as="image" href="./exotic-automatic-cover.jpg"><link rel="stylesheet" href="./styles.css"><script src="./app.js?v=20261027-8" defer></script>
-</head><body><main class="app-shell">
-<header class="topbar"><a class="wordmark" href="#home-screen" id="wordmark-home">SUN GROUND</a><div class="top-actions"><span class="free-label" data-it="GRATUITO · FAN PASS" data-en="FREE · FAN PASS">GRATUITO · FAN PASS</span><select id="language-toggle" class="language-toggle" aria-label="Language"><option value="it">IT</option><option value="en" selected>EN</option><option value="ja">日本語</option><option value="ru">РУ</option></select></div></header>
-<section class="screen home-screen" id="home-screen" aria-labelledby="home-title">
-<p class="eyebrow" data-it="UN GIOCO SONORO DI SUN GROUND" data-en="A SONIC GAME BY SUN GROUND">UN GIOCO SONORO DI SUN GROUND</p>
-<h1 id="home-title" data-it="Perditi.<br><span>Ritrova il segnale.</span>" data-en="Get lost.<br><span>Find the signal.</span>">Perditi.<br><span>Ritrova il segnale.</span></h1>
-<p class="intro" data-it="Entra nell’universo di Exotic Automatic: un viaggio elettronico tra luoghi lontani, ritmi ipnotici e macchine imprevedibili. Scegli tra memoria, ritmo con drum pad e ricostruzione melodica. Completa le 10 missioni a partire dalla traccia 7." data-en="Enter the universe of Exotic Automatic: an electronic journey through distant places, hypnotic rhythms, and unpredictable machines. Choose memory, drum-pad rhythm, or melody reconstruction. Complete all 10 missions, starting at track 7.">Entra nell’universo di <em>Exotic Automatic</em>: un viaggio elettronico tra luoghi lontani, ritmi ipnotici e macchine imprevedibili. Scegli tra memoria, ritmo con drum pad e ricostruzione melodica. Completa le 10 missioni a partire dalla traccia 7.</p>
-<figure class="cover-frame"><img class="cover-art" src="./exotic-automatic-cover.jpg" alt="Copertina ufficiale dell’album Exotic Automatic di Sun Ground"><figcaption><span>EXOTIC AUTOMATIC</span><span data-it="SIGNAL HUNT" data-en="SIGNAL HUNT">SIGNAL HUNT</span></figcaption></figure>
-<section class="artist-note"><div class="artist-heading"><span class="album-kicker" data-it="CHI C’È DIETRO IL SEGNALE" data-en="BEHIND THE SIGNAL">CHI C’È DIETRO IL SEGNALE</span><span class="artist-mark">SG / 01</span></div><h2>Sun Ground</h2><p data-it="Il progetto elettronico di Antonio Luvarà si muove tra IDM, psichedelia, sperimentazione e pulsazioni da dancefloor. Exotic Automatic cerca una fuga dal rumore quotidiano, tra paesaggi immaginati, automazione e il desiderio di riprendere il controllo. Ora quel mondo diventa un gioco: ogni livello è un segnale da ricordare e ricostruire." data-en="Antonio Luvarà’s electronic project moves between IDM, psychedelia, experimentation, and dancefloor energy. Exotic Automatic searches for an escape from everyday noise, among imagined landscapes, automation, and the desire to regain control. Now that world becomes a game: each level is a signal to remember and rebuild.">Il progetto elettronico di Antonio Luvarà si muove tra IDM, psichedelia, sperimentazione e pulsazioni da dancefloor. <em>Exotic Automatic</em> cerca una fuga dal rumore quotidiano, tra paesaggi immaginati, automazione e il desiderio di riprendere il controllo. Ora quel mondo diventa un gioco: ogni livello è un segnale da ricordare e ricostruire.</p><p class="artist-invite" data-it="Completa le missioni, decifra i segnali e passa il segnale a qualcun altro." data-en="Complete missions, decode the signals, and pass one along.">Completa le missioni, decifra i segnali e passa il segnale a qualcun altro.</p></section>
-<div class="home-player"><div class="module-topline"><span data-it="ASCOLTA EXOTIC AUTOMATIC · PLAYER SPOTIFY" data-en="LISTEN TO EXOTIC AUTOMATIC · SPOTIFY PLAYER">ASCOLTA EXOTIC AUTOMATIC · PLAYER SPOTIFY</span><span class="live-dot"></span></div><div id="spotify-player" aria-label="Spotify player for Exotic Automatic"></div></div>
-<button class="primary-button" id="start-button" type="button"><span data-it="Entra nella Signal Hunt" data-en="Enter the Signal Hunt">Entra nella Signal Hunt</span><span class="button-mark">↗</span></button>
-<button class="install-app-button" id="install-app" type="button" hidden data-it="Installa sul telefono" data-en="Install on your phone">Installa sul telefono</button>
-<nav class="music-links" aria-label="Sun Ground online"><a class="listen-link" href="https://open.spotify.com/album/3d7kjv4ECBPjboeupDRA4S" target="_blank" rel="noreferrer">Spotify ↗</a><a class="listen-link" href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noreferrer">Bandcamp ↗</a><a class="listen-link" href="https://www.instagram.com/sungroundmusic/" target="_blank" rel="noreferrer">Instagram ↗</a></nav>
-<p class="fan-pass-badge" id="fan-pass-badge" hidden></p>
-<section class="progress-preview"><div class="progress-heading"><span data-it="TRASMISSIONI DECIFRATE" data-en="TRANSMISSIONS DECODED">TRASMISSIONI DECIFRATE</span><span id="progress-count">0 / 10</span></div><div class="progress-track" id="home-progress" aria-hidden="true"></div></section><p class="small-note" data-it="Gratis · progressi salvati sul tuo dispositivo · nessun account richiesto" data-en="Free · progress saved on your device · no account needed">Gratis · progressi salvati sul tuo dispositivo · nessun account richiesto</p>
-</section>
-<section class="screen fan-screen" id="fan-screen" aria-labelledby="fan-title" hidden>
-<button class="back-button" id="fan-back-button" type="button">← <span data-it="HOME" data-en="HOME">HOME</span></button><p class="eyebrow" data-it="SUN GROUND FAN PASS" data-en="SUN GROUND FAN PASS">SUN GROUND FAN PASS</p>
-<h1 id="fan-title" data-it="Entra nella<br><span>trasmissione.</span>" data-en="Join the<br><span>transmission.</span>">Entra nella<br><span>trasmissione.</span></h1>
-<p class="game-copy" data-it="Scegli come sostenere Sun Ground e attiva il Fan Pass: un badge fan sul tuo profilo locale e accesso a tutte le missioni." data-en="Choose how to support Sun Ground and unlock the Fan Pass: a fan badge in this browser and access to every mission.">Scegli come sostenere Sun Ground e attiva il Fan Pass: un badge fan sul tuo profilo locale e accesso a tutte le missioni.</p>
-<div class="access-options">
-<article class="access-card"><span class="access-index">01 / COMMUNITY</span><h2>Instagram</h2><p data-it="Segui Sun Ground e torna qui per attivare il pass." data-en="Follow Sun Ground, then come back here to activate your pass.">Segui Sun Ground e torna qui per attivare il pass.</p><a class="secondary-button" href="https://www.instagram.com/sungroundmusic/" target="_blank" rel="noreferrer" id="instagram-follow-link"><span data-it="Apri Instagram ↗" data-en="Open Instagram ↗">Apri Instagram ↗</span></a><button class="confirm-button" type="button" data-pass-method="instagram" data-it="Ho seguito · continua" data-en="I followed · continue">Ho seguito · continua</button></article>
-<article class="access-card"><span class="access-index">02 / LISTEN</span><h2>Spotify</h2><p data-it="Cerca il profilo Sun Ground, seguilo e torna qui per attivare il pass." data-en="Find the Sun Ground profile, follow it, then return here to activate your pass.">Cerca il profilo Sun Ground, seguilo e torna qui per attivare il pass.</p><a class="secondary-button" href="https://open.spotify.com/search/Sun%20Ground/artists" target="_blank" rel="noreferrer" id="spotify-follow-link"><span data-it="Trova Sun Ground su Spotify ↗" data-en="Find Sun Ground on Spotify ↗">Trova Sun Ground su Spotify ↗</span></a><button class="confirm-button" type="button" data-pass-method="spotify" data-it="Ho seguito · continua" data-en="I followed · continue">Ho seguito · continua</button></article>
-<article class="access-card access-google"><span class="access-index">03 / FAN ACCOUNT</span><h2>Google</h2><p data-it="Prova il percorso Google e salva un Fan Pass dimostrativo in questo browser." data-en="Try the Google route and save a demo Fan Pass in this browser.">Prova il percorso Google e salva un Fan Pass dimostrativo in questo browser.</p><button class="secondary-button google-button" id="google-preview-button" type="button"><span data-it="Continua con Google · anteprima" data-en="Continue with Google · preview">Continua con Google · anteprima</span></button><p class="access-hint" data-it="Anteprima: non è un vero accesso Google. Per pubblicarlo serve collegare OAuth." data-en="Preview: this is not a real Google sign-in. OAuth setup is required before launch.">Anteprima: non è un vero accesso Google. Per pubblicarlo serve collegare OAuth.</p></article>
-</div>
-<p class="small-note" data-it="Anteprima: i follow sono confermati dall’utente e salvati solo in questo browser. Nessuna password o email viene raccolta." data-en="Preview: follows are self-confirmed and saved only in this browser. No password or email is collected.">Anteprima: i follow sono confermati dall’utente e salvati solo in questo browser. Nessuna password o email viene raccolta.</p>
-<p id="fan-status" class="input-status" aria-live="polite"></p>
-</section>
-<section class="screen mode-screen" id="mode-screen" aria-labelledby="mode-title" hidden>
-<button class="back-button" id="mode-back-button" type="button">← <span data-it="HOME" data-en="HOME">HOME</span></button>
-<p class="eyebrow" data-it="SCEGLI UNA MODALITÀ" data-en="CHOOSE A MODE">SCEGLI UNA MODALITÀ</p>
-<h1 id="mode-title" data-it="Scegli il tuo<br><span>modo di gioco.</span>" data-en="Choose your<br><span>game mode.</span>">Scegli il tuo<br><span>modo di gioco.</span></h1>
-<p class="game-copy" data-it="Tre modi per decifrare ogni missione. La traccia resta la stessa: cambia il modo in cui la ricostruisci." data-en="Three ways to decode each mission. The track stays the same; only the challenge changes.">Tre modi per decifrare ogni missione. La traccia resta la stessa: cambia il modo in cui la ricostruisci.</p>
-<div class="mode-track"><span data-it="TRACCIA SELEZIONATA" data-en="SELECTED TRACK">TRACCIA SELEZIONATA</span><strong id="mode-track-name">Nrkey my love</strong><small id="mode-mission-number">01 / 10</small></div>
-<div class="mode-options" id="mode-options" role="group" aria-label="Game modes">
-<button class="mode-card" type="button" data-game-mode="memory">
-<span class="mode-card-index" data-it="01 / MEMORIA" data-en="01 / MEMORY">01 / MEMORIA</span>
-<strong data-it="Segnale in memoria" data-en="Signal memory">Segnale in memoria</strong>
-<p data-it="Memorizza i quattro suoni e ripeti la sequenza nello stesso ordine." data-en="Remember the four tones and repeat the sequence in order.">Memorizza i quattro suoni e ripeti la sequenza nello stesso ordine.</p>
-<span class="mode-card-action"><span data-it="Scegli questo modo ↗" data-en="Choose this mode ↗">Scegli questo modo ↗</span><b aria-hidden="true">↗</b></span>
-</button>
-<button class="mode-card mode-card-rhythm" type="button" data-game-mode="rhythm">
-<span class="mode-card-index" data-it="02 / RITMO" data-en="02 / RHYTHM">02 / RITMO</span>
-<strong data-it="Ritmo drum pad" data-en="Drum pad rhythm">Ritmo drum pad</strong>
-<p data-it="Ascolta otto colpi e tocca i pad sul tempo, seguendo la pulsazione." data-en="Hear eight hits, then tap the pads in time with the pulse.">Ascolta otto colpi e tocca i pad sul tempo, seguendo la pulsazione.</p>
-<span class="mode-card-action"><span data-it="Scegli questo modo ↗" data-en="Choose this mode ↗">Scegli questo modo ↗</span><b aria-hidden="true">↗</b></span>
-</button>
-<button class="mode-card mode-card-melody" type="button" data-game-mode="melody">
-<span class="mode-card-index" data-it="03 / MELODIA" data-en="03 / MELODY">03 / MELODIA</span>
-<strong data-it="Ricostruzione melodia" data-en="Melody reconstruction">Ricostruzione melodia</strong>
-<p data-it="Ascolta un frammento synth ispirato alla traccia e rimetti le note nel giusto ordine." data-en="Hear a synth phrase inspired by the track, then put its notes back in order.">Ascolta un frammento synth ispirato alla traccia e rimetti le note nel giusto ordine.</p>
-<span class="mode-card-action"><span data-it="Scegli questo modo ↗" data-en="Choose this mode ↗">Scegli questo modo ↗</span><b aria-hidden="true">↗</b></span>
-</button>
-</div>
-<p class="small-note" data-it="Puoi cambiare modalità a ogni missione." data-en="Choose a different mode on every mission.">Puoi cambiare modalità a ogni missione.</p>
-</section>
-<section class="screen game-screen" id="game-screen" aria-labelledby="game-title" hidden>
-<button class="back-button" id="back-button" type="button">← <span data-it="HOME" data-en="HOME">HOME</span></button><div class="level-meta"><span id="level-number">TRACCIA 07 · MISSIONE 01</span><span id="level-count">01 / 10</span></div><div class="level-progress" id="game-progress" aria-hidden="true"></div>
-<p class="game-mode-label" id="game-mode-label"></p><h1 id="game-title" data-it="Ascolta.<br><span>Ricostruisci.</span>" data-en="Listen.<br><span>Rebuild it.</span>">Ascolta.<br><span>Ricostruisci.</span></h1><p id="game-copy" class="game-copy" data-it="Memorizza il segnale, poi ripetilo toccando i pad nello stesso ordine. Ogni missione aggiunge un frammento." data-en="Memorize the signal, then repeat it by tapping the pads in the same order. Every mission adds a fragment.">Memorizza il segnale, poi ripetilo toccando i pad nello stesso ordine. Ogni missione aggiunge un frammento.</p>
-<div class="game-footer"><span data-it="TRACCIA DELLA MISSIONE" data-en="MISSION TRACK">TRACCIA DELLA MISSIONE</span><strong id="track-name">Nrkey my love</strong></div>
-<div class="sound-module"><div class="module-topline"><span id="module-label" data-it="SEQUENZA SONORA" data-en="SOUND SEQUENCE">SEQUENZA SONORA</span><span class="live-dot"></span></div><button class="listen-signal" id="listen-button" type="button"><span class="play-glyph">▶</span><span><strong id="listen-title" data-it="Ascolta il segnale" data-en="Listen to the signal">Ascolta il segnale</strong><small id="listen-subtitle" data-it="Toni sintetici · sequenza del livello" data-en="Synth tones · level sequence">Toni sintetici · sequenza del livello</small></span><span class="signal-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></button>
-<div class="rhythm-meter" id="rhythm-meter" hidden role="img" aria-label="Eight beat rhythm pattern"></div>
-<div class="melody-puzzle" id="melody-puzzle" hidden>
-<div class="melody-section"><span class="melody-label" data-it="NOTE DA RIORDINARE" data-en="NOTES TO REORDER">NOTE DA RIORDINARE</span><div class="melody-bank" id="melody-bank" role="group" aria-label="Notes to reorder"></div></div>
-<div class="melody-section"><span class="melody-label" data-it="LA TUA MELODIA" data-en="YOUR MELODY">LA TUA MELODIA</span><div class="melody-answer" id="melody-answer" role="group" aria-label="Your melody"></div></div>
-<p class="melody-hint" data-it="Tocca le note nell’ordine in cui le hai ascoltate. Puoi rimuoverle per correggere la sequenza." data-en="Tap notes in the order you heard them. Remove a note to change the order.">Tocca le note nell’ordine in cui le hai ascoltate. Puoi rimuoverle per correggere la sequenza.</p>
-<button class="melody-reset" id="melody-reset" type="button" data-it="Svuota la sequenza" data-en="Clear the sequence">Svuota la sequenza</button>
-</div>
-<div class="timbre-head" id="timbre-head"><span data-it="TIMBRO" data-en="SYNTH TIMBRE">TIMBRO</span><small data-it="Scegli il colore del synth" data-en="Choose the synth colour">Scegli il colore del synth</small></div><div class="timbre-picker" id="timbre-picker" role="group" aria-label="Synth timbre"><button type="button" data-timbre="glass" aria-pressed="true"><i class="timbre-light"></i><span data-it="Vetro" data-en="Glass">Vetro</span></button><button type="button" data-timbre="brass" aria-pressed="false"><i class="timbre-light"></i><span data-it="Ottone" data-en="Brass">Ottone</span></button><button type="button" data-timbre="digital" aria-pressed="false"><i class="timbre-light"></i><span data-it="Digitale" data-en="Digital">Digitale</span></button></div><div class="tone-grid" id="tone-grid"><button class="tone-pad" data-pad="0" aria-label="Pad 1"><span>01</span></button><button class="tone-pad" data-pad="1" aria-label="Pad 2"><span>02</span></button><button class="tone-pad" data-pad="2" aria-label="Pad 3"><span>03</span></button><button class="tone-pad" data-pad="3" aria-label="Pad 4"><span>04</span></button></div><p class="input-status" id="input-status" aria-live="polite" data-it="Tocca “Ascolta il segnale” per iniziare" data-en="Tap “Listen to the signal” to begin">Tocca “Ascolta il segnale” per iniziare</p></div>
-<p class="small-note" id="game-sound-note" data-it="Suoni synth generati nel browser; i motivi sono ispirati alle tracce." data-en="Browser-generated synth sounds; the melodies are inspired by the tracks.">Suoni synth generati nel browser; i motivi sono ispirati alle tracce.</p>
-<section class="support-card" aria-label="Support Sun Ground">
-<div class="support-kicker" data-it="SOSTIENI IL SEGNALE · FACOLTATIVO" data-en="SUPPORT THE SIGNAL · OPTIONAL">SOSTIENI IL SEGNALE · FACOLTATIVO</div>
-<p data-it="Ti sta piacendo il gioco? Se vuoi, puoi sostenere Sun Ground con 1 € oppure acquistare Exotic Automatic su Bandcamp. Giocare resta sempre gratuito." data-en="Enjoying the game? If you want, support Sun Ground with €1 or buy Exotic Automatic on Bandcamp. The game always stays free.">Ti sta piacendo il gioco? Se vuoi, puoi sostenere Sun Ground con 1 € oppure acquistare Exotic Automatic su Bandcamp. Giocare resta sempre gratuito.</p>
-<a class="support-link" href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noopener noreferrer"><span data-it="Apri Bandcamp · album e supporto ↗" data-en="Open Bandcamp · album & support ↗">Apri Bandcamp · album e supporto ↗</span><span aria-hidden="true">€1</span></a>
-<button class="support-share-button" id="share-level-button" type="button" data-it="Invita un amico a giocare ↗" data-en="Challenge a friend ↗">Invita un amico a giocare ↗</button>
-<p class="support-footnote" data-it="Il contributo è facoltativo. Il link apre Bandcamp: l'eventuale pagamento avviene lì, non dentro il gioco." data-en="Support is optional. The link opens Bandcamp; any payment happens there, not inside the game.">Il contributo è facoltativo. Il link apre Bandcamp: l'eventuale pagamento avviene lì, non dentro il gioco.</p>
-</section>
-</section>
-<section class="screen result-screen" id="result-screen" aria-labelledby="result-title" hidden><p class="eyebrow" data-it="TRASMISSIONE DECIFRATA" data-en="TRANSMISSION DECODED">TRASMISSIONE DECIFRATA</p><div class="result-orbit">✦</div><h1 id="result-title" data-it="Hai trovato<br><span>il passaggio.</span>" data-en="You found<br><span>the passage.</span>">Hai trovato<br><span>il passaggio.</span></h1><p class="result-copy" id="result-copy"></p><button class="text-button next-level-cta" id="continue-button" type="button"><span data-it="Prossimo livello" data-en="Next level">Prossimo livello</span> →</button><label class="signal-name-field" for="player-name-input"><span data-it="IL TUO NOME SUL SEGNALE" data-en="YOUR NAME ON THE SIGNAL">IL TUO NOME SUL SEGNALE</span><input id="player-name-input" type="text" maxlength="20" autocomplete="nickname" placeholder="NOME / YOUR NAME"><small data-it="Resta sul tuo dispositivo e sull’immagine che crei." data-en="Saved on this device and in the image you create.">Resta sul tuo dispositivo e sull’immagine che crei.</small></label><div class="reward-card" id="reward-card"><canvas id="reward-artwork" width="1080" height="1350" aria-label="Personalized Sun Ground signal artwork"></canvas></div><button class="primary-button" id="save-reward-button" type="button"><span data-it="Salva la tua card" data-en="Save your card">Salva la tua card</span><span class="button-mark">↓</span></button><button class="text-button" id="share-button" type="button" data-it="Condividi la missione ↗" data-en="Share this mission ↗">Condividi la missione ↗</button><button class="text-button" id="result-home-button" type="button" data-it="Torna alla home" data-en="Back home">Torna alla home</button>
-<section class="support-card result-support-card" aria-label="Support Sun Ground">
-<div class="support-kicker" data-it="VUOI DARE UNA MANO?" data-en="WANT TO SUPPORT THE PROJECT?">VUOI DARE UNA MANO?</div>
-<p data-it="Ogni supporto aiuta la musica indipendente a continuare. Se ti va, contribuisci con 1 € o acquista l'album su Bandcamp. Nessun pagamento è richiesto per proseguire." data-en="Every bit helps independent music continue. If you like, contribute €1 or buy the album on Bandcamp. No payment is needed to continue.">Ogni supporto aiuta la musica indipendente a continuare. Se ti va, contribuisci con 1 € o acquista l'album su Bandcamp. Nessun pagamento è richiesto per proseguire.</p>
-<a class="support-link" href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noopener noreferrer"><span data-it="Exotic Automatic su Bandcamp ↗" data-en="Exotic Automatic on Bandcamp ↗">Exotic Automatic su Bandcamp ↗</span><span aria-hidden="true">€1</span></a>
-</section></section>
-<footer class="site-footer"><span>SG / EA</span><span data-it="UN SEGNALE ALLA VOLTA" data-en="ONE SIGNAL AT A TIME">UN SEGNALE ALLA VOLTA</span></footer></main><div class="toast" id="toast" role="status" aria-live="polite"></div></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#100914">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Sun Ground">
+  <meta name="description" content="Run, jump and punch through ten cosmic worlds in Sun Ground — The Magical Skull.">
+  <title>Sun Ground — The Magical Skull</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./sg-app-icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./exotic-automatic-cover.jpg">
+  <link rel="preload" as="image" href="./exotic-automatic-cover.jpg">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js?v=20261101-1" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#home-screen" id="wordmark-home" aria-label="Sun Ground home">SUN GROUND <span>✦</span></a>
+      <div class="top-actions">
+        <span class="free-label" data-copy="free">FREE TO PLAY</span>
+        <select id="language-toggle" class="language-toggle" aria-label="Language">
+          <option value="it">IT</option><option value="en" selected>EN</option><option value="ja">日本語</option><option value="ru">РУ</option>
+        </select>
+      </div>
+    </header>
 
+    <section class="screen home-screen" id="home-screen" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <p class="eyebrow" data-copy="eyebrow">A COSMIC PLATFORM ADVENTURE</p>
+        <h1 id="home-title">The Magical<br><span>Skull.</span></h1>
+        <p class="intro" data-copy="intro">Run, jump and punch your way across ten strange worlds. Find the fragments of the Magical Skull and bring the signal back to life.</p>
+      </div>
+      <figure class="cover-frame">
+        <img class="cover-art" src="./exotic-automatic-cover.jpg" alt="Golden skull beneath a giant sun on the Exotic Automatic album cover">
+        <figcaption><span>EXOTIC AUTOMATIC</span><span>SUN GROUND · 10 WORLDS</span></figcaption>
+      </figure>
+      <div class="home-actions">
+        <button class="primary-button" id="start-button" type="button"><span data-copy="start">START ADVENTURE</span><span class="button-mark">↗</span></button>
+        <button class="secondary-button" id="install-app" type="button" hidden data-copy="install">Install on your phone</button>
+      </div>
+      <section class="world-select" aria-labelledby="worlds-title">
+        <div class="section-heading"><div><span class="eyebrow" data-copy="journey">YOUR JOURNEY</span><h2 id="worlds-title" data-copy="worlds">Ten worlds. One skull.</h2></div><span class="progress-count" id="progress-count">0 / 10</span></div>
+        <div class="progress-track" id="home-progress" aria-hidden="true"></div>
+        <div class="level-list" id="level-list" aria-label="Choose an unlocked world"></div>
+      </section>
+      <nav class="music-links" aria-label="Sun Ground online">
+        <a href="https://open.spotify.com/album/3d7kjv4ECBPjboeupDRA4S" target="_blank" rel="noreferrer">Spotify ↗</a>
+        <a href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noreferrer">Bandcamp ↗</a>
+        <a href="https://www.instagram.com/sungroundmusic/" target="_blank" rel="noreferrer">Instagram ↗</a>
+      </nav>
+      <a class="support-link home-support" href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noopener noreferrer"><span data-copy="support">Like the game? Support Sun Ground on Bandcamp — completely optional.</span><b>↗</b></a>
+      <p class="small-note" data-copy="saved">Free to play · progress saved on this device · no account needed</p>
+    </section>
 
-
-
-
-
+    <section class="screen game-screen" id="game-screen" aria-label="Platform game" hidden>
+      <div class="game-topline">
+        <button class="back-button" id="back-button" type="button"><span aria-hidden="true">←</span> <span data-copy="menu">MENU</span></button>
+        <div class="level-meta"><span id="level-number">WORLD 01</span><span id="level-count">01 / 10</span></div>
+        <button class="pause-button" id="pause-button" type="button" aria-label="Pause game">Ⅱ</button>
+      </div>
+      <div class="level-progress" id="game-progress" aria-hidden="true"></div>
+      <div class="stage-heading"><div><p class="eyebrow" id="stage-biome">THE RED DUST</p><h2 id="track-name">Nrkey my love</h2></div><div class="health" id="health" aria-label="Three lives">♥ ♥ ♥</div></div>
+      <div class="game-frame" id="game-frame">
+        <canvas id="game-canvas" width="960" height="540" aria-label="Sun Ground running through a cosmic platform level. Use arrow keys to move, space to jump, and X to punch."></canvas>
+        <div class="canvas-hint" id="canvas-hint" data-copy="hint">MOVE → · JUMP SPACE · PUNCH X</div>
+        <div class="game-overlay" id="game-overlay" hidden>
+          <div class="overlay-card"><p class="eyebrow" id="overlay-kicker">SIGNAL LOST</p><h2 id="overlay-title">Try again</h2><p id="overlay-copy"></p><button class="primary-button" id="overlay-action" type="button"><span>CONTINUE</span><span class="button-mark">↗</span></button><button class="overlay-menu" id="overlay-menu" type="button" data-copy="return">Return to world map</button></div>
+        </div>
+      </div>
+      <div class="game-status"><span id="shard-count">✦ 0 / 0</span><span id="boss-status">BOSS · AHEAD</span><span id="distance-status">0 m</span></div>
+      <p class="play-tip" data-copy="tip">Punch enemies or stomp them. Hit the boss with a punch, then enter the glowing gate.</p>
+      <div class="touch-controls" id="touch-controls" aria-label="Touch controls">
+        <div class="move-controls">
+          <button class="control-button direction-button" type="button" data-control="left" aria-label="Move left">←</button>
+          <button class="control-button direction-button" type="button" data-control="right" aria-label="Move right">→</button>
+          <button class="control-button run-button" type="button" data-control="run" aria-label="Run" data-copy="run">RUN</button>
+        </div>
+        <div class="action-controls">
+          <button class="control-button punch-button" type="button" data-control="punch" aria-label="Punch" data-copy="punch">PUNCH</button>
+          <button class="control-button jump-button" type="button" data-control="jump" aria-label="Jump" data-copy="jump">JUMP</button>
+        </div>
+      </div>
+      <section class="support-card game-support"><span data-copy="optional">OPTIONAL · SUPPORT THE MUSIC</span><a href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noopener noreferrer"><span data-copy="album">Exotic Automatic on Bandcamp</span><b>↗</b></a></section>
+    </section>
+    <footer class="site-footer"><span>SG / EA</span><span data-copy="footer">RUN · JUMP · FIND THE SKULL</span></footer>
+  </main>
+</body>
+</html>

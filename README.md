@@ -1,17 +1,22 @@
-# Sun Ground — Exotic Automatic: Signal Hunt
+# Sun Ground — The Magical Skull
 
-Web app mobile gratuita in italiano, inglese, russo e giapponese. Ogni missione offre tre modalità: memoria dei segnali, ritmo con drum pad e ricostruzione di un motivo synth ispirato alla traccia. La prima missione parte dalla traccia 7, “Nrkey my love”; progressi, lingua e Fan Pass restano nel browser. I motivi e i suoni sono generati localmente e non sono campioni o trascrizioni delle registrazioni originali. La copertina ufficiale accompagna la home e le card premio scaricabili.
+A free, installable 2D side-scrolling platform game inspired by *Exotic Automatic*. Run, jump, and punch through ten cosmic worlds based on the album’s tracks. Collect glowing skull fragments, defeat each world’s boss, and bring the Magical Skull back together.
 
-## Avvio e installazione
+## Play
 
-- Per vedere l’anteprima su Windows, apri `index.html` o usa `Apri Sun Ground.cmd`.
-- Per installarla sul telefono, apri il sito HTTPS pubblicato e segui i passaggi in PUBBLICAZIONE.md. Il player musicale richiede internet.
+Open `index.html` or visit the GitHub Pages site. On desktop, move with **← / →** or **A / D**, jump with **Space / ↑ / W**, run with **Shift**, and punch with **X / J**. On phones, use the on-screen direction, run, jump, and punch buttons. Progress is saved in the current browser; no account is needed.
 
-## Fan Pass
+The game is built with HTML, CSS, and Canvas and has no build step or game-engine dependency. The album cover is used as the visual reference for the golden skull, red desert, giant sun, and cosmic night sky. Game sounds and album recordings are not required to play.
 
-Il percorso di anteprima offre Instagram, Spotify e una simulazione Google. I follow sono confermati dall’utente e salvati solo sul dispositivo: non sono verificati da Instagram o Spotify. Il pulsante Google non autentica un account reale. Per un lancio pubblico con account, verifica dei follow e progressi sincronizzati servono OAuth, API e un backend.
+## Album and support
 
-## Limiti
+The album and optional support link open [Sun Ground on Bandcamp](https://sunground3.bandcamp.com/album/exotic-automatic-2). Playing is free and no purchase is needed.
 
-Il player Spotify resta fermo finché l’utente non preme Play; entrando nel gioco la riproduzione viene messa in pausa e non riparte automaticamente tornando alla home. Le note del puzzle sono synth generati nel browser, non campioni dei brani. Il gioco funziona offline dopo il primo caricamento online; player e azioni social richiedono connessione.
+## Install on a phone
+
+Open the HTTPS GitHub Pages site, then use the browser’s **Install app** or **Add to Home Screen** option. The app shell and cover are cached after the first visit. External music and social links require a connection.
+
+## Deployment
+
+GitHub Pages publishes the repository root from `main`: https://luvarant-star.github.io/sun-ground-signal-hunt/ . See [PUBBLICAZIONE.md](PUBBLICAZIONE.md) for deployment details.
 

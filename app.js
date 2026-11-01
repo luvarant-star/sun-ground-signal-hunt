@@ -1,414 +1,448 @@
 (() => {
-  const translations = {
-    ru: {
-      'Anteprima: i follow sono confermati dall’utente e salvati solo in questo browser. Nessuna password o email viene raccolta.':'Предварительная версия: подписку подтверждает сам пользователь; отметка хранится только в этом браузере. Пароль и адрес почты не запрашиваются.',
-      'Anteprima: non è un vero accesso Google. Per pubblicarlo serve collegare OAuth.':'Предварительная версия: это не настоящий вход через Google. Перед публикацией нужно настроить OAuth.',
-      'Apri Instagram ↗':'Открыть Instagram ↗','ASCOLTA EXOTIC AUTOMATIC · PLAYER SPOTIFY':'СЛУШАТЬ EXOTIC AUTOMATIC · SPOTIFY',
-      'Ascolta il segnale':'Слушать сигнал','TIMBRO':'ТЕМБР','Scegli il colore del synth':'Выбери тембр синтезатора','Vetro':'Стекло','Ottone':'Латунь','Digitale':'Цифровой','IL TUO NOME SUL SEGNALE':'ТВОЁ ИМЯ НА СИГНАЛЕ','Scarica la tua firma':'Скачать свой звуковой знак','Resta sul tuo dispositivo e sull’immagine che crei.':'Остаётся на устройстве и в созданном изображении.','Ascolta.<br><span>Ricostruisci.</span>':'Слушай.<br><span>Повтори сигнал.</span>',
-      'SEGNO SONORO ·':'ЗВУКОВОЙ ЗНАК ·','Salva il segno':'Сохранить звуковой знак','Salva la tua card':'Сохранить карточку','Cerca il profilo Sun Ground, seguilo e torna qui per attivare il pass.':'Найди профиль Sun Ground, подпишись и вернись сюда, чтобы активировать пропуск.',
-      'CHI C’È DIETRO IL SEGNALE':'КТО СОЗДАЛ ЭТОТ СИГНАЛ','Completa le missioni, decifra i segnali e passa il segnale a qualcun altro.':'Выполняй миссии, расшифровывай сигналы и передавай их дальше.',
-      'Condividi la missione ↗':'Поделиться миссией ↗','Continua con Google · anteprima':'Продолжить с Google · демо',
-      'Entra nell’universo di Exotic Automatic: un viaggio elettronico tra luoghi lontani, ritmi ipnotici e macchine imprevedibili. Ascolta una sequenza, ripeti il segnale e sblocca tutte le 10 trasmissioni. La caccia comincia dalla traccia 7.':'Добро пожаловать во вселенную Exotic Automatic: электронное путешествие по далёким мирам, гипнотическим ритмам и непредсказуемым машинам. Запомни последовательность, повтори сигнал и открой 10 передач. Охота начинается с трека 7.',
-      'Entra nella Signal Hunt':'Войти в Signal Hunt','Entra nella<br><span>trasmissione.</span>':'Войди в<br><span>передачу.</span>',
-      'Gratis · progressi salvati sul tuo dispositivo · nessun account richiesto':'Бесплатно · прогресс хранится на устройстве · аккаунт не нужен',
-      'GRATUITO · FAN PASS':'БЕСПЛАТНО · FAN PASS','Hai trovato<br><span>il passaggio.</span>':'Ты нашёл<br><span>переход.</span>',
-      'Ho seguito · continua':'Я подписался · продолжить','HOME':'ДОМОЙ',
-      'Il gioco ricrea un segnale con toni sintetici. Il player ufficiale è solo nella home.':'Игра воссоздаёт сигналы синтезаторными тонами. Официальный плеер находится только на главной.',
-      'Il progetto elettronico di Antonio Luvarà si muove tra IDM, psichedelia, sperimentazione e pulsazioni da dancefloor. Exotic Automatic cerca una fuga dal rumore quotidiano, tra paesaggi immaginati, automazione e il desiderio di riprendere il controllo. Ora quel mondo diventa un gioco: ogni livello è un segnale da ricordare e ricostruire.':'Электронный проект Antonio Luvarà соединяет IDM, психоделию, эксперименты и энергию танцпола. Exotic Automatic ищет выход из повседневного шума — среди воображаемых пейзажей, автоматизации и желания вернуть контроль. Теперь этот мир стал игрой: каждый уровень — сигнал, который нужно запомнить и восстановить.',
-      'Memorizza il segnale, poi ripetilo toccando i pad nello stesso ordine. Ogni missione aggiunge un frammento.':'Запомни сигнал и повтори его, нажимая на пэды в том же порядке. Каждая миссия добавляет новый фрагмент.',
-      'Perditi.<br><span>Ritrova il segnale.</span>':'Потеряйся.<br><span>Найди сигнал.</span>',
-      'Prossima trasmissione':'Следующая передача','Prova il percorso Google e salva un Fan Pass dimostrativo in questo browser.':'Попробуй вход через Google и сохрани демо Fan Pass в этом браузере.',
-      'RICOMPENSA SBLOCCATA ·':'НАГРАДА ОТКРЫТА ·','Salva il segno':'Сохранить звуковой знак',
-      'Scegli come sostenere Sun Ground e attiva il Fan Pass: un badge fan sul tuo profilo locale e accesso a tutte le missioni.':'Поддержи Sun Ground и активируй бесплатный Fan Pass — значок фаната и доступ ко всем миссиям прямо в этом браузере.',
-      'Segui Sun Ground e torna qui per attivare il pass.':'Подпишись на Sun Ground и вернись сюда, чтобы активировать пропуск.',
-      'SEQUENZA SONORA':'ЗВУКОВАЯ ПОСЛЕДОВАТЕЛЬНОСТЬ','SIGNAL HUNT':'ОХОТА ЗА СИГНАЛОМ',
-      'SUN GROUND FAN PASS':'FAN PASS SUN GROUND','Tocca “Ascolta il segnale” per iniziare':'Нажми «Слушать сигнал», чтобы начать',
-      'Toni sintetici · sequenza del livello':'Синтезаторные тона · последовательность уровня',
-      'Torna alla home':'На главную','TRACCIA DELLA MISSIONE':'ТРЕК МИССИИ',
-      'TRASMISSIONE DECIFRATA':'ПЕРЕДАЧА РАСШИФРОВАНА','TRASMISSIONI DECIFRATE':'РАСШИФРОВАНО ПЕРЕДАЧ',
-      'Trova Sun Ground su Spotify ↗':'Найти Sun Ground в Spotify ↗','UN GIOCO SONORO DI SUN GROUND':'ЗВУКОВАЯ ИГРА SUN GROUND',
-      'UN SEGNALE ALLA VOLTA':'ПО ОДНОМУ СИГНАЛУ','Segui il profilo Sun Ground e torna qui per attivare il pass.':'Подпишись на профиль Sun Ground и вернись, чтобы активировать пропуск.',
-      'Apri Spotify ↗':'Открыть Spotify ↗','Accedi con Google per salvare il Fan Pass su più dispositivi.':'Войди через Google, чтобы сохранить Fan Pass на разных устройствах.',
-      'Continua con Google':'Продолжить с Google','Accesso Google da collegare al sito pubblicato.':'Для сайта нужно подключить вход через Google.',
-      'Installa sul telefono':'Установить на телефон','Entra nella Signal Hunt':'Войти в Signal Hunt',
-      'Toni sintetici · sequenza del livello':'Синтезаторные тона · последовательность уровня'
-    },
-    ja: {
-      'Anteprima: i follow sono confermati dall’utente e salvati solo in questo browser. Nessuna password o email viene raccolta.':'プレビュー：フォローは本人による申告で、このブラウザーにのみ保存されます。パスワードやメールアドレスは収集しません。',
-      'Anteprima: non è un vero accesso Google. Per pubblicarlo serve collegare OAuth.':'プレビュー：Googleへの実際のログインではありません。公開にはOAuthの設定が必要です。',
-      'Apri Instagram ↗':'Instagramを開く ↗','ASCOLTA EXOTIC AUTOMATIC · PLAYER SPOTIFY':'EXOTIC AUTOMATICを聴く · SPOTIFY',
-      'Ascolta il segnale':'シグナルを聴く','TIMBRO':'シンセ音色','Scegli il colore del synth':'シンセの音色を選ぶ','Vetro':'グラス','Ottone':'ブラス','Digitale':'デジタル','IL TUO NOME SUL SEGNALE':'シグナルに残す名前','Scarica la tua firma':'自分のサウンドアートを保存','Resta sul tuo dispositivo e sull’immagine che crei.':'名前はこの端末と作成した画像にのみ保存されます。','Ascolta.<br><span>Ricostruisci.</span>':'聴いて。<br><span>再現しよう。</span>',
-      'SEGNO SONORO ·':'サウンドマーク ·','Salva il segno':'サウンドマークを保存','Salva la tua card':'カードを保存','Cerca il profilo Sun Ground, seguilo e torna qui per attivare il pass.':'Sun Groundのプロフィールを見つけてフォローし、ここに戻ってパスを有効にしてください。',
-      'CHI C’È DIETRO IL SEGNALE':'シグナルの向こうにいるのは','Completa le missioni, decifra i segnali e passa il segnale a qualcun altro.':'ミッションをクリアしてシグナルを解読し、誰かに伝えよう。',
-      'Condividi la missione ↗':'ミッションをシェア ↗','Continua con Google · anteprima':'Googleで続ける · プレビュー',
-      'Entra nell’universo di Exotic Automatic: un viaggio elettronico tra luoghi lontani, ritmi ipnotici e macchine imprevedibili. Ascolta una sequenza, ripeti il segnale e sblocca tutte le 10 trasmissioni. La caccia comincia dalla traccia 7.':'Exotic Automaticの世界へ。遠い場所、催眠的なリズム、予測できない機械を巡る電子音楽の旅。音の並びを聴いてシグナルを再現し、10の通信をすべて解放しよう。追跡は7曲目から始まる。',
-      'Entra nella Signal Hunt':'Signal Huntを始める','Entra nella<br><span>trasmissione.</span>':'シグナルに<br><span>アクセス。</span>',
-      'Gratis · progressi salvati sul tuo dispositivo · nessun account richiesto':'無料 · 進行状況は端末に保存 · アカウント不要',
-      'GRATUITO · FAN PASS':'無料 · FAN PASS','Hai trovato<br><span>il passaggio.</span>':'道を見つけた。<br><span>次へ進もう。</span>',
-      'Ho seguito · continua':'フォローしました · 続ける','HOME':'ホーム',
-      'Il gioco ricrea un segnale con toni sintetici. Il player ufficiale è solo nella home.':'ゲーム内のシグナルはシンセ音で再現されます。公式プレイヤーはホームにのみあります。',
-      'Il progetto elettronico di Antonio Luvarà si muove tra IDM, psichedelia, sperimentazione e pulsazioni da dancefloor. Exotic Automatic cerca una fuga dal rumore quotidiano, tra paesaggi immaginati, automazione e il desiderio di riprendere il controllo. Ora quel mondo diventa un gioco: ogni livello è un segnale da ricordare e ricostruire.':'Antonio Luvaràのエレクトロニック・プロジェクトは、IDM、サイケデリア、実験性、ダンスフロアの鼓動を横断する。Exotic Automaticは、想像上の風景や自動化、制御を取り戻す願いを通して、日常のノイズからの逃避を探る。その世界がゲームになった。各レベルは記憶して再構築するシグナルだ。',
-      'Memorizza il segnale, poi ripetilo toccando i pad nello stesso ordine. Ogni missione aggiunge un frammento.':'シグナルを覚え、同じ順番でパッドをタップして再現しよう。ミッションごとに音が増えていく。',
-      'Perditi.<br><span>Ritrova il segnale.</span>':'迷い込もう。<br><span>シグナルを探せ。</span>',
-      'Prossima trasmissione':'次のシグナルへ','Prova il percorso Google e salva un Fan Pass dimostrativo in questo browser.':'Googleルートを試して、このブラウザーにデモ版Fan Passを保存。',
-      'RICOMPENSA SBLOCCATA ·':'リワード解除 ·','Salva il segno':'サウンドマークを保存',
-      'Scegli come sostenere Sun Ground e attiva il Fan Pass: un badge fan sul tuo profilo locale e accesso a tutte le missioni.':'Sun Groundを応援して無料のFan Passを有効にしよう。このブラウザーでファンバッジを保存して、すべてのミッションにアクセスできます。',
-      'Segui Sun Ground e torna qui per attivare il pass.':'Sun Groundをフォローし、ここに戻ってパスを有効にしてください。',
-      'SEQUENZA SONORA':'サウンドシーケンス','SIGNAL HUNT':'シグナルハント',
-      'SUN GROUND FAN PASS':'SUN GROUND FAN PASS','Tocca “Ascolta il segnale” per iniziare':'「シグナルを聴く」をタップして開始',
-      'Toni sintetici · sequenza del livello':'シンセ音 · レベルのシーケンス',
-      'Torna alla home':'ホームに戻る','TRACCIA DELLA MISSIONE':'ミッションの曲',
-      'TRASMISSIONE DECIFRATA':'シグナル解読','TRASMISSIONI DECIFRATE':'解読したシグナル',
-      'Trova Sun Ground su Spotify ↗':'SpotifyでSun Groundを探す ↗','UN GIOCO SONORO DI SUN GROUND':'SUN GROUNDのサウンドゲーム',
-      'UN SEGNALE ALLA VOLTA':'ひとつずつシグナルを','Segui il profilo Sun Ground e torna qui per attivare il pass.':'Sun Groundのプロフィールをフォローし、戻ってパスを有効にしてください。',
-      'Apri Spotify ↗':'Spotifyを開く ↗','Accedi con Google per salvare il Fan Pass su più dispositivi。':'Googleでログインして、複数の端末でFan Passを使おう。',
-      'Continua con Google':'Googleで続ける','Accesso Google da collegare al sito pubblicato.':'公開サイトではGoogleログインの連携が必要です。',
-      'Installa sul telefono':'スマートフォンにインストール','Entra nella Signal Hunt':'Signal Huntを始める'
-    }
+  'use strict';
+
+  const levels = [
+    { track: 'Nrkey my love', biome: 'Red Dust', color: '#ff774d', deep: '#28112a', sky: '#b93c61' },
+    { track: 'A sea without shore', biome: 'Glass Tides', color: '#58d7e5', deep: '#102c48', sky: '#256f9b' },
+    { track: 'Epitaph of the sun', biome: 'Sunken Temple', color: '#ffd05c', deep: '#322322', sky: '#9a4d46' },
+    { track: 'Unknown 37', biome: 'The Unknown', color: '#ba8aff', deep: '#201840', sky: '#553f98' },
+    { track: 'Exotic-automatic', biome: 'Auto City', color: '#ff68a6', deep: '#351337', sky: '#91366f' },
+    { track: 'Echoes and devotions', biome: 'Echo Canyon', color: '#ffa76e', deep: '#38233b', sky: '#994e70' },
+    { track: 'Two in orbit', biome: 'Twin Moons', color: '#93a7ff', deep: '#172045', sky: '#3c5e9d' },
+    { track: 'Neverbornevil', biome: 'Neon Wilds', color: '#83ec90', deep: '#122e2d', sky: '#32766f' },
+    { track: 'Wicked signal', biome: 'Signal Storm', color: '#ff6976', deep: '#321326', sky: '#9d3c58' },
+    { track: 'Infamous beach', biome: 'Skull Shore', color: '#67dce9', deep: '#172b43', sky: '#4277a0' }
+  ];
+
+  const copy = {
+    en: { free:'FREE TO PLAY', eyebrow:'A COSMIC PLATFORM ADVENTURE', intro:'Run, jump and punch your way across ten strange worlds. Find the fragments of the Magical Skull and bring the signal back to life.', start:'START ADVENTURE', install:'Install on your phone', journey:'YOUR JOURNEY', worlds:'Ten worlds. One skull.', support:'Like the game? Support Sun Ground on Bandcamp — completely optional.', saved:'Free to play · progress saved on this device · no account needed', menu:'MENU', hint:'MOVE ← → · JUMP SPACE · PUNCH X', run:'RUN', punch:'PUNCH', jump:'JUMP', tip:'Punch enemies or stomp them. Hit the boss with a punch, then enter the glowing gate.', optional:'OPTIONAL · SUPPORT THE MUSIC', album:'Exotic Automatic on Bandcamp', footer:'RUN · JUMP · FIND THE SKULL', return:'Return to world map', pause:'PAUSED', resume:'RESUME ADVENTURE', resumeCopy:'Take a breath. The world is waiting.', retry:'SIGNAL LOST', retryCopy:'The desert is rough. Your skull fragments are safe — jump back in.', win:'WORLD CLEARED', winCopy:'A skull fragment is yours. The next signal is calling.', final:'THE SKULL IS WHOLE', finalCopy:'Ten worlds crossed. The Magical Skull shines again beneath the sun.', next:'NEXT WORLD', again:'PLAY AGAIN', locked:'Complete the previous world to open this one.', boss:'BOSS', bossAhead:'BOSS · AHEAD', bossDefeated:'BOSS · DEFEATED', noCanvas:'This browser cannot run the game canvas.' },
+    it: { free:'GRATIS', eyebrow:'UN’AVVENTURA PLATFORM COSMICA', intro:'Corri, salta e sferra pugni attraverso dieci mondi misteriosi. Trova i frammenti del Teschio Magico e riaccendi il segnale.', start:'INIZIA L’AVVENTURA', install:'Installa sul telefono', journey:'IL TUO VIAGGIO', worlds:'Dieci mondi. Un teschio.', support:'Ti piace il gioco? Sostieni Sun Ground su Bandcamp — è facoltativo.', saved:'Gratis · progressi salvati sul dispositivo · nessun account', menu:'MAPPA', hint:'MUOVI ← → · SALTO SPAZIO · PUGNO X', run:'CORSA', punch:'PUGNO', jump:'SALTO', tip:'Colpisci i nemici o saltagli sopra. Sferra pugni al boss e attraversa il portale luminoso.', optional:'FACOLTATIVO · SOSTIENI LA MUSICA', album:'Exotic Automatic su Bandcamp', footer:'CORRI · SALTA · TROVA IL TESCHIO', return:'Torna alla mappa', pause:'IN PAUSA', resume:'RIPRENDI L’AVVENTURA', resumeCopy:'Fai un respiro. Il mondo ti aspetta.', retry:'SEGNALE PERSO', retryCopy:'Il deserto è duro. I frammenti sono al sicuro: riprova!', win:'MONDO COMPLETATO', winCopy:'Hai trovato un frammento del teschio. Il prossimo segnale ti chiama.', final:'IL TESCHIO È COMPLETO', finalCopy:'Dieci mondi attraversati. Il Teschio Magico risplende di nuovo sotto il sole.', next:'MONDO SUCCESSIVO', again:'GIOCA ANCORA', locked:'Completa il mondo precedente per sbloccare questo.', boss:'BOSS', bossAhead:'BOSS · AVANTI', bossDefeated:'BOSS · SCONFITTO', noCanvas:'Questo browser non supporta il canvas del gioco.' },
+    ru: { free:'БЕСПЛАТНО', eyebrow:'КОСМИЧЕСКИЙ ПЛАТФОРМЕР', intro:'Беги, прыгай и сражайся в десяти загадочных мирах. Найди осколки Волшебного черепа и оживи сигнал.', start:'НАЧАТЬ ПРИКЛЮЧЕНИЕ', install:'Установить на телефон', journey:'ТВОЁ ПУТЕШЕСТВИЕ', worlds:'Десять миров. Один череп.', support:'Нравится игра? Поддержи Sun Ground на Bandcamp — по желанию.', saved:'Бесплатно · прогресс хранится на устройстве · аккаунт не нужен', menu:'КАРТА', hint:'ДВИЖЕНИЕ ← → · ПРЫЖОК ПРОБЕЛ · УДАР X', run:'БЕГ', punch:'УДАР', jump:'ПРЫЖОК', tip:'Бей врагов или прыгай на них. Ударь босса, затем войди в светящиеся врата.', optional:'ПО ЖЕЛАНИЮ · ПОДДЕРЖАТЬ МУЗЫКУ', album:'Exotic Automatic на Bandcamp', footer:'БЕГИ · ПРЫГАЙ · ИЩИ ЧЕРЕП', return:'Вернуться к карте', pause:'ПАУЗА', resume:'ПРОДОЛЖИТЬ', resumeCopy:'Передохни. Мир тебя ждёт.', retry:'СИГНАЛ ПОТЕРЯН', retryCopy:'Пустыня сурова. Осколки черепа в безопасности — попробуй снова.', win:'МИР ПРОЙДЕН', winCopy:'Осколок черепа твой. Следующий сигнал зовёт.', final:'ЧЕРЕП СОБРАН', finalCopy:'Десять миров пройдены. Волшебный череп снова сияет под солнцем.', next:'СЛЕДУЮЩИЙ МИР', again:'ИГРАТЬ СНОВА', locked:'Пройди предыдущий мир, чтобы открыть этот.', boss:'БОСС', bossAhead:'БОСС · ВПЕРЕДИ', bossDefeated:'БОСС · ПОБЕЖДЁН', noCanvas:'Этот браузер не поддерживает игровое полотно.' },
+    ja: { free:'無料', eyebrow:'宇宙の2Dプラットフォーマー', intro:'10の不思議な世界を走り、跳び、パンチで進もう。魔法のドクロの欠片を見つけ、シグナルをよみがえらせよう。', start:'冒険を始める', install:'スマートフォンにインストール', journey:'冒険の記録', worlds:'10の世界。ひとつのドクロ。', support:'ゲームを気に入ったらBandcampでSun Groundを応援できます（任意）。', saved:'無料 · 進行状況はこの端末に保存 · アカウント不要', menu:'マップ', hint:'移動 ← → · ジャンプ SPACE · パンチ X', run:'ダッシュ', punch:'パンチ', jump:'ジャンプ', tip:'敵をパンチするか、踏みつけよう。ボスを倒して、光るゲートに入ろう。', optional:'任意 · 音楽を応援', album:'BandcampでExotic Automaticを聴く', footer:'走る · 跳ぶ · ドクロを探す', return:'ワールドマップに戻る', pause:'一時停止', resume:'冒険を再開', resumeCopy:'ひと休み。世界が待っている。', retry:'シグナル消失', retryCopy:'砂漠は手ごわい。ドクロの欠片は無事だよ。もう一度挑戦しよう。', win:'ワールドクリア', winCopy:'ドクロの欠片を手に入れた。次のシグナルが呼んでいる。', final:'ドクロが完成', finalCopy:'10の世界を旅した。魔法のドクロが太陽の下で再び輝く。', next:'次の世界へ', again:'もう一度遊ぶ', locked:'前のワールドをクリアすると解放されます。', boss:'ボス', bossAhead:'ボス · この先', bossDefeated:'ボス · 撃破', noCanvas:'このブラウザーはゲームキャンバスに対応していません。' }
   };
-  const featureTranslations = {
-    ru: {
-      'SCEGLI UNA MODALITÀ':'ВЫБЕРИ РЕЖИМ','Scegli il tuo<br><span>modo di gioco.</span>':'Выбери свой<br><span>режим игры.</span>',
-      'Tre modi per decifrare ogni missione. La traccia resta la stessa: cambia il modo in cui la ricostruisci.':'Три способа пройти каждую миссию. Трек тот же, меняется испытание.',
-      'TRACCIA SELEZIONATA':'ВЫБРАННЫЙ ТРЕК','01 / MEMORIA':'01 / ПАМЯТЬ','Ritmo drum pad':'Ритм на драм-пэдах','02 / RITMO':'02 / РИТМ','03 / MELODIA':'03 / МЕЛОДИЯ',
-      'Segnale in memoria':'Память сигнала','Memorizza i quattro suoni e ripeti la sequenza nello stesso ordine.':'Запомни четыре звука и повтори последовательность в том же порядке.',
-      'Ascolta otto colpi e tocca i pad sul tempo, seguendo la pulsazione.':'Послушай восемь ударов и играй на пэдах в ритм.',
-      'Ricostruzione melodia':'Восстановление мелодии','Ascolta un frammento synth ispirato alla traccia e rimetti le note nel giusto ordine.':'Послушай синтезаторный мотив по мотивам трека и расставь ноты в правильном порядке.',
-      'Scegli questo modo ↗':'Выбрать режим ↗','Puoi cambiare modalità a ogni missione.':'Режим можно менять в каждой миссии.',
-      'NOTE DA RIORDINARE':'НОТЫ ДЛЯ ПОРЯДКА','LA TUA MELODIA':'ТВОЯ МЕЛОДИЯ',
-      'Tocca le note nell’ordine in cui le hai ascoltate. Puoi rimuoverle per correggere la sequenza.':'Нажимай на ноты в услышанном порядке. Нажми на ноту в ответе, чтобы убрать её.',
-      'Svuota la sequenza':'Очистить последовательность','Scegli tra memoria, ritmo con drum pad e ricostruzione melodica. Completa le 10 missioni a partire dalla traccia 7.':'Выбери память, ритм на драм-пэдах или восстановление мелодии. Пройди 10 миссий, начиная с трека 7.','Suoni synth generati nel browser; i motivi sono ispirati alle tracce.':'Синтезаторные звуки создаются в браузере; мотивы вдохновлены треками.'
-    },
-    ja: {
-      'SCEGLI UNA MODALITÀ':'モードを選択','Scegli il tuo<br><span>modo di gioco.</span>':'<span>ゲームモード</span><br>を選ぼう。',
-      'Tre modi per decifrare ogni missione. La traccia resta la stessa: cambia il modo in cui la ricostruisci.':'ミッションごとに3つの遊び方。曲はそのまま、挑戦のしかたを選べます。',
-      'TRACCIA SELEZIONATA':'選択中のトラック','01 / MEMORIA':'01 / メモリー','Ritmo drum pad':'ドラムパッドのリズム','02 / RITMO':'02 / リズム','03 / MELODIA':'03 / メロディー',
-      'Segnale in memoria':'シグナルメモリー','Memorizza i quattro suoni e ripeti la sequenza nello stesso ordine.':'4つの音を覚えて、同じ順番で再現しよう。',
-      'Ascolta otto colpi e tocca i pad sul tempo, seguendo la pulsazione.':'8つのビートを聴いて、リズムに合わせてパッドを叩こう。',
-      'Ricostruzione melodia':'メロディー再構築','Ascolta un frammento synth ispirato alla traccia e rimetti le note nel giusto ordine.':'トラックに着想を得たシンセフレーズを聴いて、音を正しい順番に並べよう。',
-      'Scegli questo modo ↗':'このモードを選ぶ ↗','Puoi cambiare modalità a ogni missione.':'ミッションごとにモードを選べます。',
-      'NOTE DA RIORDINARE':'並べ替える音','LA TUA MELODIA':'あなたのメロディー',
-      'Tocca le note nell’ordine in cui le hai ascoltate. Puoi rimuoverle per correggere la sequenza.':'聴いた順番に音をタップ。選んだ音をタップすると取り消せます。',
-      'Svuota la sequenza':'並びを消去','Scegli tra memoria, ritmo con drum pad e ricostruzione melodica. Completa le 10 missioni a partire dalla traccia 7.':'メモリー、ドラムパッドのリズム、メロディー再構築から選ぼう。トラック7から全10ミッションに挑戦。','Suoni synth generati nel browser; i motivi sono ispirati alle tracce.':'ブラウザーで生成したシンセ音です。メロディーは楽曲に着想を得ています。'
-    }
-  };
-  const tracks = [
-    {n:7,title:'Nrkey my love'}, {n:8,title:'A sea without shore'}, {n:9,title:'Epitaph of the sun'},
-    {n:10,title:'Unknown 37'}, {n:1,title:'Exotic-automatic'}, {n:2,title:'Echoes and devotions'},
-    {n:3,title:'Two in orbit'}, {n:4,title:'Neverbornevil'}, {n:5,title:'Wicked signal'}, {n:6,title:'Infamous beach'}
-  ];
-  const patterns = [[0,2,1,3],[1,3,0,2,1],[2,0,3,1,2,3],[3,1,2,0,1,3],[0,3,2,1,0,2,3],[1,0,2,3,1,2,0,3],[2,3,1,0,3,2,1,0],[3,2,0,1,2,0,3,1,2],[0,1,3,2,0,3,1,2,3,0],[1,2,0,3,2,1,3,0,2,1,0]];
-  const rhythmPatterns = [
-    {bpm:96,pads:[0,2,1,0,3,2,1,0]}, {bpm:104,pads:[0,1,2,0,3,1,2,0]},
-    {bpm:108,pads:[0,2,0,1,3,2,1,0]}, {bpm:100,pads:[0,1,3,2,0,1,2,3]},
-    {bpm:112,pads:[0,2,1,3,0,2,1,0]}, {bpm:118,pads:[0,1,2,3,0,2,1,3]},
-    {bpm:92,pads:[0,3,1,2,0,2,3,1]}, {bpm:102,pads:[0,2,1,0,3,1,2,3]},
-    {bpm:106,pads:[0,1,2,0,3,2,1,3]}, {bpm:110,pads:[0,2,3,1,0,2,1,3]}
-  ];
-  const melodies = [
-    [0,3,5,4,2,1], [0,4,7,5,3], [2,5,7,4,3,1], [1,4,6,5,2], [0,3,6,7,4,2],
-    [2,4,7,5,3], [0,2,5,7,6,3], [1,4,5,8,6], [0,3,5,7,4,1], [2,4,6,8,5,3]
-  ];
-  const melodyNotes = ['C4','D4','E4','G4','A4','C5','D5','E5','G5'];
-  const storageKey = 'sun-ground-signal-hunt-v3';
+
   const $ = id => document.getElementById(id);
-  const screens = {home:$('home-screen'), fan:$('fan-screen'), mode:$('mode-screen'), game:$('game-screen'), result:$('result-screen')};
-  let state = {completed:[]}, level = 0, inputIndex = 0, busy = false, audio = null, spotifyController = null, deferredInstallPrompt = null, toastTimer, language = 'en', rewardCover = null, rewardCoverFailed = false, rewardReady = false, gameMode = 'memory', rhythmAttempt = null, rhythmTimer = null, melodyAnswer = [], melodyOrder = [];
-  try { state = {...state, ...JSON.parse(localStorage.getItem(storageKey) || '{}')}; } catch {}
-  state.completed = Array.isArray(state.completed) ? state.completed.filter(n => Number.isInteger(n) && n >= 0 && n < tracks.length) : [];
-  const save = () => { try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {} };
-  const completedCount = () => new Set(state.completed).size;
-  const nextLevel = () => { for (let i=0;i<tracks.length;i++) if (!state.completed.includes(i)) return i; return tracks.length-1; };
-  function updateContinueButton(){const replay=completedCount()>=tracks.length,nextTrack=tracks[replay?0:nextLevel()];$('continue-button').hidden=false;$('continue-button').querySelector('span').textContent=replay?say('Ricomincia dal livello 1','Replay from level 1','Начать с первого уровня','最初のレベルから再開'):say(`Continua · traccia ${nextTrack.n}`,`Continue · track ${nextTrack.n}`,`Далее · трек ${nextTrack.n}`,`次へ · トラック${nextTrack.n}`);}
-  function show(name) { Object.entries(screens).forEach(([key,el]) => { el.hidden = key !== name; }); window.scrollTo({top:0,behavior:'smooth'}); }
-  function say(it,en,ru,ja){return ({it,en,ru,ja})[language]||en;}
-  function setLanguage(lang) {
-    language = ['it','en','ru','ja'].includes(lang) ? lang : 'en';
+  const canvas = $('game-canvas');
+  const ctx = canvas.getContext('2d');
+  const storeKey = 'sun-ground-skull-platformer-v1';
+  let language = localStorage.getItem('sun-ground-language-v4') || 'en';
+  let progress = { cleared: [] };
+  try { progress = { ...progress, ...JSON.parse(localStorage.getItem(storeKey) || '{}') }; } catch {}
+  progress.cleared = Array.isArray(progress.cleared) ? [...new Set(progress.cleared.filter(n => Number.isInteger(n) && n >= 0 && n < levels.length))] : [];
+  let currentLevel = 0;
+  let world = null;
+  let animationId = 0;
+  let previousFrame = 0;
+  let overlayMode = '';
+  let deferredInstallPrompt = null;
+  const keys = { left:false, right:false, run:false, jump:false, punch:false, jumpPressed:false, punchPressed:false };
+
+  function say(key) { return (copy[language] || copy.en)[key] || copy.en[key] || key; }
+  function save() { try { localStorage.setItem(storeKey, JSON.stringify(progress)); } catch {} }
+  function setLanguage(value) {
+    language = ['it','en','ru','ja'].includes(value) ? value : 'en';
     document.documentElement.lang = language;
-    document.querySelectorAll('[data-it][data-en]').forEach(el => {
-      const key = el.dataset.it;
-      const val = language === 'it' ? key : language === 'en' ? el.dataset.en : (featureTranslations[language]?.[key] || translations[language]?.[key] || el.dataset.en);
-      if (val.includes('<')) el.innerHTML = val; else el.textContent = val;
-    });
+    document.querySelectorAll('[data-copy]').forEach(node => { const key = node.dataset.copy; node.textContent = say(key); });
     $('language-toggle').value = language;
-    $('language-toggle').setAttribute('aria-label', say('Lingua','Language','Язык','言語'));
-    $('player-name-input').placeholder = say('IL TUO NOME','YOUR NAME','ТВОЁ ИМЯ','あなたの名前');
-    document.title = say('Sun Ground — Exotic Automatic / Signal Hunt','Sun Ground — Exotic Automatic / Signal Hunt','Sun Ground — Exotic Automatic / Охота за сигналом','Sun Ground — Exotic Automatic / シグナルハント');
-    const description = {it:'Sun Ground: gioco gratuito di sequenze sonore ispirato a Exotic Automatic.',en:'Sun Ground: a free sound sequence game inspired by Exotic Automatic.',ru:'Sun Ground: бесплатная игра на память звуковых последовательностей по мотивам Exotic Automatic.',ja:'Sun Ground：Exotic Automaticに着想を得た無料のサウンドシーケンスゲーム。'};
-    document.querySelector('meta[name=description]').content = description[language];
-    const coverAlt = say('Copertina ufficiale di Exotic Automatic di Sun Ground','Official cover artwork for Exotic Automatic by Sun Ground','Официальная обложка альбома Exotic Automatic проекта Sun Ground','Sun Ground「Exotic Automatic」の公式アルバムカバー');
-    document.querySelector('.cover-art').alt = coverAlt;
-    drawProgress(); updateFanBadge(); updateTimbrePicker(); updateContinueButton(); updateModeScreen(); updateGameModeUI();
+    $('language-toggle').setAttribute('aria-label', language === 'it' ? 'Lingua' : language === 'ja' ? '言語' : language === 'ru' ? 'Язык' : 'Language');
+    document.title = 'Sun Ground — The Magical Skull';
     try { localStorage.setItem('sun-ground-language-v4', language); } catch {}
+    if (world) updateHud();
+    renderWorldList();
+    if (overlayMode) showOverlay(overlayMode);
   }
-  function drawProgress() { const count=completedCount(); $('progress-count').textContent=`${count} / 10`; for (const id of ['home-progress','game-progress']) { const el=$(id); el.innerHTML=''; for(let i=0;i<10;i++){const node=document.createElement('i');node.className='progress-node'+(state.completed.includes(i)?' is-done':'');el.append(node);} } }
-  function updateFanBadge(){const badge=$('fan-pass-badge');if(!state.fanAccess){badge.hidden=true;return;}badge.hidden=false;const method=state.fanAccess==='google-preview'?say('GOOGLE · ANTEPRIMA','GOOGLE · PREVIEW','GOOGLE · ДЕМО','GOOGLE · プレビュー'):state.fanAccess.toUpperCase();badge.textContent=say(`✦ FAN PASS ATTIVO · ${method}`,`✦ FAN PASS ACTIVE · ${method}`,`✦ FAN PASS АКТИВЕН · ${method}`,`✦ FAN PASS 有効 · ${method}`);}
-  function currentTrack(){return tracks[level];}
-  function currentSequence(){return gameMode === 'rhythm' ? rhythmPatterns[level].pads : gameMode === 'melody' ? melodies[level] : patterns[level];}
-  function updateLevel() {
-    const t = currentTrack(), n = String(t.n).padStart(2,'0'), mission = String(level + 1).padStart(2,'0');
-    $('level-number').textContent = say('TRACCIA ' + n + ' · MISSIONE ' + mission,'TRACK ' + n + ' · MISSION ' + mission,'ТРЕК ' + n + ' · МИССИЯ ' + mission,'トラック ' + n + ' · ミッション ' + mission);
-    $('level-count').textContent = mission + ' / 10'; $('track-name').textContent = t.title;
-    $('input-status').classList.remove('is-error','is-success');
-    $('input-status').textContent = say('Tocca “Ascolta il segnale” per iniziare','Tap “Listen to the signal” to begin','Нажми «Слушать сигнал», чтобы начать','「シグナルを聴く」をタップして開始');
-    drawProgress();
+  function unlocked(index) { return index === 0 || progress.cleared.includes(index - 1); }
+  function nextLevel() { const next = levels.findIndex((_, i) => !progress.cleared.includes(i)); return next < 0 ? 0 : next; }
+  function updateProgress() {
+    const count = progress.cleared.length;
+    $('progress-count').textContent = count + ' / 10';
+    $('home-progress').innerHTML = levels.map((_, i) => '<i class="progress-node' + (progress.cleared.includes(i) ? ' is-done' : '') + '"></i>').join('');
+    renderWorldList();
   }
-  function updateTimbrePicker(){document.querySelectorAll('[data-timbre]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.timbre===(state.timbre||'glass'))));}
-  function tone(pad,duration=.22){try{audio ||= new (window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();const now=audio.currentTime,hz=[261.63,293.66,329.63,392,440,523.25,587.33,659.25,783.99][pad],preset=state.timbre||'glass',master=audio.createGain(),filter=audio.createBiquadFilter(),pan=audio.createStereoPanner();filter.type=preset==='glass'?'bandpass':preset==='brass'?'lowpass':'highpass';filter.frequency.setValueAtTime(preset==='glass'?Math.min(7200,hz*4):preset==='brass'?2300:4400,now);filter.frequency.exponentialRampToValueAtTime(preset==='brass'?1150:preset==='digital'?1900:Math.min(3600,hz*2.4),now+Math.max(.08,duration));filter.Q.value=preset==='glass'?1.8:.72;pan.pan.value=[-.52,-.18,.18,.52,0,.18,-.18,.36,-.36][pad];master.gain.setValueAtTime(.0001,now);master.gain.exponentialRampToValueAtTime(.22,now+.012);const tail=preset==='glass'?.34:preset==='brass'?.2:.08;master.gain.exponentialRampToValueAtTime(.0001,now+duration+tail);filter.connect(pan);pan.connect(master);master.connect(audio.destination);const add=(type,freq,detune,volume,pitchDrop=0)=>{const osc=audio.createOscillator(),gain=audio.createGain();osc.type=type;osc.frequency.setValueAtTime(freq,now);if(pitchDrop)osc.frequency.exponentialRampToValueAtTime(freq*pitchDrop,now+.075);osc.detune.value=detune;gain.gain.value=volume;osc.connect(gain);gain.connect(filter);osc.start(now);osc.stop(now+duration+tail+.03);};if(preset==='glass'){add('sine',hz,0,.68);add('sine',hz*2.76,3,.22);add('triangle',hz*4.04,-2,.09);}else if(preset==='brass'){add('sawtooth',hz,-8,.26);add('sawtooth',hz,8,.23);add('triangle',hz*2,0,.14);add('sine',hz/2,0,.14);}else{filter.frequency.setValueAtTime(5400,now);filter.frequency.exponentialRampToValueAtTime(950,now+.09);add('square',hz*1.5,0,.24,.67);add('square',hz,0,.16);add('sine',hz/2,0,.2);} }catch{}}
-  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-  function updateModeScreen() {
-    if (!$("mode-screen")) return;
-    const track = currentTrack();
-    $('mode-track-name').textContent = track.title;
-    $('mode-mission-number').textContent = String(level + 1).padStart(2,'0') + ' / 10';
-    $('mode-options').setAttribute('aria-label', say('Modalità di gioco','Game modes','Режимы игры','ゲームモード'));
+  function renderWorldList() {
+    const list = $('level-list');
+    if (!list) return;
+    list.innerHTML = levels.map((stage, i) => {
+      const done = progress.cleared.includes(i), open = unlocked(i), title = (language === 'it' ? ['Polvere rossa','Mare di vetro','Tempio sommerso','L’ignoto','Città automatica','Canyon degli echi','Due lune','Giungla neon','Tempesta di segnali','Spiaggia del teschio'] : language === 'ja' ? ['赤い砂','ガラスの潮','沈んだ神殿','未知の世界','自動都市','響きの峡谷','ふたつの月','ネオンの森','シグナルの嵐','ドクロの浜辺'] : language === 'ru' ? ['Красная пыль','Стеклянные приливы','Затонувший храм','Неизвестность','Город машин','Каньон эха','Две луны','Неоновые джунгли','Шторм сигнала','Черепной пляж'] : levels.map(item => item.biome))[i];
+      return '<button class="level-chip' + (done ? ' is-done' : '') + '" type="button" data-level="' + i + '"' + (open ? '' : ' disabled') + ' aria-label="' + (i + 1) + ': ' + stage.track + (done ? ' · complete' : open ? ' · ready' : ' · locked') + '"><span>' + String(i + 1).padStart(2,'0') + '</span><small>' + title + '</small><b aria-hidden="true">' + (done ? '✓' : open ? '↗' : '·') + '</b></button>';
+    }).join('');
+    list.querySelectorAll('[data-level]').forEach(button => button.addEventListener('click', () => startLevel(Number(button.dataset.level))));
   }
-  function updateGameModeUI() {
-    const isRhythm = gameMode === 'rhythm', isMelody = gameMode === 'melody';
-    let label, title, copy, listen, subtitle;
-    if (gameMode === 'memory') {
-      label = say('SEGNALE IN MEMORIA','SIGNAL MEMORY','ПАМЯТЬ СИГНАЛА','シグナルメモリー');
-      title = say('Ascolta.<br><span>Ricostruisci.</span>','Listen.<br><span>Rebuild it.</span>','Слушай.<br><span>Повтори.</span>','聴いて。<br><span>再現しよう。</span>');
-      copy = say('Memorizza il segnale, poi ripetilo toccando i pad nello stesso ordine. Ogni missione aggiunge un frammento.','Memorize the signal, then repeat it by tapping the pads in the same order. Every mission adds a fragment.','Запомни сигнал и повтори его, нажимая на пэды в том же порядке. Каждая миссия добавляет новый фрагмент.','シグナルを覚え、同じ順番でパッドをタップして再現しよう。ミッションごとに音が増えていく。');
-      listen = say('Ascolta il segnale','Listen to the signal','Слушать сигнал','シグナルを聴く');
-      subtitle = say('Toni sintetici · sequenza del livello','Synth tones · level sequence','Синтезаторные тона · последовательность уровня','シンセ音 · レベルのシーケンス');
-    } else if (isRhythm) {
-      label = say('DRUM PAD · RITMO','DRUM PAD · RHYTHM','DRUM PAD · РИТМ','ドラムパッド · リズム');
-      title = say('Senti il<br><span>battito.</span>','Feel the<br><span>rhythm.</span>','Поймай<br><span>ритм.</span>','ビートを<br><span>感じよう。</span>');
-      copy = say('Ascolta il pattern, poi tocca i pad a tempo. Ogni colpo deve cadere sul battito giusto.','Listen to the pattern, then tap the pads in time. Land each hit on the beat.','Послушай ритм и играй на пэдах в такт. Каждый удар должен попасть в нужный момент.','リズムを聴き、ビートに合わせてパッドを叩こう。');
-      listen = say('Ascolta il pattern','Listen to the rhythm','Слушать ритм','リズムを聴く');
-      const bpm = rhythmPatterns[level].bpm;
-      subtitle = say('8 COLPI · ' + bpm + ' BPM','8 HITS · ' + bpm + ' BPM','8 УДАРОВ · ' + bpm + ' BPM','8ビート · ' + bpm + ' BPM');
-    } else {
-      label = say('MELODIA · RICOSTRUZIONE','MELODY · REBUILD','МЕЛОДИЯ · СБОРКА','メロディー · 再構築');
-      title = say('Ascolta.<br><span>Rimetti in ordine.</span>','Hear it.<br><span>Put it back.</span>','Слушай.<br><span>Собери мелодию.</span>','聴いて。<br><span>並べ直そう。</span>');
-      copy = say('Ascolta il motivo synth ispirato a “' + currentTrack().title + '”, poi riordina le note per ricostruirlo.','Hear a synth phrase inspired by “' + currentTrack().title + '”, then reorder the notes to rebuild it.','Послушай синтезаторный мотив по мотивам «' + currentTrack().title + '», затем расставь ноты в правильном порядке.','「' + currentTrack().title + '」に着想を得たシンセフレーズを聴いて、音を並べ直そう。');
-      listen = say('Ascolta la melodia','Hear the melody','Слушать мелодию','メロディーを聴く');
-      subtitle = say('Motivo synth · ispirato alla traccia','Synth motif · inspired by the track','Синтезаторный мотив · по мотивам трека','シンセフレーズ · トラックに着想');
+  function showScreen(name) {
+    $('home-screen').hidden = name !== 'home';
+    $('game-screen').hidden = name !== 'game';
+    document.querySelector('.site-footer').hidden = name === 'game';
+    window.scrollTo({ top:0, behavior:'instant' });
+  }
+  function buildWorld(index) {
+    const width = 6250, floor = 458, platforms = [], pits = [], collectibles = [], enemies = [];
+    let cursor = 0;
+    for (let i = 0; i < 8; i++) {
+      const pitX = 740 + i * 670 + ((index * 37 + i * 19) % 55);
+      const pitW = 102 + ((index * 23 + i * 17) % 42);
+      if (pitX > cursor) platforms.push({ x:cursor, y:floor, w:pitX - cursor, h:120, ground:true });
+      pits.push({ x:pitX, w:pitW });
+      cursor = pitX + pitW;
+      platforms.push({ x:pitX - 18, y:378 - (i % 2) * 24, w:pitW + 36, h:18, bridge:true });
     }
-    $('game-mode-label').textContent = label; $('game-title').innerHTML = title; $('game-copy').textContent = copy;
-    $('module-label').textContent = say('SEQUENZA SONORA','SOUND SEQUENCE','ЗВУКОВАЯ ПОСЛЕДОВАТЕЛЬНОСТЬ','サウンドシーケンス');
-    $('listen-title').textContent = listen; $('listen-subtitle').textContent = subtitle;
-    $('timbre-head').hidden = isRhythm; $('timbre-picker').hidden = isRhythm; $('tone-grid').hidden = isMelody;
-    $('rhythm-meter').hidden = !isRhythm; $('melody-puzzle').hidden = !isMelody;
-    $('listen-button').disabled = busy || Boolean(rhythmAttempt);
-    const padLabels = isRhythm ? [say('Cassa','Kick drum','Бочка','キック'),say('Rullante','Snare drum','Малый барабан','スネア'),say('Hi-hat','Hi-hat','Хай-хэт','ハイハット'),say('Tom','Tom drum','Том','タム')] : [say('Pad 1','Pad 1','Пэд 1','パッド 1'),say('Pad 2','Pad 2','Пэд 2','パッド 2'),say('Pad 3','Pad 3','Пэд 3','パッド 3'),say('Pad 4','Pad 4','Пэд 4','パッド 4')];
-    document.querySelectorAll('.tone-pad').forEach((button,index) => { button.setAttribute('aria-label', padLabels[index]); button.disabled = busy; });
-    $('rhythm-meter').setAttribute('aria-label', say('Pattern ritmico di otto battiti','Eight beat rhythm pattern','Ритмический рисунок из восьми ударов','8ビートのリズムパターン'));
-    $('melody-bank').setAttribute('aria-label', say('Note da riordinare','Notes to reorder','Ноты для перестановки','並べ替える音'));
-    $('melody-answer').setAttribute('aria-label', say('La tua melodia','Your melody','Твоя мелодия','あなたのメロディー'));
-    if (isRhythm) renderRhythmMeter(-1, rhythmAttempt ? rhythmAttempt.step : 0);
-    if (isMelody && melodyOrder.length) renderMelodyPuzzle();
-    if (!busy && !rhythmAttempt) {
-      $('input-status').classList.remove('is-error','is-success');
-      $('input-status').textContent = gameMode === 'memory' ? say('Tocca “Ascolta il segnale” per iniziare','Tap “Listen to the signal” to begin','Нажми «Слушать сигнал», чтобы начать','「シグナルを聴く」をタップして開始') : gameMode === 'rhythm' ? say('Ascolta il pattern per iniziare','Listen to the rhythm to begin','Послушай ритм, чтобы начать','リズムを聴いて始めよう') : say('Tocca “Ascolta la melodia” per iniziare','Tap “Hear the melody” to begin','Нажми «Слушать мелодию», чтобы начать','「メロディーを聴く」をタップして開始');
+    platforms.push({ x:cursor, y:floor, w:width - cursor + 300, h:120, ground:true });
+    for (let i = 0; i < 13; i++) {
+      const x = 350 + i * 410;
+      if (x > width - 620) continue;
+      const y = 340 - ((i + index) % 3) * 38;
+      platforms.push({ x, y, w:124 + ((index + i) % 3) * 22, h:16, floating:true });
+      if (i % 2 === 0) platforms.push({ x:x + 194, y:y + 72, w:104, h:15, floating:true });
     }
-  }
-  function renderRhythmMeter(activeIndex, doneCount) {
-    const meter = $('rhythm-meter');
-    if (meter.childElementCount !== 8) {
-      meter.innerHTML = '';
-      for (let i = 0; i < 8; i++) { const step = document.createElement('i'); step.textContent = String(i + 1).padStart(2,'0'); meter.appendChild(step); }
+    for (let i = 0; i < 23; i++) {
+      const x = 255 + i * 245 + ((index * 31 + i * 13) % 72);
+      let y = floor - 35;
+      const platform = platforms.find(p => !p.ground && x >= p.x + 8 && x <= p.x + p.w - 8 && p.y < floor - 30);
+      if (platform && i % 3 !== 0) y = platform.y - 38;
+      const pit = pits.find(p => x > p.x - 20 && x < p.x + p.w + 20);
+      if (pit) y = 335 - (i % 2) * 20;
+      collectibles.push({ x, y, taken:false, phase:i * .7 });
     }
-    Array.from(meter.children).forEach((step,index) => { step.classList.toggle('is-active', index === activeIndex); step.classList.toggle('is-done', index < doneCount); });
-  }
-  function clearRhythmTimer() { if (rhythmTimer) clearInterval(rhythmTimer); rhythmTimer = null; }
-  function cleanupGame() { clearRhythmTimer(); rhythmAttempt = null; busy = false; }
-  function startRhythmAttempt(beatMs) {
-    const firstBeatAt = performance.now() + beatMs * 2;
-    rhythmAttempt = {beatMs,firstBeatAt,step:0,tolerance:Math.min(230,beatMs * .34)};
-    $('listen-button').disabled = true; renderRhythmMeter(-1,0);
-    clearRhythmTimer();
-    rhythmTimer = setInterval(() => {
-      if (!rhythmAttempt || busy) return;
-      const now = performance.now(), remaining = rhythmAttempt.firstBeatAt - now;
-      if (remaining > 0) { const count = Math.ceil(remaining / rhythmAttempt.beatMs); const text = say('Preparati · '+count,'Get ready · '+count,'Приготовься · '+count,'準備 · '+count); if ($('input-status').textContent !== text) $('input-status').textContent = text; return; }
-      const target = rhythmAttempt.firstBeatAt + rhythmAttempt.step * rhythmAttempt.beatMs;
-      if (now > target + rhythmAttempt.tolerance) { failRhythm('missed'); return; }
-      const active = Math.min(rhythmAttempt.step,7); renderRhythmMeter(active,rhythmAttempt.step);
-      const text = say('Tocca sul battito · colpo '+(rhythmAttempt.step+1)+' di 8','Tap on the beat · hit '+(rhythmAttempt.step+1)+' of 8','Попади в ритм · удар '+(rhythmAttempt.step+1)+' из 8','ビートに合わせてタップ · '+(rhythmAttempt.step+1)+' / 8');
-      if ($('input-status').textContent !== text) $('input-status').textContent = text;
-    },35);
-  }
-  function failRhythm(reason) {
-    clearRhythmTimer(); rhythmAttempt = null; busy = false;
-    $('listen-button').disabled = false; document.querySelectorAll('.tone-pad').forEach(button => button.disabled = false);
-    $('input-status').classList.remove('is-success'); $('input-status').classList.add('is-error');
-    $('input-status').textContent = reason === 'wrong' ? say('Pad sbagliato · riascolta e riprova','Wrong pad · replay and try again','Неверный пэд · послушай и попробуй ещё раз','パッドが違うよ · もう一度聴こう') : reason === 'early' ? say('Aspetta il battito successivo','Wait for the next beat','Подожди следующего удара','次のビートを待ってね') : say('Battito perso · riascolta e riprova','Beat missed · replay and try again','Ритм сбился · послушай и попробуй ещё раз','ビートを逃したよ · もう一度聴こう');
-    renderRhythmMeter(-1,0);
-  }
-  function playDrum(pad) {
-    try {
-      audio ||= new (window.AudioContext || window.webkitAudioContext)(); if (audio.state === 'suspended') audio.resume();
-      const now = audio.currentTime, master = audio.createGain(); master.gain.setValueAtTime(1,now); master.connect(audio.destination);
-      const noise = (cutoff,volume,decay) => {
-        const length = Math.floor(audio.sampleRate * decay), buffer = audio.createBuffer(1,length,audio.sampleRate), data = buffer.getChannelData(0);
-        for (let i = 0; i < length; i++) data[i] = Math.random() * 2 - 1;
-        const source = audio.createBufferSource(), filter = audio.createBiquadFilter(), gain = audio.createGain();
-        source.buffer = buffer; filter.type = 'highpass'; filter.frequency.setValueAtTime(cutoff,now);
-        gain.gain.setValueAtTime(volume,now); gain.gain.exponentialRampToValueAtTime(.0001,now+decay);
-        source.connect(filter); filter.connect(gain); gain.connect(master); source.start(now); source.stop(now+decay);
-      };
-      if (pad === 0 || pad === 3) {
-        const osc = audio.createOscillator(), gain = audio.createGain(); osc.type = pad === 0 ? 'sine' : 'triangle';
-        osc.frequency.setValueAtTime(pad === 0 ? 145 : 210,now); osc.frequency.exponentialRampToValueAtTime(pad === 0 ? 48 : 92,now+.16);
-        gain.gain.setValueAtTime(pad === 0 ? .72 : .42,now); gain.gain.exponentialRampToValueAtTime(.0001,now+.22);
-        osc.connect(gain); gain.connect(master); osc.start(now); osc.stop(now+.23);
-      } else if (pad === 1) { noise(1200,.44,.18); const osc = audio.createOscillator(), gain = audio.createGain();
-        osc.type = 'triangle'; osc.frequency.setValueAtTime(190,now); gain.gain.setValueAtTime(.2,now); gain.gain.exponentialRampToValueAtTime(.0001,now+.11);
-        osc.connect(gain); gain.connect(master); osc.start(now); osc.stop(now+.12);
-      } else noise(6200,.28,.075);
-    } catch {}
-  }
-  async function flashDrumPad(pad,duration) {
-    const button = document.querySelector('.tone-pad[data-pad="' + pad + '"]');
-    if (button) button.classList.add('is-active'); playDrum(pad); await sleep(duration); if (button) button.classList.remove('is-active');
-  }
-  async function playRhythm() {
-    if (busy) return;
-    clearRhythmTimer(); rhythmAttempt = null; busy = true;
-    const rhythm = rhythmPatterns[level], beatMs = 60000 / rhythm.bpm, pads = document.querySelectorAll('.tone-pad');
-    $('listen-button').disabled = true; pads.forEach(button => button.disabled = true); $('listen-button').classList.add('is-playing');
-    $('input-status').classList.remove('is-error','is-success'); $('input-status').textContent = say('Ascolta il pattern e preparati','Listen to the pattern, then get ready','Послушай ритм и приготовься','リズムを聴いて準備しよう');
-    const firstHitAt = performance.now() + 260;
-    for (let i = 0; i < rhythm.pads.length; i++) {
-      const wait = firstHitAt + i * beatMs - performance.now(); if (wait > 0) await sleep(wait);
-      await flashDrumPad(rhythm.pads[i],Math.min(155,beatMs*.27)); renderRhythmMeter(i,i);
+    for (let i = 0; i < 8; i++) {
+      const x = 650 + i * 655;
+      if (x < width - 900 && !pits.some(p => x > p.x - 75 && x < p.x + p.w + 30)) enemies.push({ x, y:floor - 39, base:x, range:70 + (i % 3) * 15, dir:i % 2 ? -1 : 1, alive:true, type:i % 3 });
     }
-    busy = false; pads.forEach(button => button.disabled = false); $('listen-button').classList.remove('is-playing');
-    startRhythmAttempt(beatMs);
+    return {
+      index, data:levels[index], width, floor, platforms, pits, collectibles, enemies,
+      player:{ x:72, y:floor - 52, w:34, h:50, vx:0, vy:0, facing:1, grounded:false, coyote:0, punch:0, invulnerable:0, lives:3, checkpoint:72, anim:0 },
+      boss:{ x:width - 505, y:floor - 94, w:76, h:94, hp:4 + Math.floor(index / 3), maxHp:4 + Math.floor(index / 3), dir:-1, active:false, defeated:false, hitCooldown:0, anim:0 },
+      gateX:width - 92, camera:0, shards:0, elapsed:0, complete:false, paused:false
+    };
   }
-  async function pressRhythmPad(pad) {
-    const attempt = rhythmAttempt; if (!attempt || busy) return;
-    const target = attempt.firstBeatAt + attempt.step * attempt.beatMs, delta = performance.now() - target;
-    if (delta < -attempt.tolerance) { $('input-status').textContent = say('Troppo presto · aspetta il battito','Too early · wait for the beat','Слишком рано · дождись удара','早すぎるよ · ビートを待ってね'); return; }
-    if (delta > attempt.tolerance) { failRhythm('missed'); return; }
-    busy = true; await flashDrumPad(pad,120); busy = false;
-    if (pad !== rhythmPatterns[level].pads[attempt.step]) { failRhythm('wrong'); return; }
-    attempt.step++; renderRhythmMeter(-1,attempt.step);
-    if (attempt.step === rhythmPatterns[level].pads.length) {
-      clearRhythmTimer(); rhythmAttempt = null; $('listen-button').disabled = false;
-      $('input-status').classList.remove('is-error'); $('input-status').classList.add('is-success'); $('input-status').textContent = say('Ritmo agganciato · frammento sbloccato','Beat locked · fragment unlocked','Ритм пойман · фрагмент открыт','リズム受信 · フラグメント解放');
-      completeLevel(); return;
-    }
-    $('input-status').textContent = say('Giusto · continua sul tempo','On beat · keep going','Верно · продолжай в ритм','その調子 · 続けてね');
+  function startLevel(index) {
+    currentLevel = Math.max(0, Math.min(levels.length - 1, index));
+    world = buildWorld(currentLevel);
+    overlayMode = '';
+    $('game-overlay').hidden = true;
+    showScreen('game');
+    updateHud();
+    keys.left = keys.right = keys.run = keys.jump = keys.punch = false;
+    keys.jumpPressed = keys.punchPressed = false;
+    previousFrame = performance.now();
+    cancelAnimationFrame(animationId);
+    animationId = requestAnimationFrame(frame);
+    canvas.focus({ preventScroll:true });
   }
-  function getMelodyOrder() {
-    const length = melodies[level].length, values = Array.from({length},(_,index) => index), shift = (level % (length - 1)) + 1;
-    const rotated = values.slice(shift).concat(values.slice(0,shift)); return level % 2 === 0 ? rotated.reverse() : rotated;
+  function updateHud() {
+    if (!world) return;
+    const stage = levels[currentLevel];
+    $('level-number').textContent = (language === 'it' ? 'MONDO ' : language === 'ja' ? 'ワールド ' : language === 'ru' ? 'МИР ' : 'WORLD ') + String(currentLevel + 1).padStart(2,'0');
+    $('level-count').textContent = String(currentLevel + 1).padStart(2,'0') + ' / 10';
+    $('stage-biome').textContent = stage.biome.toUpperCase();
+    $('track-name').textContent = stage.track;
+    $('health').textContent = '♥ '.repeat(world.player.lives).trim() || '♡';
+    $('health').setAttribute('aria-label', world.player.lives + ' lives');
+    $('shard-count').textContent = '✦ ' + world.shards + ' / ' + world.collectibles.length;
+    $('boss-status').textContent = world.boss.defeated ? say('bossDefeated') : say('bossAhead');
+    $('distance-status').textContent = Math.max(0, Math.floor(world.player.x / 10)) + ' m';
+    $('game-progress').innerHTML = levels.map((_, i) => '<i class="progress-node' + (progress.cleared.includes(i) ? ' is-done' : i === currentLevel ? ' is-current' : '') + '"></i>').join('');
+    document.documentElement.style.setProperty('--stage-color', stage.color);
   }
-  function renderMelodyPuzzle() {
-    const bank = $('melody-bank'), answer = $('melody-answer'); if (!bank || !answer) return;
-    bank.innerHTML = ''; answer.innerHTML = ''; const used = new Set(melodyAnswer);
-    melodyOrder.forEach(step => {
-      if (used.has(step)) return;
-      const note = melodies[level][step], button = document.createElement('button');
-      button.type = 'button'; button.className = 'melody-note'; button.dataset.step = String(step); button.dataset.pitch = String(note); button.textContent = melodyNotes[note]; button.disabled = busy;
-      button.setAttribute('aria-label',say('Riproduci la nota '+melodyNotes[note],'Play note '+melodyNotes[note],'Сыграть ноту '+melodyNotes[note],'音 '+melodyNotes[note]+' を鳴らす'));
-      button.addEventListener('click',() => selectMelodyNote(step)); bank.appendChild(button);
-    });
-    if (!melodyAnswer.length) { const empty = document.createElement('p'); empty.className = 'melody-empty'; empty.textContent = say('Tocca le note per comporre la risposta','Tap notes to build your answer','Нажимай на ноты, чтобы собрать ответ','音をタップしてメロディーを作ろう'); answer.appendChild(empty); }
-    melodyAnswer.forEach((step,index) => {
-      const note = melodies[level][step], button = document.createElement('button');
-      button.type = 'button'; button.className = 'melody-note'; button.dataset.pitch = String(note); button.textContent = melodyNotes[note]; button.disabled = busy;
-      button.setAttribute('aria-label',say('Rimuovi la nota '+melodyNotes[note],'Remove note '+melodyNotes[note],'Убрать ноту '+melodyNotes[note],'音 '+melodyNotes[note]+' を外す'));
-      button.addEventListener('click',() => removeMelodyNote(index)); answer.appendChild(button);
-    });
+  function showOverlay(mode) {
+    overlayMode = mode;
+    const overlay = $('game-overlay');
+    const kicker = $('overlay-kicker'), title = $('overlay-title'), message = $('overlay-copy'), action = $('overlay-action'), menu = $('overlay-menu');
+    let label = 'resume', heading = say('pause'), text = say('resumeCopy'), button = say('resume');
+    if (mode === 'lost') { label = 'retry'; kicker.textContent = say('retry'); heading = say('retry'); text = say('retryCopy'); button = language === 'it' ? 'RIPROVA' : language === 'ja' ? 'もう一度' : language === 'ru' ? 'ПОВТОРИТЬ' : 'TRY AGAIN'; }
+    else if (mode === 'won') {
+      const final = currentLevel === levels.length - 1;
+      label = final ? 'again' : 'next'; kicker.textContent = final ? say('final') : say('win'); heading = final ? say('final') : say('win'); text = final ? say('finalCopy') : say('winCopy'); button = final ? say('again') : say('next');
+    } else { kicker.textContent = say('pause'); }
+    title.textContent = heading;
+    message.textContent = text;
+    action.querySelector('span').textContent = button;
+    action.dataset.action = label;
+    menu.hidden = mode !== 'lost' && mode !== 'won';
+    menu.textContent = say('return');
+    overlay.hidden = false;
   }
-  function selectMelodyNote(step) {
-    if (busy || melodyAnswer.includes(step)) return;
-    const note = melodies[level][step]; tone(note,.24); melodyAnswer.push(step); renderMelodyPuzzle();
-    if (melodyAnswer.length === melodies[level].length) {
-      if (melodyAnswer.every((selected,index) => selected === index)) {
-        busy = true; $('input-status').classList.remove('is-error'); $('input-status').classList.add('is-success'); $('input-status').textContent = say('Melodia ricostruita · frammento sbloccato','Melody rebuilt · fragment unlocked','Мелодия собрана · фрагмент открыт','メロディー再構築 · フラグメント解放');
-        setTimeout(completeLevel,420);
-      } else {
-        $('input-status').classList.remove('is-success'); $('input-status').classList.add('is-error'); $('input-status').textContent = say('Note fuori ordine · rimuovi e riprova','Notes out of order · remove one and try again','Ноты перепутаны · убери ноту и попробуй ещё раз','順番が違うよ · 音を外してやり直そう');
+  function pauseGame() { if (!world || world.complete || overlayMode) return; world.paused = true; showOverlay('pause'); }
+  function resumeGame() { if (!world) return; world.paused = false; overlayMode = ''; $('game-overlay').hidden = true; previousFrame = performance.now(); animationId = requestAnimationFrame(frame); }
+  function damagePlayer(knockDirection) {
+    if (world.player.invulnerable > 0) return;
+    world.player.lives--;
+    world.player.invulnerable = 1.25;
+    world.player.vx = knockDirection * 280;
+    world.player.vy = -280;
+    if (world.player.lives <= 0) { world.paused = true; world.complete = true; showOverlay('lost'); }
+    updateHud();
+  }
+  function respawnFromPit() {
+    world.player.lives--;
+    world.player.x = world.player.checkpoint;
+    world.player.y = world.floor - world.player.h - 6;
+    world.player.vx = world.player.vy = 0;
+    world.player.invulnerable = 1.4;
+    if (world.player.lives <= 0) { world.paused = true; world.complete = true; showOverlay('lost'); }
+    updateHud();
+  }
+  function update(dt) {
+    if (!world || world.paused || world.complete) return;
+    const p = world.player;
+    world.elapsed += dt;
+    p.anim += Math.abs(p.vx) * dt * .035;
+    p.invulnerable = Math.max(0, p.invulnerable - dt);
+    p.punch = Math.max(0, p.punch - dt);
+    const dir = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
+    if (dir) { p.facing = dir; p.vx += dir * (keys.run ? 1700 : 1250) * dt; }
+    else p.vx *= Math.pow(p.grounded ? .001 : .08, dt);
+    const maxSpeed = keys.run ? 365 : 250;
+    p.vx = Math.max(-maxSpeed, Math.min(maxSpeed, p.vx));
+    if (keys.jumpPressed && p.coyote > 0) { p.vy = -650; p.grounded = false; p.coyote = 0; }
+    keys.jumpPressed = false;
+    if (keys.punchPressed) { p.punch = .22; keys.punchPressed = false; }
+    p.vy = Math.min(900, p.vy + 1740 * dt);
+    const oldBottom = p.y + p.h;
+    p.x = Math.max(0, Math.min(world.width - p.w, p.x + p.vx * dt));
+    p.y += p.vy * dt;
+    p.grounded = false;
+    for (const platform of world.platforms) {
+      if (p.vy < 0 || p.x + p.w <= platform.x || p.x >= platform.x + platform.w) continue;
+      const bottom = p.y + p.h;
+      if (oldBottom <= platform.y + 5 && bottom >= platform.y && bottom < platform.y + 30) {
+        p.y = platform.y - p.h; p.vy = 0; p.grounded = true;
       }
-    } else {
-      $('input-status').classList.remove('is-error','is-success'); $('input-status').textContent = say('Nota aggiunta · continua a riordinare','Note added · keep arranging','Нота добавлена · продолжай сборку','音を追加 · 続けて並べよう');
     }
-  }
-  function removeMelodyNote(index) { if (busy) return; melodyAnswer.splice(index,1); renderMelodyPuzzle(); $('input-status').classList.remove('is-error','is-success'); $('input-status').textContent = say('Nota rimossa · sistema l’ordine','Note removed · adjust the order','Нота убрана · измени порядок','音を外したよ · 並べ直そう'); }
-  function resetMelody() { if (busy) return; melodyAnswer = []; renderMelodyPuzzle(); $('input-status').classList.remove('is-error','is-success'); $('input-status').textContent = say('Sequenza svuotata · ascolta e riordina','Order cleared · listen and arrange','Ответ очищен · послушай и собери снова','並びを消去 · 聴いて並べ直そう'); }
-  async function flashMelodyNote(note,duration) {
-    document.querySelectorAll('.melody-note').forEach(button => { if (Number(button.dataset.pitch) === note) button.classList.add('is-active'); });
-    tone(note,duration/1000); await sleep(duration);
-    document.querySelectorAll('.melody-note').forEach(button => button.classList.remove('is-active'));
-  }
-  async function playMelody() {
-    if (busy) return; busy = true; $('listen-button').disabled = true; $('listen-button').classList.add('is-playing');
-    $('input-status').classList.remove('is-error','is-success'); $('input-status').textContent = say('Ascolta le note della traccia','Listen to the track-inspired notes','Послушай ноты по мотивам трека','トラックに着想を得た音を聴こう');
-    renderMelodyPuzzle(); const notes = melodies[level], startAt = performance.now() + 220;
-    for (let i = 0; i < notes.length; i++) { const wait = startAt + i * 410 - performance.now(); if (wait > 0) await sleep(wait); await flashMelodyNote(notes[i],270); }
-    busy = false; $('listen-button').disabled = false; $('listen-button').classList.remove('is-playing'); renderMelodyPuzzle();
-    $('input-status').textContent = say('Ora riordina le note ascoltate','Now reorder the notes you heard','Теперь расставь услышанные ноты','聴いた音を順番に並べよう');
+    p.coyote = p.grounded ? .11 : Math.max(0, p.coyote - dt);
+    if (p.y > 635) { respawnFromPit(); return; }
+    if (p.x > p.checkpoint + 1300) p.checkpoint = Math.floor(p.x / 1300) * 1300;
+
+    for (const gem of world.collectibles) {
+      if (gem.taken) continue;
+      const gy = gem.y + Math.sin(world.elapsed * 3 + gem.phase) * 5;
+      if (Math.abs((p.x + p.w / 2) - gem.x) < 29 && Math.abs((p.y + p.h / 2) - gy) < 34) { gem.taken = true; world.shards++; }
+    }
+    for (const enemy of world.enemies) {
+      if (!enemy.alive) continue;
+      enemy.x += enemy.dir * (50 + currentLevel * 3) * dt;
+      if (Math.abs(enemy.x - enemy.base) > enemy.range) enemy.dir *= -1;
+      const hit = p.x < enemy.x + 37 && p.x + p.w > enemy.x && p.y < enemy.y + 36 && p.y + p.h > enemy.y;
+      if (!hit) continue;
+      const dx = enemy.x + 18 - (p.x + p.w / 2);
+      if (p.vy > 120 && oldBottom < enemy.y + 16) { enemy.alive = false; p.vy = -390; }
+      else if (p.punch > 0 && Math.sign(dx) === p.facing && Math.abs(dx) < 72) enemy.alive = false;
+      else damagePlayer(dx > 0 ? -1 : 1);
+    }
+    const boss = world.boss;
+    if (!boss.defeated && p.x > boss.x - 590) {
+      boss.active = true;
+      boss.anim += dt;
+      if (boss.x > world.width - 600 && boss.x < world.width - 300) boss.x += boss.dir * (70 + currentLevel * 4) * dt;
+      if (boss.x <= world.width - 600 || boss.x >= world.width - 300) boss.dir *= -1;
+      const dx = boss.x + boss.w / 2 - (p.x + p.w / 2);
+      const inRange = Math.abs(dx) < 82 && p.y + p.h > boss.y + 8;
+      if (inRange && p.punch > 0 && Math.sign(dx) === p.facing && boss.hitCooldown <= 0) {
+        boss.hp--; boss.hitCooldown = .52; boss.x += boss.dir * 28;
+        if (boss.hp <= 0) boss.defeated = true;
+        updateHud();
+      } else if (inRange && boss.hitCooldown <= 0) { damagePlayer(dx > 0 ? -1 : 1); boss.hitCooldown = 1.15; }
+      boss.hitCooldown = Math.max(0, boss.hitCooldown - dt);
+    }
+    if (boss.defeated && p.x + p.w >= world.gateX) completeLevel();
+    world.camera = Math.max(0, Math.min(world.width - canvas.width, p.x - canvas.width * .34));
+    if (Math.floor(world.elapsed * 5) !== Math.floor((world.elapsed - dt) * 5)) updateHud();
   }
   function completeLevel() {
-    if (!state.completed.includes(level)) state.completed = [...state.completed,level];
-    save(); drawProgress(); showReward();
+    if (world.complete) return;
+    world.complete = true; world.paused = true;
+    if (!progress.cleared.includes(currentLevel)) progress.cleared.push(currentLevel);
+    save(); updateProgress(); updateHud(); showOverlay('won');
   }
-  function continueToNextLevel() {
-    if (!state.completed.includes(level)) state.completed = [...state.completed,level];
-    if (completedCount() >= tracks.length) state.completed = [];
-    save(); drawProgress();
-    level = nextLevel(); updateModeScreen(); show('mode');
+  function roundedRect(c, x, y, w, h, r, fill, stroke) {
+    c.beginPath(); c.roundRect(x, y, w, h, r);
+    if (fill) { c.fillStyle = fill; c.fill(); }
+    if (stroke) { c.strokeStyle = stroke; c.stroke(); }
   }
-  function chooseMode(mode) {
-    if (!['memory','rhythm','melody'].includes(mode)) return;
-    cleanupGame(); gameMode = mode; melodyAnswer = []; melodyOrder = mode === 'melody' ? getMelodyOrder() : [];
-    updateLevel(); updateGameModeUI(); show('game');
-    if (mode === 'memory') playSequence(); else if (mode === 'rhythm') playRhythm(); else playMelody();
+  function drawBackground() {
+    const d = world.data;
+    const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    sky.addColorStop(0, '#110d20'); sky.addColorStop(.5, d.sky); sky.addColorStop(1, d.deep);
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < 76; i++) {
+      const x = ((i * 137.7 - world.camera * (.08 + (i % 4) * .018)) % (canvas.width + 24) + canvas.width + 24) % (canvas.width + 24);
+      const y = 22 + ((i * 71) % 265), size = i % 11 === 0 ? 2 : 1;
+      ctx.globalAlpha = .35 + .45 * Math.abs(Math.sin(world.elapsed * .8 + i));
+      ctx.fillStyle = i % 5 === 0 ? d.color : '#fff4db'; ctx.fillRect(x, y, size, size);
+    }
+    ctx.globalAlpha = 1;
+    const sunX = 680 - world.camera * .14, sunY = 210;
+    const halo = ctx.createRadialGradient(sunX, sunY, 25, sunX, sunY, 190);
+    halo.addColorStop(0, d.color + '8a'); halo.addColorStop(1, d.color + '00');
+    ctx.fillStyle = halo; ctx.fillRect(sunX - 190, sunY - 190, 380, 380);
+    ctx.fillStyle = '#ffd58c'; ctx.beginPath(); ctx.arc(sunX, sunY, 74, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = d.color; ctx.beginPath(); ctx.arc(sunX, sunY + 9, 68, Math.PI, 0); ctx.fill();
+    for (let layer = 0; layer < 3; layer++) {
+      const offset = -((world.camera * (.12 + layer * .1)) % 520);
+      ctx.beginPath(); ctx.moveTo(-600, canvas.height);
+      for (let x = -600 + offset; x < canvas.width + 620; x += 260) {
+        const peak = 185 + layer * 43 + ((Math.floor((x + 600 - offset) / 260) * 31 + layer * 17) % 105);
+        ctx.lineTo(x, peak); ctx.lineTo(x + 130, 360 + layer * 45);
+      }
+      ctx.lineTo(canvas.width + 600, canvas.height); ctx.closePath();
+      ctx.fillStyle = layer === 0 ? '#1b1730' : layer === 1 ? '#21182b' : '#2a1929'; ctx.fill();
+    }
+    ctx.fillStyle = 'rgba(10,8,20,.32)';
+    for (let i = 0; i < 10; i++) {
+      const x = ((i * 213 - world.camera * .31) % (canvas.width + 180) + canvas.width + 180) % (canvas.width + 180) - 40;
+      const h = 50 + (i * 37 % 95); ctx.fillRect(x, 350 - h, 34 + i % 4 * 13, h + 45);
+    }
   }
-  async function handlePadPress(pad) {
-    if (gameMode === 'rhythm') return pressRhythmPad(pad);
-    if (gameMode === 'memory') return pressMemoryPad(pad);
+  function drawPlatforms() {
+    const d = world.data;
+    for (const platform of world.platforms) {
+      if (platform.x + platform.w < world.camera - 100 || platform.x > world.camera + canvas.width + 100) continue;
+      const x = platform.x, y = platform.y;
+      if (platform.ground) {
+        const grad = ctx.createLinearGradient(0, y, 0, y + 120); grad.addColorStop(0, '#3a2638'); grad.addColorStop(.1, '#281d31'); grad.addColorStop(1, '#131323');
+        ctx.fillStyle = grad; ctx.fillRect(x, y, platform.w, platform.h);
+        ctx.fillStyle = d.color; ctx.fillRect(x, y, platform.w, 5);
+        ctx.fillStyle = 'rgba(255,255,255,.07)';
+        for (let tx = Math.ceil(x / 62) * 62; tx < x + platform.w; tx += 62) { ctx.fillRect(tx, y + 21, 2, 17); ctx.fillRect(tx + 19, y + 63, 17, 2); }
+      } else {
+        roundedRect(ctx, x, y, platform.w, platform.h, 7, '#34243b', 'rgba(255,255,255,.18)');
+        ctx.fillStyle = d.color; ctx.fillRect(x + 6, y + 2, platform.w - 12, 3);
+        ctx.fillStyle = 'rgba(255,255,255,.13)'; ctx.fillRect(x + 15, y + platform.h - 3, platform.w - 30, 1);
+      }
+    }
+  }
+  function drawGem(gem) {
+    if (gem.taken) return;
+    const x = gem.x, y = gem.y + Math.sin(world.elapsed * 3 + gem.phase) * 5;
+    ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(world.elapsed * 2 + gem.phase) * .12);
+    ctx.shadowColor = world.data.color; ctx.shadowBlur = 18;
+    ctx.beginPath(); ctx.moveTo(0,-15); ctx.lineTo(12,-3); ctx.lineTo(8,12); ctx.lineTo(0,16); ctx.lineTo(-8,12); ctx.lineTo(-12,-3); ctx.closePath();
+    ctx.fillStyle = '#ffe08b'; ctx.fill(); ctx.strokeStyle = '#fff5cc'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.shadowBlur = 0; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(-3,-7); ctx.lineTo(1,-11); ctx.lineTo(5,-4); ctx.lineTo(0,1); ctx.fill();
+    ctx.restore();
+  }
+  function drawEnemy(enemy) {
+    if (!enemy.alive) return;
+    ctx.save(); ctx.translate(enemy.x + 18, enemy.y + 17); if (enemy.dir < 0) ctx.scale(-1,1);
+    const body = ['#72e4c3','#c693ff','#ff9e73'][enemy.type];
+    ctx.shadowColor = body; ctx.shadowBlur = 13;
+    roundedRect(ctx, -17, -14, 34, 27, 7, body, '#fff0d0');
+    ctx.shadowBlur = 0; roundedRect(ctx, -12, -7, 24, 10, 4, '#20192b');
+    ctx.fillStyle = '#fff3c4'; ctx.fillRect(-7,-5,4,4); ctx.fillRect(4,-5,4,4);
+    ctx.fillStyle = '#39223a'; ctx.fillRect(-12,12,7,6); ctx.fillRect(6,12,7,6);
+    ctx.restore();
+  }
+  function drawBoss() {
+    const b = world.boss; if (b.defeated || b.x < world.camera - 160 || b.x > world.camera + canvas.width + 120) return;
+    ctx.save(); ctx.translate(b.x + b.w / 2, b.y + Math.sin(b.anim * 3) * 4); if (b.dir > 0) ctx.scale(-1,1);
+    ctx.shadowColor = world.data.color; ctx.shadowBlur = 25;
+    roundedRect(ctx, -38, -37, 76, 80, 18, '#36213d', world.data.color);
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = '#dfb36c'; ctx.beginPath(); ctx.ellipse(0,-2,29,31,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#201525'; ctx.beginPath(); ctx.ellipse(-11,-5,7,10,0,0,Math.PI*2); ctx.ellipse(11,-5,7,10,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#ff637a'; ctx.fillRect(-3,13,6,9);
+    ctx.fillStyle = '#e9bf73'; ctx.fillRect(-17,27,7,14); ctx.fillRect(10,27,7,14);
+    ctx.fillStyle = '#ffd77a'; ctx.fillRect(-32,43,18,8); ctx.fillRect(15,43,18,8);
+    ctx.restore();
+    const barW = 112, bx = b.x + b.w / 2 - barW / 2, by = b.y - 59;
+    roundedRect(ctx,bx,by,barW,10,5,'rgba(15,10,24,.75)','rgba(255,255,255,.3)');
+    roundedRect(ctx,bx+2,by+2,(barW-4)*(b.hp/b.maxHp),6,3,world.data.color);
+  }
+  function drawPlayer() {
+    const p = world.player;
+    if (p.invulnerable > 0 && Math.floor(world.elapsed * 13) % 2 === 0) return;
+    ctx.save(); ctx.translate(p.x + p.w / 2, p.y); if (p.facing < 0) ctx.scale(-1,1);
+    const running = Math.abs(p.vx) > 30 && p.grounded, swing = running ? Math.sin(p.anim) * 9 : 0;
+    ctx.shadowColor = '#ff9947'; ctx.shadowBlur = 14;
+    // Small red explorer body with a recognizable golden skull helmet.
+    roundedRect(ctx,-13,21,26,24,7,'#bb4554','#ffd28c');
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = '#f2c36e'; ctx.fillRect(-11,39,9,6); ctx.fillRect(3,39,9,6);
+    ctx.fillStyle = '#222138'; ctx.fillRect(-12,43+swing*.15,10,5); ctx.fillRect(3,43-swing*.15,11,5);
+    ctx.strokeStyle = '#e6ad68'; ctx.lineWidth = 6; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(-10,27); ctx.lineTo(-17,35+swing); ctx.moveTo(10,27); ctx.lineTo(16,33-swing); ctx.stroke();
+    if (p.punch > 0) { ctx.strokeStyle='#ffe28b'; ctx.lineWidth=8; ctx.beginPath(); ctx.moveTo(10,29); ctx.lineTo(31,27); ctx.stroke(); ctx.fillStyle='#fff3bb'; ctx.beginPath(); ctx.arc(32,27,7,0,Math.PI*2); ctx.fill(); }
+    ctx.shadowColor = '#ffd96b'; ctx.shadowBlur = 10;
+    ctx.fillStyle = '#e9bd70'; ctx.beginPath(); ctx.ellipse(0,12,17,17,0,0,Math.PI*2); ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.fillStyle='#241528'; ctx.beginPath(); ctx.ellipse(-7,12,4.5,6.5,0,0,Math.PI*2); ctx.ellipse(7,12,4.5,6.5,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#b77a55'; ctx.beginPath(); ctx.moveTo(0,15); ctx.lineTo(-3,21); ctx.lineTo(3,21); ctx.fill();
+    ctx.fillStyle='#fff0c1'; ctx.fillRect(-7,24,3,3); ctx.fillRect(-2,25,3,3); ctx.fillRect(3,24,3,3);
+    ctx.fillStyle='#e85a59'; ctx.fillRect(-15,4,30,5);
+    ctx.restore();
+  }
+  function drawGate() {
+    const x = world.gateX, y = world.floor - 106;
+    ctx.save(); ctx.translate(x, y);
+    ctx.shadowColor = world.boss.defeated ? '#ffe18c' : '#d84468'; ctx.shadowBlur = 25;
+    ctx.strokeStyle = world.boss.defeated ? '#ffe18c' : '#c4547b'; ctx.lineWidth = 8;
+    ctx.beginPath(); ctx.arc(0,51,38,Math.PI,0); ctx.lineTo(38,106); ctx.moveTo(-38,51); ctx.lineTo(-38,106); ctx.stroke();
+    ctx.fillStyle = world.boss.defeated ? 'rgba(255,225,140,.28)' : 'rgba(185,53,112,.17)'; ctx.beginPath(); ctx.ellipse(0,77,28,39,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#fff1bd'; ctx.font='bold 17px monospace'; ctx.textAlign='center'; ctx.fillText(world.boss.defeated?'✦':'LOCK',0,84);
+    ctx.restore();
+  }
+  function render() {
+    if (!world) return;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    drawBackground();
+    ctx.save(); ctx.translate(-world.camera,0);
+    drawPlatforms();
+    for (const gem of world.collectibles) if (gem.x > world.camera - 40 && gem.x < world.camera + canvas.width + 40) drawGem(gem);
+    for (const enemy of world.enemies) drawEnemy(enemy);
+    drawGate(); drawBoss(); drawPlayer();
+    ctx.restore();
+    if (world.boss.active && !world.boss.defeated) {
+      ctx.fillStyle='rgba(12,8,19,.56)'; roundedRect(ctx,canvas.width/2-60,17,120,25,12,'rgba(12,8,19,.56)','rgba(255,255,255,.22)');
+      ctx.fillStyle='#ffe7b1'; ctx.textAlign='center'; ctx.font='bold 11px monospace'; ctx.fillText(say('boss')+' · '+world.boss.hp+'/'+world.boss.maxHp,canvas.width/2,34);
+    }
+  }
+  function frame(time) {
+    if (!world || $('game-screen').hidden) return;
+    const dt = Math.min(.034, Math.max(0, (time - previousFrame) / 1000)); previousFrame = time;
+    update(dt); render();
+    if (!world.paused && !world.complete) animationId = requestAnimationFrame(frame);
   }
 
-  async function flash(pad,duration=250){const button=document.querySelector(`[data-pad="${pad}"]`);button.classList.add('is-active');tone(pad,duration/1000);await sleep(duration);button.classList.remove('is-active');}
-  async function playSequence(){if(busy)return;busy=true;inputIndex=0;document.querySelectorAll('.tone-pad').forEach(b=>b.disabled=true);$('listen-button').disabled=true;$('listen-button').classList.add('is-playing');$('input-status').textContent=say('Ascolta e memorizza…','Listen and remember…','Слушай и запоминай…','聴いて覚えよう…');await sleep(350);for(const pad of patterns[level]){await flash(pad,260);await sleep(115);}busy=false;document.querySelectorAll('.tone-pad').forEach(b=>b.disabled=false);$('listen-button').disabled=false;$('listen-button').classList.remove('is-playing');$('input-status').textContent=say('Ora ripeti la sequenza','Now repeat the sequence','Теперь повтори последовательность','次は同じ順番でタップ');}
-  function toast(message){const el=$('toast');el.textContent=message;el.classList.add('is-visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('is-visible'),2300);}
-  async function pressMemoryPad(pad) {
-    if (busy) return;
-    if (!audio) { try { audio = new (window.AudioContext || window.webkitAudioContext)(); } catch {} }
-    await flash(pad,180);
-    if (pad !== patterns[level][inputIndex]) { inputIndex = 0; $('input-status').textContent = say('Segnale fuori fase · riascolta e riprova','Signal out of phase · listen and try again','Сигнал сбился · послушай ещё раз','シグナルがずれたよ · もう一度聴こう'); $('input-status').classList.add('is-error'); return; }
-    inputIndex++;
-    if (inputIndex === patterns[level].length) { busy = true; $('input-status').textContent = say('Segnale agganciato · frammento sbloccato','Signal locked · fragment unlocked','Сигнал пойман · фрагмент открыт','シグナル受信 · フラグメント解放'); $('input-status').classList.remove('is-error'); $('input-status').classList.add('is-success'); completeLevel(); }
-  }
-  function getPlayerName(){const fallback=say('CERCATORE DI SEGNALI','SIGNAL SEEKER','ИСКАТЕЛЬ СИГНАЛА','シグナル・シーカー');return String(state.playerName||'').trim().replace(/[<>\u0000-\u001f]/g,'').slice(0,20)||fallback;}
-  function drawRewardArtwork(){const canvas=$('reward-artwork'),ctx=canvas.getContext('2d'),track=currentTrack(),sequence=currentSequence(),hue=(track.n*47+155)%360,name=getPlayerName(),w=canvas.width,h=canvas.height;if(!rewardCover){rewardCover=new Image();rewardCover.onload=()=>drawRewardArtwork();rewardCover.onerror=()=>{rewardCoverFailed=true;drawRewardArtwork();};rewardCover.src='./exotic-automatic-cover.jpg';} const bg=ctx.createLinearGradient(0,0,w,h);bg.addColorStop(0,'#101b28');bg.addColorStop(.5,'#070b13');bg.addColorStop(1,'#0d1722');ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);ctx.save();ctx.strokeStyle=`hsla(${hue},90%,72%,.075)`;ctx.lineWidth=1;for(let x=35;x<w;x+=48){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}for(let y=20;y<h;y+=48){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}for(let i=0;i<54;i++){const x=(i*173+track.n*71)%w,y=(i*239+track.n*113)%h;ctx.fillStyle=`hsla(${hue},90%,82%,${.16+(i%4)*.1})`;ctx.fillRect(x,y,2+(i%3),2+(i%3));}ctx.restore();ctx.strokeStyle='rgba(224,243,252,.68)';ctx.lineWidth=2;ctx.strokeRect(22,22,w-44,h-44);ctx.strokeStyle=`hsla(${hue},95%,75%,.8)`;ctx.strokeRect(31,31,w-62,h-62);ctx.fillStyle='#d6e6ee';ctx.font='bold 27px monospace';ctx.fillText('SUN GROUND',64,84);ctx.fillStyle='#8c9aa8';ctx.font='17px monospace';ctx.textAlign='right';ctx.fillText('EXOTIC AUTOMATIC  /  SIGNAL HUNT',w-64,82);ctx.textAlign='left';ctx.strokeStyle='rgba(212,231,242,.3)';ctx.beginPath();ctx.moveTo(64,112);ctx.lineTo(w-64,112);ctx.stroke();ctx.fillStyle=`hsl(${hue},100%,78%)`;ctx.font='bold 20px monospace';ctx.fillText(say('TRASMISSIONE DECIFRATA','SIGNAL RECOVERED','СИГНАЛ ВОССТАНОВЛЕН','シグナル復元'),64,164);ctx.fillStyle='#f4f8fa';ctx.font='bold 208px Arial,sans-serif';ctx.fillText(String(track.n).padStart(2,'0'),58,372);ctx.save();ctx.shadowColor=`hsla(${hue},100%,70%,.42)`;ctx.shadowBlur=32;if(!rewardCover?.complete||!rewardCover.naturalWidth){ctx.fillStyle='rgba(255,255,255,.04)';ctx.fillRect(720,150,282,282);ctx.strokeStyle=`hsl(${hue},90%,78%)`;ctx.lineWidth=3;ctx.strokeRect(736,166,250,250);ctx.fillStyle=`hsl(${hue},100%,82%)`;ctx.font='bold 28px monospace';ctx.fillText('SG / EA',770,278);ctx.fillText(String(track.n).padStart(2,'0'),840,332);}else ctx.drawImage(rewardCover,720,150,282,282);ctx.restore();ctx.strokeStyle=`hsl(${hue},90%,78%)`;ctx.lineWidth=3;ctx.strokeRect(720,150,282,282);ctx.fillStyle='#9badbb';ctx.font='16px monospace';ctx.fillText(`TRACK / ${String(track.n).padStart(2,'0')}  ·  MISSION / ${String(level+1).padStart(2,'0')}`,66,420);ctx.fillStyle='#fff';const titleSize=Math.min(58,920/Math.max(track.title.length*.62,1));ctx.font=`600 ${titleSize}px Arial,"Yu Gothic",sans-serif`;ctx.fillText(track.title,64,496);ctx.fillStyle='#91a5b3';ctx.font='16px monospace';ctx.fillText(say('IL TUO FRAMMENTO SONORO','YOUR SOUND FRAGMENT','ТВОЙ ЗВУКОВОЙ ФРАГМЕНТ','あなたのサウンド・フラグメント'),64,554);ctx.fillStyle=`hsla(${hue},85%,76%,.14)`;for(let r=70;r<510;r+=72){ctx.beginPath();ctx.ellipse(w/2,793,r,r*.36,-.12,0,Math.PI*2);ctx.strokeStyle=`hsla(${hue},85%,76%,${.2-r/3000})`;ctx.lineWidth=1;ctx.stroke()}const pts=sequence.map((pad,i)=>[76+i*(928/Math.max(1,sequence.length-1)),850-pad*62]);ctx.save();ctx.beginPath();ctx.moveTo(...pts[0]);pts.slice(1).forEach(([x,y])=>ctx.lineTo(x,y));ctx.strokeStyle=`hsl(${hue},100%,78%)`;ctx.lineWidth=7;ctx.shadowColor=`hsl(${hue},100%,75%)`;ctx.shadowBlur=24;ctx.stroke();pts.forEach(([x,y],i)=>{ctx.beginPath();ctx.arc(x,y,11+sequence[i]*2,0,Math.PI*2);ctx.fillStyle='#08101a';ctx.fill();ctx.strokeStyle=`hsl(${(hue+sequence[i]*28)%360},100%,83%)`;ctx.lineWidth=4;ctx.stroke();ctx.fillStyle='#e7f7ff';ctx.font='12px monospace';ctx.textAlign='center';ctx.fillText(String(i+1).padStart(2,'0'),x,y+34)});ctx.restore();ctx.textAlign='left';ctx.fillStyle='#8296a5';ctx.font='14px monospace';ctx.fillText(`NOTE PATH  /  ${sequence.map(n=>n+1).join(' — ')}`,64,1000);ctx.strokeStyle='rgba(220,237,247,.25)';ctx.beginPath();ctx.moveTo(64,1044);ctx.lineTo(w-64,1044);ctx.stroke();ctx.fillStyle='#8296a5';ctx.font='14px monospace';ctx.fillText(say('RITROVATO DA','RECOVERED BY','НАЙДЕНО ИГРОКОМ','発見したプレイヤー'),64,1092);ctx.fillStyle='#f3f8fb';ctx.font='bold 38px Arial,"Yu Gothic",sans-serif';ctx.fillText(name,64,1145);ctx.fillStyle=`hsl(${hue},90%,78%)`;ctx.font='14px monospace';ctx.fillText(`SG / EA-${String(track.n).padStart(2,'0')}  ·  SUNGROUND3.BANDCAMP.COM`,64,1230);ctx.textAlign='right';ctx.fillStyle='#aebbc5';ctx.font='16px monospace';ctx.fillText('EXOTIC AUTOMATIC',w-64,1290);ctx.textAlign='left';rewardReady=true;$('save-reward-button').disabled=false;$('share-button').disabled=false;}
-  function showReward() {
-    clearRhythmTimer(); rhythmAttempt = null; show('result'); busy = false; rewardReady = false; $('save-reward-button').disabled = true; $('share-button').disabled = true;
-    const t = currentTrack(); $('player-name-input').value = state.playerName || '';
-    const copy = gameMode === 'rhythm' ? say('Hai tenuto il ritmo sulla traccia ' + t.n + ', “' + t.title + '”.','You held the beat on track ' + t.n + ', “' + t.title + '”.','Ты удержал ритм на треке ' + t.n + ', «' + t.title + '».','トラック' + t.n + '「' + t.title + '」のリズムをつかみました。') : gameMode === 'melody' ? say('Hai ricostruito il motivo synth ispirato a “' + t.title + '”, traccia ' + t.n + '.','You rebuilt the synth phrase inspired by “' + t.title + '”, track ' + t.n + '.','Ты собрал синтезаторный мотив по мотивам «' + t.title + '», трек ' + t.n + '.','「' + t.title + '」に着想を得たシンセフレーズを再構築しました。トラック' + t.n + '。') : say('Hai ricostruito il segnale di “' + t.title + '”, traccia ' + t.n + ' di Exotic Automatic.','You rebuilt the signal for “' + t.title + '”, track ' + t.n + ' of Exotic Automatic.','Ты восстановил сигнал «' + t.title + '», трек ' + t.n + ' из Exotic Automatic.','「' + t.title + '」のシグナルを再現。Exotic Automaticの' + t.n + '曲目。');
-    $('result-copy').textContent = copy; updateContinueButton(); drawRewardArtwork();
-  }
-  function enterGame() {
-    try { spotifyController?.pause(); } catch {}
-    if (completedCount() >= tracks.length) { state.completed = []; save(); }
-    level = nextLevel(); updateModeScreen(); show('mode');
-  }
-  function start(){if(state.fanAccess){enterGame();return;}show('fan');}
-  function goHome() { cleanupGame(); show('home'); }
-  function makeCard(){if(!rewardReady)return;const canvas=$('reward-artwork');canvas.toBlob(blob=>{if(!blob){toast(say('Impossibile creare il file','Could not create the image','Не удалось создать изображение','画像を作成できませんでした'));return;}const a=document.createElement('a'),name=getPlayerName().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'signal-seeker';a.href=URL.createObjectURL(blob);a.download=`sun-ground-${currentTrack().n}-${name}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200);},'image/png');}
-  async function shareLevel(){const t=currentTrack(),text=say(`Sto decifrando il segnale ${t.n} di Sun Ground — Exotic Automatic. Prova anche tu Signal Hunt!`,`I'm decoding Sun Ground's signal ${t.n} — Exotic Automatic. Try Signal Hunt!`,`Я расшифровываю сигнал ${t.n} Sun Ground — Exotic Automatic. Попробуй Signal Hunt!`,`Sun Ground「Exotic Automatic」のシグナル${t.n}を解読中。Signal Huntに挑戦！`);try{if(navigator.share)await navigator.share({title:'Sun Ground — Signal Hunt',text,url:location.href});else{await navigator.clipboard.writeText(`${text} ${location.href}`);toast(say('Invito copiato: mandalo a un amico','Invite copied — send it to a friend','Приглашение скопировано — отправь другу','招待リンクをコピーしました'));}}catch{}}
-  async function share(){if(!rewardReady)return;const t=currentTrack(),name=getPlayerName(),text=say(`${name} ha decifrato il segnale ${t.n} di Sun Ground: Exotic Automatic. Tocca a te!`,`${name} decoded Sun Ground’s signal ${t.n} from Exotic Automatic. Your turn!`,`${name} расшифровал сигнал ${t.n} Sun Ground из Exotic Automatic. Твоя очередь!`,`${name}がSun Ground「Exotic Automatic」のシグナル${t.n}を解読！次はあなた！`);try{if(navigator.share){const canvas=$('reward-artwork'),blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png')),file=blob&&typeof File!=='undefined'?new File([blob],`sun-ground-signal-${t.n}.png`,{type:'image/png'}):null;if(file&&navigator.canShare?.({files:[file]}))await navigator.share({title:'Sun Ground — Signal Hunt',text,files:[file]});else await navigator.share({title:'Sun Ground — Signal Hunt',text,url:location.href});}else{await navigator.clipboard.writeText(`${text} ${location.href}`);toast(say('Link e messaggio copiati','Link and message copied','Ссылка и сообщение скопированы','リンクとメッセージをコピーしました'));}}catch{}}
-  $('language-toggle').addEventListener('change',event=>setLanguage(event.target.value));
-  $('wordmark-home').addEventListener('click',event=>{event.preventDefault();goHome();});$('start-button').addEventListener('click',start);$('fan-back-button').addEventListener('click',goHome);$('back-button').addEventListener('click',goHome); $('mode-back-button').addEventListener('click',goHome); document.querySelectorAll('[data-game-mode]').forEach(button=>button.addEventListener('click',()=>chooseMode(button.dataset.gameMode))); $('melody-reset').addEventListener('click',resetMelody);$('result-home-button').addEventListener('click',()=>{drawProgress();goHome();});$('listen-button').addEventListener('click',()=>{if(gameMode==='memory')playSequence();else if(gameMode==='rhythm')playRhythm();else playMelody();});document.querySelectorAll('.tone-pad').forEach(b=>b.addEventListener('click',()=>handlePadPress(Number(b.dataset.pad))));document.querySelectorAll('[data-timbre]').forEach(button=>button.addEventListener('click',()=>{state.timbre=button.dataset.timbre;save();updateTimbrePicker();tone(0,.2);}));$('player-name-input').addEventListener('input',event=>{state.playerName=event.target.value.slice(0,20);save();drawRewardArtwork();});$('save-reward-button').addEventListener('click',makeCard);$('share-button').addEventListener('click',share);$('share-level-button').addEventListener('click',shareLevel);$('continue-button').addEventListener('click',continueToNextLevel);
-  window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferredInstallPrompt=event;$('install-app').hidden=false;});
-  $('install-app').addEventListener('click',async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;$('install-app').hidden=true;});
-  window.addEventListener('appinstalled',()=>{$('install-app').hidden=true;});
-  document.querySelectorAll('[data-pass-method]').forEach(button=>button.addEventListener('click',()=>{state.fanAccess=button.dataset.passMethod;save();updateFanBadge();$('fan-status').textContent=say('Fan Pass demo attivo in questo browser · prima missione: traccia 7','Demo Fan Pass active in this browser · first mission: track 7','Демо Fan Pass активирован в этом браузере · первая миссия: трек 7','このブラウザーでデモFan Passを有効化 · 最初のミッション：7曲目');enterGame();}));
-  $('google-preview-button').addEventListener('click',()=>{state.fanAccess='google-preview';save();updateFanBadge();toast(say('Fan Pass demo attivo · nessun account Google collegato','Demo Fan Pass active · no Google account connected','Демо Fan Pass активирован · аккаунт Google не подключён','デモFan Passを有効化 · Googleアカウントは未接続'));enterGame();});
-  window.onSpotifyIframeApiReady = IFrameAPI => { const element=$('spotify-player');if(!element||!IFrameAPI?.createController)return;IFrameAPI.createController(element,{width:'100%',height:'352',uri:'spotify:album:3d7kjv4ECBPjboeupDRA4S'},controller=>{spotifyController=controller;}); };
-  const spotifyApi=document.createElement('script');spotifyApi.src='https://open.spotify.com/embed/iframe-api/v1';spotifyApi.async=true;document.body.append(spotifyApi);
-  if('serviceWorker' in navigator && location.protocol!=='file:')navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
-  let savedLanguage='en';try{savedLanguage=localStorage.getItem('sun-ground-language-v4')||'en';}catch{}setLanguage(savedLanguage);drawProgress();updateFanBadge();
+  document.addEventListener('keydown', event => {
+    const key = event.key.toLowerCase();
+    if (['arrowleft','arrowright','arrowup',' ','shift'].includes(key)) event.preventDefault();
+    if (key === 'arrowleft' || key === 'a') keys.left = true;
+    if (key === 'arrowright' || key === 'd') keys.right = true;
+    if (key === 'shift') keys.run = true;
+    if ((key === ' ' || key === 'arrowup' || key === 'w') && !keys.jump) { keys.jump = true; keys.jumpPressed = true; }
+    if ((key === 'x' || key === 'j') && !keys.punch) { keys.punch = true; keys.punchPressed = true; }
+    if (key === 'escape') { if (overlayMode === 'pause') resumeGame(); else if (!overlayMode) pauseGame(); }
+  });
+  document.addEventListener('keyup', event => {
+    const key = event.key.toLowerCase();
+    if (key === 'arrowleft' || key === 'a') keys.left = false;
+    if (key === 'arrowright' || key === 'd') keys.right = false;
+    if (key === 'shift') keys.run = false;
+    if (key === ' ' || key === 'arrowup' || key === 'w') keys.jump = false;
+    if (key === 'x' || key === 'j') keys.punch = false;
+  });
+  window.addEventListener('blur', () => { keys.left = keys.right = keys.run = keys.jump = keys.punch = false; });
+  document.querySelectorAll('[data-control]').forEach(button => {
+    const control = button.dataset.control;
+    const down = event => { event.preventDefault(); button.setPointerCapture?.(event.pointerId); if (control === 'jump') { if (!keys.jump) keys.jumpPressed = true; keys.jump = true; } else if (control === 'punch') { if (!keys.punch) keys.punchPressed = true; keys.punch = true; } else keys[control] = true; button.classList.add('is-held'); };
+    const up = event => { event.preventDefault(); if (control !== 'run') keys[control] = false; else keys.run = false; button.classList.remove('is-held'); };
+    button.addEventListener('pointerdown', down); button.addEventListener('pointerup', up); button.addEventListener('pointercancel', up); button.addEventListener('lostpointercapture', up);
+  });
+  $('start-button').addEventListener('click', () => startLevel(nextLevel()));
+  $('wordmark-home').addEventListener('click', event => { event.preventDefault(); showScreen('home'); cancelAnimationFrame(animationId); updateProgress(); });
+  $('back-button').addEventListener('click', () => { cancelAnimationFrame(animationId); showScreen('home'); updateProgress(); });
+  $('pause-button').addEventListener('click', pauseGame);
+  $('overlay-action').addEventListener('click', event => {
+    const action = event.currentTarget.dataset.action;
+    if (action === 'resume') resumeGame();
+    else if (action === 'retry') startLevel(currentLevel);
+    else if (action === 'next') startLevel(Math.min(9,currentLevel+1));
+    else startLevel(0);
+  });
+  $('overlay-menu').addEventListener('click', () => { cancelAnimationFrame(animationId); showScreen('home'); updateProgress(); });
+  $('language-toggle').addEventListener('change', event => setLanguage(event.target.value));
+  $('install-app').addEventListener('click', async () => { if (!deferredInstallPrompt) return; deferredInstallPrompt.prompt(); await deferredInstallPrompt.userChoice; deferredInstallPrompt = null; $('install-app').hidden = true; });
+  window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); deferredInstallPrompt = event; $('install-app').hidden = false; });
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+  if (!ctx) { $('start-button').disabled = true; $('canvas-hint').textContent = say('noCanvas'); }
+  setLanguage(language);
+  updateProgress();
 })();
-
-
-
-
-
-
