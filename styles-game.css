@@ -1,0 +1,118 @@
+.game-screen{padding-top:18px}
+html,body{overflow-x:hidden;scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
+html:has(body.playing-game){scrollbar-width:none}
+html:has(body.playing-game)::-webkit-scrollbar{display:none;width:0;height:0}
+body.playing-game .app-shell{width:min(100%,1280px);max-width:1280px;padding:0;overflow:visible}
+body.playing-game .topbar{display:none}
+body.playing-game .game-screen{padding:0}
+body.playing-game .game-frame{border:0;box-shadow:none}
+.game-frame{position:relative;border:3px solid #3b2454;border-radius:2px;background:#100c23;box-shadow:0 0 0 2px #100a1a,0 14px 45px #05030d;touch-action:none}
+.game-frame canvas{image-rendering:pixelated}
+.game-topline{position:absolute;z-index:4;inset:158px 13px auto;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+.game-topline>*{pointer-events:auto}
+.level-meta{display:none}
+.back-button,.pause-button{min-height:32px;border:2px solid #b49ad3;border-radius:0;color:#fff4d8;background:#170f2bcf;box-shadow:2px 2px #090713;font-size:9px}
+.pause-button{width:34px}
+.game-hud{position:absolute;z-index:3;inset:10px 12px auto;display:grid;grid-template-columns:minmax(180px,1fr) minmax(250px,auto) minmax(82px,1fr);align-items:start;pointer-events:none;text-shadow:2px 2px #0b0920,0 0 8px #0a071d}
+.player-hud{display:flex;align-items:center;gap:9px;min-width:0}
+.hud-avatar{width:82px;height:82px;flex:0 0 82px;border:3px solid #d5c9e4;background:#16101c url('./assets/sun-ground-sprite-sheet.png') 12% 3%/1000% 500% no-repeat;box-shadow:0 0 0 2px #080716,2px 3px #171123}
+.hud-player-copy{display:flex;flex-direction:column;gap:5px;min-width:0;font-family:var(--mono);font-weight:700;letter-spacing:.08em}
+.hud-player-copy>b{font-size:clamp(9px,1.2vw,16px);white-space:nowrap}
+.hud-lives{display:flex;align-items:center;gap:7px}
+.hud-lives>span:first-child{font-size:clamp(12px,1.4vw,18px)}
+.health{color:#ff3654;font-family:var(--mono);font-size:clamp(16px,1.8vw,23px);letter-spacing:.04em;line-height:1;text-shadow:0 0 6px #e51e50,2px 2px #300b28}
+.title-lockup{display:flex;flex-direction:column;align-items:center;margin-top:-5px;text-align:center;font-family:var(--mono);font-weight:900;line-height:1;white-space:nowrap}
+.title-lockup strong{color:#fff5ff;font-size:clamp(20px,5.8vw,72px);letter-spacing:.04em;-webkit-text-stroke:1px #aeb6ff;text-shadow:0 1px #fff,0 3px #8497df,2px 4px #4f548e,4px 6px #0a0716,0 0 16px #b9abff}
+.title-lockup span{margin-top:3px;color:#ffe3a0;font-size:clamp(8px,1.7vw,18px);letter-spacing:.44em;text-shadow:1px 2px #452a4e}
+.title-lockup em{margin-top:5px;color:#f6d4e7;font-size:clamp(8px,1.75vw,18px);font-style:italic;letter-spacing:.13em}
+.skull-counter{display:flex;align-items:center;justify-self:end;gap:5px;min-width:126px;height:56px;padding:3px 8px;border:2px solid #d7c1ed;background:#100c22dd;box-shadow:2px 2px #080713;font-family:var(--mono);font-size:clamp(13px,1.55vw,21px);font-weight:700;letter-spacing:.03em}
+.hud-skull{width:54px;height:54px;flex:0 0 54px;background:url('./assets/pixel-game-sprites.png') left bottom/300% 200% no-repeat;filter:drop-shadow(0 0 5px #ffbf46)}
+.music-hud-button{position:absolute;top:64px;right:0;z-index:4;padding:6px 9px;border:2px solid #d0b2df;border-radius:0;color:#fff1c8;background:#160e25e8;box-shadow:2px 2px #080713;font:700 9px var(--mono);letter-spacing:.08em;pointer-events:auto;cursor:pointer}
+.music-hud-button:hover{border-color:#ffd568;background:#33203d}
+.level-banner{position:absolute;top:110px;left:0;display:flex;align-items:center;gap:8px;max-width:min(60%,410px);padding:5px 9px;border:2px solid #c9afd9;background:#150f27e8;box-shadow:2px 2px #080713;font-family:var(--mono);font-size:clamp(9px,1.25vw,15px);font-weight:700;letter-spacing:.055em;text-transform:uppercase}
+.level-banner>i{color:#e5a65f;font-style:normal}
+.level-banner>strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.canvas-hint{display:none}
+.game-overlay{z-index:6;border-radius:0;backdrop-filter:blur(2px)}
+.game-level-list{position:absolute;z-index:5;right:17px;bottom:50px;left:17px;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:7px}
+.game-level-card{display:grid;grid-template-rows:clamp(36px,5.5vw,70px) auto auto;align-content:start;gap:3px;min-width:0;padding:3px;border:2px solid #9384ab;border-radius:0;color:#fff5e2;background:#151024;text-align:center;cursor:pointer;box-shadow:2px 2px #06050d;font-family:var(--mono);transition:transform .12s,border-color .12s,filter .12s}
+.game-level-card:not(:disabled):hover{transform:translateY(-2px);filter:brightness(1.2)}
+.game-level-thumb{display:block;width:100%;height:100%;border-bottom:2px solid #cc8c54;background-image:linear-gradient(color-mix(in srgb,var(--stage-color) 38%,transparent),#160d26bb),url('./assets/pixel-desert-panorama.png');background-size:auto,300% auto;background-position:center, var(--thumb-x) 56%;image-rendering:pixelated}
+.game-level-card>b{font-size:clamp(11px,1.2vw,16px);line-height:1}
+.game-level-card>small{display:block;min-height:25px;font-size:clamp(6px,.72vw,9px);font-weight:700;line-height:1.12;overflow-wrap:anywhere}
+.game-level-card.is-current{border-color:#ffd55b;box-shadow:0 0 0 1px #ffb63f,0 0 14px #ffb52d99,2px 2px #06050d}
+.game-level-card.is-done{border-color:#ffd17a}
+.game-level-card:disabled{filter:grayscale(.8);opacity:.68;cursor:not-allowed}
+.skull-objective{position:absolute;z-index:5;right:50%;bottom:20px;width:max-content;max-width:calc(100% - 28px);margin:0;transform:translateX(50%);padding:5px 15px;border:2px solid #ddac54;border-radius:20px;color:#ffe8b0;background:#160f21;font:700 clamp(8px,1vw,12px)/1.3 var(--mono);letter-spacing:.1em;text-align:center;text-shadow:1px 1px #3b1b33;box-shadow:0 0 10px #ffad4655}
+.music-player-panel{display:grid;grid-template-columns:minmax(150px,1fr) minmax(300px,2fr);align-items:center;gap:15px;margin:0 0 12px;padding:10px 12px;border:1px solid #624671;background:#120d20}
+.music-player-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.music-player-heading>div{display:grid;gap:4px;min-width:0}
+.music-kicker{color:#ffc56e;font:9px var(--mono);letter-spacing:.16em}
+.music-player-heading strong{overflow:hidden;color:#fff1d8;font-size:16px;text-overflow:ellipsis;white-space:nowrap}
+.music-player-heading>div>span:last-child{color:#a997b8;font:8px var(--mono);letter-spacing:.1em}
+.music-player-heading>a{flex:0 0 auto;color:#ffc56e;font:10px var(--mono);text-decoration:none}
+#spotify-player{display:block;height:152px;border:0;background:#16121c}
+.spotify-embed{position:relative;display:block;width:100%;height:152px;overflow:hidden;background:#16121c}
+.spotify-embed iframe,.spotify-embed>div{display:block;width:100%!important;max-width:100%;height:152px;border:0}
+.spotify-embed{overflow:hidden}
+.music-player-heading>button{flex:0 0 auto;padding:7px 9px;border:1px solid #b88a52;border-radius:0;color:#ffe7b7;background:#22142b;font:700 9px var(--mono);letter-spacing:.06em;cursor:pointer}
+.music-player-heading>button:hover{background:#382044}
+.game-status{margin-top:5px;padding:5px 8px;border:1px solid #322340;color:#dfc6e4;background:#100b1bcc;font-size:9px}
+.game-status span:first-child{color:#ffdf83}
+.touch-controls{margin-top:12px}
+.control-button{border:2px solid #957ea9;border-radius:4px;color:#fff2d1;background:#211533dd;box-shadow:3px 3px #080612;font-family:var(--mono);font-weight:700}
+.run-button,.punch-button,.jump-button{height:54px;border-radius:4px}
+.run-button{min-width:58px}
+.punch-button{min-width:76px}
+.jump-button{min-width:82px}
+.game-support{border-radius:0}
+@media(max-width:760px){
+  .game-hud{inset:8px 8px auto;grid-template-columns:minmax(130px,1fr) minmax(145px,auto) minmax(70px,1fr)}
+  .hud-avatar{width:52px;height:52px;flex-basis:52px}
+  .player-hud{gap:5px}
+  .hud-player-copy>b{font-size:9px}
+  .hud-lives{gap:4px}
+  .health{font-size:14px}
+  .title-lockup strong{font-size:clamp(17px,4vw,28px)}
+  .title-lockup span{letter-spacing:.24em}
+  .title-lockup em{font-size:clamp(7px,1.5vw,11px)}
+  .skull-counter{min-width:69px;height:39px;padding:2px 4px;font-size:13px}
+  .hud-skull{width:32px;height:32px;flex-basis:32px}
+  .music-hud-button{top:44px;padding:4px 6px;font-size:7px}
+  .level-banner{top:64px}
+  .game-level-list{right:7px;bottom:29px;left:7px;display:flex;overflow-x:auto;gap:6px;padding:2px 2px 3px;scrollbar-width:none;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+  .game-level-list::-webkit-scrollbar{display:none}
+  .game-level-card{flex:0 0 78px;scroll-snap-align:start;grid-template-rows:21px auto auto;gap:2px;padding:2px}
+  .game-level-card>small{min-height:15px}
+  .game-level-card>small{font-size:7px}
+  .music-player-panel{grid-template-columns:1fr;gap:8px}
+  #spotify-player{height:152px}
+}
+@media(max-width:500px){
+  .game-frame{margin:0 -2px}
+  .game-hud{inset:6px 6px auto;grid-template-columns:minmax(100px,1fr) minmax(125px,auto) minmax(58px,1fr)}
+  .hud-avatar{width:40px;height:40px;flex-basis:40px;border-width:2px}
+  .hud-player-copy{gap:2px}
+  .hud-player-copy>b{font-size:7px}
+  .hud-lives{gap:3px}
+  .hud-lives>span:first-child{font-size:9px}
+  .health{font-size:10px}
+  .title-lockup{margin-top:0}
+  .title-lockup strong{font-size:clamp(13px,4.3vw,20px)}
+  .title-lockup span{font-size:6px;letter-spacing:.19em}
+  .title-lockup em{margin-top:3px;font-size:6px;letter-spacing:.06em}
+  .skull-counter{min-width:54px;height:32px;padding:1px 3px;border-width:1px;font-size:10px}
+  .hud-skull{width:27px;height:27px;flex-basis:27px}
+  .music-hud-button{top:36px;padding:3px 4px;font-size:6px}
+  .level-banner{top:51px;gap:4px;max-width:70%;padding:3px 5px;font-size:7px}
+  .game-level-list{right:5px;bottom:27px;left:5px;gap:4px}
+  .game-level-card{flex-basis:68px;grid-template-rows:19px auto auto;padding:1px}
+  .game-level-card>small{min-height:14px;font-size:6px}
+  .skull-objective{bottom:4px;padding:4px 7px;font-size:6px;letter-spacing:0}
+  .canvas-hint{bottom:9px;font-size:6px}
+  .game-topline{inset:111px 7px auto}
+  .back-button,.pause-button{min-height:26px;padding:0 6px;font-size:7px}
+  .pause-button{width:28px}
+  .skull-objective{padding:5px 8px;font-size:7px;letter-spacing:.03em}
+}

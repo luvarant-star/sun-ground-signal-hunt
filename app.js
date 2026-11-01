@@ -2,26 +2,30 @@
   'use strict';
 
   const levels = [
-    { track: 'Nrkey my love', biome: 'Red Dust', color: '#ff774d', deep: '#28112a', sky: '#b93c61' },
-    { track: 'A sea without shore', biome: 'Glass Tides', color: '#58d7e5', deep: '#102c48', sky: '#256f9b' },
-    { track: 'Epitaph of the sun', biome: 'Sunken Temple', color: '#ffd05c', deep: '#322322', sky: '#9a4d46' },
-    { track: 'Unknown 37', biome: 'The Unknown', color: '#ba8aff', deep: '#201840', sky: '#553f98' },
-    { track: 'Exotic-automatic', biome: 'Auto City', color: '#ff68a6', deep: '#351337', sky: '#91366f' },
-    { track: 'Echoes and devotions', biome: 'Echo Canyon', color: '#ffa76e', deep: '#38233b', sky: '#994e70' },
-    { track: 'Two in orbit', biome: 'Twin Moons', color: '#93a7ff', deep: '#172045', sky: '#3c5e9d' },
-    { track: 'Neverbornevil', biome: 'Neon Wilds', color: '#83ec90', deep: '#122e2d', sky: '#32766f' },
-    { track: 'Wicked signal', biome: 'Signal Storm', color: '#ff6976', deep: '#321326', sky: '#9d3c58' },
-    { track: 'Infamous beach', biome: 'Skull Shore', color: '#67dce9', deep: '#172b43', sky: '#4277a0' }
+    { track: 'Exotic Automatic', short: 'EXOTIC\nAUTOMATIC', biome: 'Auto City', spotify: '3SNfYCuRsQBFwItmGZrCxc', color: '#ff774d', deep: '#28112a', sky: '#b93c61' },
+    { track: 'Echoes and Devotions', short: 'ECHOES AND\nDEVOTIONS', biome: 'Echo Canyon', spotify: '5eZYQoiNXxRTIOWK3S3U8Y', color: '#ffa76e', deep: '#38233b', sky: '#994e70' },
+    { track: 'Two in Orbit', short: 'TWO IN\nORBIT', biome: 'Twin Moons', spotify: '71BST9WtHZFmGsn70BOUOV', color: '#93a7ff', deep: '#172045', sky: '#3c5e9d' },
+    { track: 'Neverborn Evil', short: 'NEVERBORN\nEVIL', biome: 'Neon Wilds', spotify: '79IuBv9u6v8OiyAITfbMF3', color: '#83ec90', deep: '#122e2d', sky: '#32766f' },
+    { track: 'Wicked Signal', short: 'WICKED\nSIGNAL', biome: 'Signal Storm', spotify: '4S1OjJEfufOBdizQ8svbES', color: '#ff6976', deep: '#321326', sky: '#9d3c58' },
+    { track: 'Nrkey My Love', short: 'NRKEY\nMY LOVE', biome: 'Red Dust', spotify: '3Ffj0sGbQoeQqyPLEEvzlY', color: '#ff774d', deep: '#28112a', sky: '#b93c61' },
+    { track: 'Infamous Beach', short: 'INFAMOUS\nBEACH', biome: 'Skull Shore', spotify: '0kCyMqHyDAcWzCzSnj1KlD', color: '#67dce9', deep: '#172b43', sky: '#4277a0' },
+    { track: 'A Sea Without Shore', short: 'A SEA\nWITHOUT SHORE', biome: 'Glass Tides', spotify: '5Nnwdrz8FIzVmsmIWU8qoa', color: '#58d7e5', deep: '#102c48', sky: '#256f9b' },
+    { track: 'Epitaph of the Sun', short: 'EPITAPH OF\nTHE SUN', biome: 'Sunken Temple', spotify: '18j1YZPSrpkfaz5ABchAsq', color: '#ffd05c', deep: '#322322', sky: '#9a4d46' },
+    { track: 'Unknown', short: 'UNKNOWN', biome: 'The Unknown', spotify: '1SYZKxyViaiCrRd8fybYAP', color: '#ba8aff', deep: '#201840', sky: '#553f98' }
   ];
 
   const copy = {
-    en: { free:'FREE TO PLAY', eyebrow:'A COSMIC PLATFORM ADVENTURE', intro:'Run, jump and punch your way across ten strange worlds. Find the fragments of the Magical Skull and bring the signal back to life.', start:'START ADVENTURE', install:'Install on your phone', journey:'YOUR JOURNEY', worlds:'Ten worlds. One skull.', support:'Like the game? Support Sun Ground on Bandcamp — completely optional.', saved:'Free to play · progress saved on this device · no account needed', menu:'MENU', hint:'MOVE ← → · JUMP SPACE · PUNCH X', run:'RUN', punch:'PUNCH', jump:'JUMP', tip:'Punch enemies or stomp them. Hit the boss with a punch, then enter the glowing gate.', optional:'OPTIONAL · SUPPORT THE MUSIC', album:'Exotic Automatic on Bandcamp', footer:'RUN · JUMP · FIND THE SKULL', return:'Return to world map', pause:'PAUSED', resume:'RESUME ADVENTURE', resumeCopy:'Take a breath. The world is waiting.', retry:'SIGNAL LOST', retryCopy:'The desert is rough. Your skull fragments are safe — jump back in.', win:'WORLD CLEARED', winCopy:'A skull fragment is yours. The next signal is calling.', final:'THE SKULL IS WHOLE', finalCopy:'Ten worlds crossed. The Magical Skull shines again beneath the sun.', next:'NEXT WORLD', again:'PLAY AGAIN', locked:'Complete the previous world to open this one.', boss:'BOSS', bossAhead:'BOSS · AHEAD', bossDefeated:'BOSS · DEFEATED', noCanvas:'This browser cannot run the game canvas.' },
-    it: { free:'GRATIS', eyebrow:'UN’AVVENTURA PLATFORM COSMICA', intro:'Corri, salta e sferra pugni attraverso dieci mondi misteriosi. Trova i frammenti del Teschio Magico e riaccendi il segnale.', start:'INIZIA L’AVVENTURA', install:'Installa sul telefono', journey:'IL TUO VIAGGIO', worlds:'Dieci mondi. Un teschio.', support:'Ti piace il gioco? Sostieni Sun Ground su Bandcamp — è facoltativo.', saved:'Gratis · progressi salvati sul dispositivo · nessun account', menu:'MAPPA', hint:'MUOVI ← → · SALTO SPAZIO · PUGNO X', run:'CORSA', punch:'PUGNO', jump:'SALTO', tip:'Colpisci i nemici o saltagli sopra. Sferra pugni al boss e attraversa il portale luminoso.', optional:'FACOLTATIVO · SOSTIENI LA MUSICA', album:'Exotic Automatic su Bandcamp', footer:'CORRI · SALTA · TROVA IL TESCHIO', return:'Torna alla mappa', pause:'IN PAUSA', resume:'RIPRENDI L’AVVENTURA', resumeCopy:'Fai un respiro. Il mondo ti aspetta.', retry:'SEGNALE PERSO', retryCopy:'Il deserto è duro. I frammenti sono al sicuro: riprova!', win:'MONDO COMPLETATO', winCopy:'Hai trovato un frammento del teschio. Il prossimo segnale ti chiama.', final:'IL TESCHIO È COMPLETO', finalCopy:'Dieci mondi attraversati. Il Teschio Magico risplende di nuovo sotto il sole.', next:'MONDO SUCCESSIVO', again:'GIOCA ANCORA', locked:'Completa il mondo precedente per sbloccare questo.', boss:'BOSS', bossAhead:'BOSS · AVANTI', bossDefeated:'BOSS · SCONFITTO', noCanvas:'Questo browser non supporta il canvas del gioco.' },
-    ru: { free:'БЕСПЛАТНО', eyebrow:'КОСМИЧЕСКИЙ ПЛАТФОРМЕР', intro:'Беги, прыгай и сражайся в десяти загадочных мирах. Найди осколки Волшебного черепа и оживи сигнал.', start:'НАЧАТЬ ПРИКЛЮЧЕНИЕ', install:'Установить на телефон', journey:'ТВОЁ ПУТЕШЕСТВИЕ', worlds:'Десять миров. Один череп.', support:'Нравится игра? Поддержи Sun Ground на Bandcamp — по желанию.', saved:'Бесплатно · прогресс хранится на устройстве · аккаунт не нужен', menu:'КАРТА', hint:'ДВИЖЕНИЕ ← → · ПРЫЖОК ПРОБЕЛ · УДАР X', run:'БЕГ', punch:'УДАР', jump:'ПРЫЖОК', tip:'Бей врагов или прыгай на них. Ударь босса, затем войди в светящиеся врата.', optional:'ПО ЖЕЛАНИЮ · ПОДДЕРЖАТЬ МУЗЫКУ', album:'Exotic Automatic на Bandcamp', footer:'БЕГИ · ПРЫГАЙ · ИЩИ ЧЕРЕП', return:'Вернуться к карте', pause:'ПАУЗА', resume:'ПРОДОЛЖИТЬ', resumeCopy:'Передохни. Мир тебя ждёт.', retry:'СИГНАЛ ПОТЕРЯН', retryCopy:'Пустыня сурова. Осколки черепа в безопасности — попробуй снова.', win:'МИР ПРОЙДЕН', winCopy:'Осколок черепа твой. Следующий сигнал зовёт.', final:'ЧЕРЕП СОБРАН', finalCopy:'Десять миров пройдены. Волшебный череп снова сияет под солнцем.', next:'СЛЕДУЮЩИЙ МИР', again:'ИГРАТЬ СНОВА', locked:'Пройди предыдущий мир, чтобы открыть этот.', boss:'БОСС', bossAhead:'БОСС · ВПЕРЕДИ', bossDefeated:'БОСС · ПОБЕЖДЁН', noCanvas:'Этот браузер не поддерживает игровое полотно.' },
-    ja: { free:'無料', eyebrow:'宇宙の2Dプラットフォーマー', intro:'10の不思議な世界を走り、跳び、パンチで進もう。魔法のドクロの欠片を見つけ、シグナルをよみがえらせよう。', start:'冒険を始める', install:'スマートフォンにインストール', journey:'冒険の記録', worlds:'10の世界。ひとつのドクロ。', support:'ゲームを気に入ったらBandcampでSun Groundを応援できます（任意）。', saved:'無料 · 進行状況はこの端末に保存 · アカウント不要', menu:'マップ', hint:'移動 ← → · ジャンプ SPACE · パンチ X', run:'ダッシュ', punch:'パンチ', jump:'ジャンプ', tip:'敵をパンチするか、踏みつけよう。ボスを倒して、光るゲートに入ろう。', optional:'任意 · 音楽を応援', album:'BandcampでExotic Automaticを聴く', footer:'走る · 跳ぶ · ドクロを探す', return:'ワールドマップに戻る', pause:'一時停止', resume:'冒険を再開', resumeCopy:'ひと休み。世界が待っている。', retry:'シグナル消失', retryCopy:'砂漠は手ごわい。ドクロの欠片は無事だよ。もう一度挑戦しよう。', win:'ワールドクリア', winCopy:'ドクロの欠片を手に入れた。次のシグナルが呼んでいる。', final:'ドクロが完成', finalCopy:'10の世界を旅した。魔法のドクロが太陽の下で再び輝く。', next:'次の世界へ', again:'もう一度遊ぶ', locked:'前のワールドをクリアすると解放されます。', boss:'ボス', bossAhead:'ボス · この先', bossDefeated:'ボス · 撃破', noCanvas:'このブラウザーはゲームキャンバスに対応していません。' }
+    en: { free:'FREE TO PLAY', eyebrow:'A COSMIC PLATFORM ADVENTURE', intro:'Run, jump and punch your way across ten strange worlds. Find the fragments of the Magical Skull and bring the signal back to life.', start:'START ADVENTURE', install:'Install on your phone', journey:'YOUR JOURNEY', worlds:'Ten worlds. One skull.', support:'Like the game? Support Sun Ground on Bandcamp — completely optional.', saved:'Free to play · progress saved on this device · no account needed', menu:'MENU', hint:'MOVE ← → · JUMP SPACE · PUNCH X', run:'RUN', punch:'PUNCH', jump:'JUMP', tip:'Punch enemies or stomp them. Hit the boss with a punch, then enter the glowing gate.', musicHint:'LEVEL TRACK · TAP ▶ IN SPOTIFY TO LISTEN', optional:'OPTIONAL · SUPPORT THE MUSIC', album:'Exotic Automatic on Bandcamp', footer:'RUN · JUMP · FIND THE SKULL', return:'Return to world map', pause:'PAUSED', resume:'RESUME ADVENTURE', resumeCopy:'Take a breath. The world is waiting.', retry:'SIGNAL LOST', retryCopy:'The desert is rough. Your skull fragments are safe — jump back in.', win:'WORLD CLEARED', winCopy:'A skull fragment is yours. The next signal is calling.', final:'THE SKULL IS WHOLE', finalCopy:'Ten worlds crossed. The Magical Skull shines again beneath the sun.', next:'NEXT WORLD', again:'PLAY AGAIN', locked:'Complete the previous world to open this one.', boss:'BOSS', bossAhead:'BOSS · AHEAD', bossDefeated:'BOSS · DEFEATED', noCanvas:'This browser cannot run the game canvas.' },
+    it: { free:'GRATIS', eyebrow:'UN’AVVENTURA PLATFORM COSMICA', intro:'Corri, salta e sferra pugni attraverso dieci mondi misteriosi. Trova i frammenti del Teschio Magico e riaccendi il segnale.', start:'INIZIA L’AVVENTURA', install:'Installa sul telefono', journey:'IL TUO VIAGGIO', worlds:'Dieci mondi. Un teschio.', support:'Ti piace il gioco? Sostieni Sun Ground su Bandcamp — è facoltativo.', saved:'Gratis · progressi salvati sul dispositivo · nessun account', menu:'MAPPA', hint:'MUOVI ← → · SALTO SPAZIO · PUGNO X', run:'CORSA', punch:'PUGNO', jump:'SALTO', tip:'Colpisci i nemici o saltagli sopra. Sferra pugni al boss e attraversa il portale luminoso.', musicHint:'BRANO DEL LIVELLO · TOCCA ▶ SU SPOTIFY PER ASCOLTARE', optional:'FACOLTATIVO · SOSTIENI LA MUSICA', album:'Exotic Automatic su Bandcamp', footer:'CORRI · SALTA · TROVA IL TESCHIO', return:'Torna alla mappa', pause:'IN PAUSA', resume:'RIPRENDI L’AVVENTURA', resumeCopy:'Fai un respiro. Il mondo ti aspetta.', retry:'SEGNALE PERSO', retryCopy:'Il deserto è duro. I frammenti sono al sicuro: riprova!', win:'MONDO COMPLETATO', winCopy:'Hai trovato un frammento del teschio. Il prossimo segnale ti chiama.', final:'IL TESCHIO È COMPLETO', finalCopy:'Dieci mondi attraversati. Il Teschio Magico risplende di nuovo sotto il sole.', next:'MONDO SUCCESSIVO', again:'GIOCA ANCORA', locked:'Completa il mondo precedente per sbloccare questo.', boss:'BOSS', bossAhead:'BOSS · AVANTI', bossDefeated:'BOSS · SCONFITTO', noCanvas:'Questo browser non supporta il canvas del gioco.' },
+    ru: { free:'БЕСПЛАТНО', eyebrow:'КОСМИЧЕСКИЙ ПЛАТФОРМЕР', intro:'Беги, прыгай и сражайся в десяти загадочных мирах. Найди осколки Волшебного черепа и оживи сигнал.', start:'НАЧАТЬ ПРИКЛЮЧЕНИЕ', install:'Установить на телефон', journey:'ТВОЁ ПУТЕШЕСТВИЕ', worlds:'Десять миров. Один череп.', support:'Нравится игра? Поддержи Sun Ground на Bandcamp — по желанию.', saved:'Бесплатно · прогресс хранится на устройстве · аккаунт не нужен', menu:'КАРТА', hint:'ДВИЖЕНИЕ ← → · ПРЫЖОК ПРОБЕЛ · УДАР X', run:'БЕГ', punch:'УДАР', jump:'ПРЫЖОК', tip:'Бей врагов или прыгай на них. Ударь босса, затем войди в светящиеся врата.', musicHint:'ТРЕК УРОВНЯ · НАЖМИТЕ ▶ В SPOTIFY', optional:'ПО ЖЕЛАНИЮ · ПОДДЕРЖАТЬ МУЗЫКУ', album:'Exotic Automatic на Bandcamp', footer:'БЕГИ · ПРЫГАЙ · ИЩИ ЧЕРЕП', return:'Вернуться к карте', pause:'ПАУЗА', resume:'ПРОДОЛЖИТЬ', resumeCopy:'Передохни. Мир тебя ждёт.', retry:'СИГНАЛ ПОТЕРЯН', retryCopy:'Пустыня сурова. Осколки черепа в безопасности — попробуй снова.', win:'МИР ПРОЙДЕН', winCopy:'Осколок черепа твой. Следующий сигнал зовёт.', final:'ЧЕРЕП СОБРАН', finalCopy:'Десять миров пройдены. Волшебный череп снова сияет под солнцем.', next:'СЛЕДУЮЩИЙ МИР', again:'ИГРАТЬ СНОВА', locked:'Пройди предыдущий мир, чтобы открыть этот.', boss:'БОСС', bossAhead:'БОСС · ВПЕРЕДИ', bossDefeated:'БОСС · ПОБЕЖДЁН', noCanvas:'Этот браузер не поддерживает игровое полотно.' },
+    ja: { free:'無料', eyebrow:'宇宙の2Dプラットフォーマー', intro:'10の不思議な世界を走り、跳び、パンチで進もう。魔法のドクロの欠片を見つけ、シグナルをよみがえらせよう。', start:'冒険を始める', install:'スマートフォンにインストール', journey:'冒険の記録', worlds:'10の世界。ひとつのドクロ。', support:'ゲームを気に入ったらBandcampでSun Groundを応援できます（任意）。', saved:'無料 · 進行状況はこの端末に保存 · アカウント不要', menu:'マップ', hint:'移動 ← → · ジャンプ SPACE · パンチ X', run:'ダッシュ', punch:'パンチ', jump:'ジャンプ', tip:'敵をパンチするか、踏みつけよう。ボスを倒して、光るゲートに入ろう。', musicHint:'ステージの曲 · SPOTIFY の ▶ で再生', optional:'任意 · 音楽を応援', album:'BandcampでExotic Automaticを聴く', footer:'走る · 跳ぶ · ドクロを探す', return:'ワールドマップに戻る', pause:'一時停止', resume:'冒険を再開', resumeCopy:'ひと休み。世界が待っている。', retry:'シグナル消失', retryCopy:'砂漠は手ごわい。ドクロの欠片は無事だよ。もう一度挑戦しよう。', win:'ワールドクリア', winCopy:'ドクロの欠片を手に入れた。次のシグナルが呼んでいる。', final:'ドクロが完成', finalCopy:'10の世界を旅した。魔法のドクロが太陽の下で再び輝く。', next:'次の世界へ', again:'もう一度遊ぶ', locked:'前のワールドをクリアすると解放されます。', boss:'ボス', bossAhead:'ボス · この先', bossDefeated:'ボス · 撃破', noCanvas:'このブラウザーはゲームキャンバスに対応していません。' }
   };
 
   const $ = id => document.getElementById(id);
+  const art = {};
+  for (const [key, src] of Object.entries({ panorama:'./assets/pixel-desert-panorama.png', hero:'./assets/sun-ground-sprite-sheet.png', sprites:'./assets/pixel-game-sprites.png' })) {
+    art[key] = new Image(); art[key].src = src;
+  }
   const canvas = $('game-canvas');
   const ctx = canvas.getContext('2d');
   const storeKey = 'sun-ground-skull-platformer-v1';
@@ -60,36 +64,45 @@
     renderWorldList();
   }
   function renderWorldList() {
-    const list = $('level-list');
-    if (!list) return;
-    list.innerHTML = levels.map((stage, i) => {
-      const done = progress.cleared.includes(i), open = unlocked(i), title = (language === 'it' ? ['Polvere rossa','Mare di vetro','Tempio sommerso','L’ignoto','Città automatica','Canyon degli echi','Due lune','Giungla neon','Tempesta di segnali','Spiaggia del teschio'] : language === 'ja' ? ['赤い砂','ガラスの潮','沈んだ神殿','未知の世界','自動都市','響きの峡谷','ふたつの月','ネオンの森','シグナルの嵐','ドクロの浜辺'] : language === 'ru' ? ['Красная пыль','Стеклянные приливы','Затонувший храм','Неизвестность','Город машин','Каньон эха','Две луны','Неоновые джунгли','Шторм сигнала','Черепной пляж'] : levels.map(item => item.biome))[i];
+    const homeList = $('level-list'), gameList = $('game-level-list');
+    if (!homeList && !gameList) return;
+    if (homeList) homeList.innerHTML = levels.map((stage, i) => {
+      const done = progress.cleared.includes(i), open = unlocked(i);
+      const title = (language === 'it' ? ['Città automatica','Canyon degli echi','Due lune','Giungla neon','Tempesta di segnali','Polvere rossa','Spiaggia del teschio','Mare di vetro','Tempio sommerso','L’ignoto'] :
+        language === 'ja' ? ['自動都市','響きの峡谷','ふたつの月','ネオンの森','シグナルの嵐','赤い砂','ドクロの浜辺','ガラスの潮','沈んだ神殿','未知の世界'] :
+        language === 'ru' ? ['Город машин','Каньон эха','Две луны','Неоновые джунгли','Шторм сигнала','Красная пыль','Черепной пляж','Стеклянные приливы','Затонувший храм','Неизвестность'] : levels.map(item => item.biome))[i];
       return '<button class="level-chip' + (done ? ' is-done' : '') + '" type="button" data-level="' + i + '"' + (open ? '' : ' disabled') + ' aria-label="' + (i + 1) + ': ' + stage.track + (done ? ' · complete' : open ? ' · ready' : ' · locked') + '"><span>' + String(i + 1).padStart(2,'0') + '</span><small>' + title + '</small><b aria-hidden="true">' + (done ? '✓' : open ? '↗' : '·') + '</b></button>';
     }).join('');
-    list.querySelectorAll('[data-level]').forEach(button => button.addEventListener('click', () => startLevel(Number(button.dataset.level))));
+    if (gameList) gameList.innerHTML = levels.map((stage, i) => {
+      const done = progress.cleared.includes(i), open = unlocked(i), state = done ? 'complete' : open ? 'ready' : 'locked';
+      return '<button class="game-level-card' + (currentLevel === i && world ? ' is-current' : '') + (done ? ' is-done' : '') + '" type="button" data-level="' + i + '"' + (open ? '' : ' disabled') + ' aria-label="' + (i + 1) + ': ' + stage.track + ' · ' + state + '" style="--thumb-x:' + (i * 11) + '%;--stage-color:' + stage.color + '"><span class="game-level-thumb"></span><b>' + String(i + 1).padStart(2,'0') + '</b><small>' + stage.short.replace(/\n/g,'<br>') + '</small></button>';
+    }).join('');
+    document.querySelectorAll('#level-list [data-level], #game-level-list [data-level]').forEach(button => button.addEventListener('click', () => startLevel(Number(button.dataset.level))));
   }
   function showScreen(name) {
+    if (name === 'game') document.body.classList.add('playing-game');
+    else document.body.classList.remove('playing-game');
     $('home-screen').hidden = name !== 'home';
     $('game-screen').hidden = name !== 'game';
     document.querySelector('.site-footer').hidden = name === 'game';
     window.scrollTo({ top:0, behavior:'instant' });
   }
   function buildWorld(index) {
-    const width = 6250, floor = 458, platforms = [], pits = [], collectibles = [], enemies = [];
+    const width = 6250, floor = 330, platforms = [], pits = [], collectibles = [], enemies = [];
     let cursor = 0;
     for (let i = 0; i < 8; i++) {
-      const pitX = 740 + i * 670 + ((index * 37 + i * 19) % 55);
+      const pitX = 420 + i * 405 + ((index * 37 + i * 19) % 38);
       const pitW = 102 + ((index * 23 + i * 17) % 42);
-      if (pitX > cursor) platforms.push({ x:cursor, y:floor, w:pitX - cursor, h:120, ground:true });
+      if (pitX > cursor) platforms.push({ x:cursor, y:floor, w:pitX - cursor, h:88, ground:true });
       pits.push({ x:pitX, w:pitW });
       cursor = pitX + pitW;
-      platforms.push({ x:pitX - 18, y:378 - (i % 2) * 24, w:pitW + 36, h:18, bridge:true });
+      platforms.push({ x:pitX - 18, y:floor - 80 - (i % 2) * 24, w:pitW + 36, h:18, bridge:true });
     }
-    platforms.push({ x:cursor, y:floor, w:width - cursor + 300, h:120, ground:true });
+    platforms.push({ x:cursor, y:floor, w:width - cursor + 300, h:88, ground:true });
     for (let i = 0; i < 13; i++) {
       const x = 350 + i * 410;
       if (x > width - 620) continue;
-      const y = 340 - ((i + index) % 3) * 38;
+      const y = floor - 90 - ((i + index) % 3) * 26;
       platforms.push({ x, y, w:124 + ((index + i) % 3) * 22, h:16, floating:true });
       if (i % 2 === 0) platforms.push({ x:x + 194, y:y + 72, w:104, h:15, floating:true });
     }
@@ -99,7 +112,7 @@
       const platform = platforms.find(p => !p.ground && x >= p.x + 8 && x <= p.x + p.w - 8 && p.y < floor - 30);
       if (platform && i % 3 !== 0) y = platform.y - 38;
       const pit = pits.find(p => x > p.x - 20 && x < p.x + p.w + 20);
-      if (pit) y = 335 - (i % 2) * 20;
+      if (pit) y = floor - 123 - (i % 2) * 20;
       collectibles.push({ x, y, taken:false, phase:i * .7 });
     }
     for (let i = 0; i < 8; i++) {
@@ -108,7 +121,7 @@
     }
     return {
       index, data:levels[index], width, floor, platforms, pits, collectibles, enemies,
-      player:{ x:72, y:floor - 52, w:34, h:50, vx:0, vy:0, facing:1, grounded:false, coyote:0, punch:0, invulnerable:0, lives:3, checkpoint:72, anim:0 },
+      player:{ x:240, y:floor - 52, w:34, h:50, vx:0, vy:0, facing:1, grounded:false, coyote:0, punch:0, invulnerable:0, lives:3, checkpoint:240, anim:0 },
       boss:{ x:width - 505, y:floor - 94, w:76, h:94, hp:4 + Math.floor(index / 3), maxHp:4 + Math.floor(index / 3), dir:-1, active:false, defeated:false, hitCooldown:0, anim:0 },
       gateX:width - 92, camera:0, shards:0, elapsed:0, complete:false, paused:false
     };
@@ -119,7 +132,9 @@
     overlayMode = '';
     $('game-overlay').hidden = true;
     showScreen('game');
+    updateMusicPlayer();
     updateHud();
+    renderWorldList();
     keys.left = keys.right = keys.run = keys.jump = keys.punch = false;
     keys.jumpPressed = keys.punchPressed = false;
     previousFrame = performance.now();
@@ -132,15 +147,26 @@
     const stage = levels[currentLevel];
     $('level-number').textContent = (language === 'it' ? 'MONDO ' : language === 'ja' ? 'ワールド ' : language === 'ru' ? 'МИР ' : 'WORLD ') + String(currentLevel + 1).padStart(2,'0');
     $('level-count').textContent = String(currentLevel + 1).padStart(2,'0') + ' / 10';
-    $('stage-biome').textContent = stage.biome.toUpperCase();
+    $('stage-biome').textContent = 'LV.' + String(currentLevel + 1).padStart(2,'0');
     $('track-name').textContent = stage.track;
+    $('life-count').textContent = '× ' + world.player.lives;
     $('health').textContent = '♥ '.repeat(world.player.lives).trim() || '♡';
     $('health').setAttribute('aria-label', world.player.lives + ' lives');
-    $('shard-count').textContent = '✦ ' + world.shards + ' / ' + world.collectibles.length;
+    $('shard-count').textContent = progress.cleared.length + '/10';
+    $('music-track-title').textContent = stage.track;
+    $('gem-count').textContent = '✦ ' + world.shards + ' / ' + world.collectibles.length;
     $('boss-status').textContent = world.boss.defeated ? say('bossDefeated') : say('bossAhead');
     $('distance-status').textContent = Math.max(0, Math.floor(world.player.x / 10)) + ' m';
     $('game-progress').innerHTML = levels.map((_, i) => '<i class="progress-node' + (progress.cleared.includes(i) ? ' is-done' : i === currentLevel ? ' is-current' : '') + '"></i>').join('');
     document.documentElement.style.setProperty('--stage-color', stage.color);
+  }
+  function updateMusicPlayer() {
+    const stage = levels[currentLevel];
+    const url = 'https://open.spotify.com/embed/track/' + stage.spotify + '?utm_source=generator&theme=0';
+    const fallback = $('spotify-fallback');
+    if (fallback.src !== url) fallback.src = url;
+    $('spotify-link').href = 'https://open.spotify.com/track/' + stage.spotify;
+    $('music-track-title').textContent = stage.track;
   }
   function showOverlay(mode) {
     overlayMode = mode;
@@ -259,6 +285,15 @@
   }
   function drawBackground() {
     const d = world.data;
+    if (art.panorama.complete && art.panorama.naturalWidth) {
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(art.panorama, 0, 80, 1536, 864, 0, 0, canvas.width, canvas.height);
+      ctx.globalAlpha = .09;
+      ctx.fillStyle = d.sky;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.globalAlpha = 1;
+      return;
+    }
     const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
     sky.addColorStop(0, '#110d20'); sky.addColorStop(.5, d.sky); sky.addColorStop(1, d.deep);
     ctx.fillStyle = sky; ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -297,51 +332,60 @@
       if (platform.x + platform.w < world.camera - 100 || platform.x > world.camera + canvas.width + 100) continue;
       const x = platform.x, y = platform.y;
       if (platform.ground) {
-        const grad = ctx.createLinearGradient(0, y, 0, y + 120); grad.addColorStop(0, '#3a2638'); grad.addColorStop(.1, '#281d31'); grad.addColorStop(1, '#131323');
-        ctx.fillStyle = grad; ctx.fillRect(x, y, platform.w, platform.h);
-        ctx.fillStyle = d.color; ctx.fillRect(x, y, platform.w, 5);
-        ctx.fillStyle = 'rgba(255,255,255,.07)';
-        for (let tx = Math.ceil(x / 62) * 62; tx < x + platform.w; tx += 62) { ctx.fillRect(tx, y + 21, 2, 17); ctx.fillRect(tx + 19, y + 63, 17, 2); }
+        ctx.fillStyle = '#21162d'; ctx.fillRect(x, y, platform.w, platform.h);
+        ctx.fillStyle = '#b74769'; ctx.fillRect(x, y + 7, platform.w, 3);
+        ctx.fillStyle = '#f79748'; ctx.fillRect(x, y, platform.w, 6);
+        ctx.fillStyle = '#ffd16c'; ctx.fillRect(x, y, platform.w, 2);
+        for (let tx = Math.ceil(x / 34) * 34, col = 0; tx < x + platform.w; tx += 34, col++) {
+          ctx.fillStyle = col % 2 ? '#39233a' : '#302039'; ctx.fillRect(tx + 2, y + 13, 30, 20);
+          ctx.fillStyle = '#512844'; ctx.fillRect(tx + 2, y + 13, 30, 2);
+          ctx.fillStyle = '#20182d'; ctx.fillRect(tx + 15, y + 23, 2, 9);
+          if (col % 3 === 1) { ctx.fillStyle = '#e57543'; ctx.fillRect(tx + 26, y + 4, 3, 5); }
+        }
       } else {
-        roundedRect(ctx, x, y, platform.w, platform.h, 7, '#34243b', 'rgba(255,255,255,.18)');
-        ctx.fillStyle = d.color; ctx.fillRect(x + 6, y + 2, platform.w - 12, 3);
-        ctx.fillStyle = 'rgba(255,255,255,.13)'; ctx.fillRect(x + 15, y + platform.h - 3, platform.w - 30, 1);
+        ctx.fillStyle = '#25182f'; ctx.fillRect(x, y, platform.w, platform.h);
+        ctx.fillStyle = '#bd5473'; ctx.fillRect(x, y + 4, platform.w, platform.h - 4);
+        ctx.fillStyle = '#f89949'; ctx.fillRect(x, y, platform.w, 4);
+        ctx.fillStyle = '#ffe079'; ctx.fillRect(x, y, platform.w, 2);
+        for (let tx = Math.ceil(x / 28) * 28; tx < x + platform.w; tx += 28) {
+          ctx.fillStyle = '#49233a'; ctx.fillRect(tx + 2, y + 8, 22, Math.max(4, platform.h - 10));
+          ctx.fillStyle = '#78334b'; ctx.fillRect(tx + 2, y + 8, 22, 2);
+        }
       }
     }
   }
   function drawGem(gem) {
     if (gem.taken) return;
     const x = gem.x, y = gem.y + Math.sin(world.elapsed * 3 + gem.phase) * 5;
-    ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(world.elapsed * 2 + gem.phase) * .12);
-    ctx.shadowColor = world.data.color; ctx.shadowBlur = 18;
-    ctx.beginPath(); ctx.moveTo(0,-15); ctx.lineTo(12,-3); ctx.lineTo(8,12); ctx.lineTo(0,16); ctx.lineTo(-8,12); ctx.lineTo(-12,-3); ctx.closePath();
-    ctx.fillStyle = '#ffe08b'; ctx.fill(); ctx.strokeStyle = '#fff5cc'; ctx.lineWidth = 2; ctx.stroke();
-    ctx.shadowBlur = 0; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(-3,-7); ctx.lineTo(1,-11); ctx.lineTo(5,-4); ctx.lineTo(0,1); ctx.fill();
-    ctx.restore();
+    if (art.sprites.complete && art.sprites.naturalWidth) {
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(art.sprites, 1024, 512, 512, 512, x - 19, y - 20, 38, 40);
+    } else {
+      ctx.fillStyle = '#ffe08b'; ctx.fillRect(x - 9, y - 11, 18, 22);
+      ctx.fillStyle = '#fff5cc'; ctx.fillRect(x - 5, y - 8, 5, 6);
+    }
   }
   function drawEnemy(enemy) {
     if (!enemy.alive) return;
-    ctx.save(); ctx.translate(enemy.x + 18, enemy.y + 17); if (enemy.dir < 0) ctx.scale(-1,1);
-    const body = ['#72e4c3','#c693ff','#ff9e73'][enemy.type];
-    ctx.shadowColor = body; ctx.shadowBlur = 13;
-    roundedRect(ctx, -17, -14, 34, 27, 7, body, '#fff0d0');
-    ctx.shadowBlur = 0; roundedRect(ctx, -12, -7, 24, 10, 4, '#20192b');
-    ctx.fillStyle = '#fff3c4'; ctx.fillRect(-7,-5,4,4); ctx.fillRect(4,-5,4,4);
-    ctx.fillStyle = '#39223a'; ctx.fillRect(-12,12,7,6); ctx.fillRect(6,12,7,6);
-    ctx.restore();
+    if (art.sprites.complete && art.sprites.naturalWidth) {
+      ctx.save(); if (enemy.dir < 0) { ctx.translate(enemy.x * 2 + 36, 0); ctx.scale(-1, 1); }
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(art.sprites, enemy.type * 512, 0, 512, 512, enemy.x - 26, enemy.y - 41, 88, 88);
+      ctx.restore();
+    } else {
+      ctx.fillStyle = '#eae8f5'; ctx.fillRect(enemy.x, enemy.y, 36, 30);
+      ctx.fillStyle = '#ef423b'; ctx.fillRect(enemy.x + 8, enemy.y + 10, 20, 5);
+    }
   }
   function drawBoss() {
     const b = world.boss; if (b.defeated || b.x < world.camera - 160 || b.x > world.camera + canvas.width + 120) return;
-    ctx.save(); ctx.translate(b.x + b.w / 2, b.y + Math.sin(b.anim * 3) * 4); if (b.dir > 0) ctx.scale(-1,1);
-    ctx.shadowColor = world.data.color; ctx.shadowBlur = 25;
-    roundedRect(ctx, -38, -37, 76, 80, 18, '#36213d', world.data.color);
-    ctx.shadowBlur = 0;
-    ctx.fillStyle = '#dfb36c'; ctx.beginPath(); ctx.ellipse(0,-2,29,31,0,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle = '#201525'; ctx.beginPath(); ctx.ellipse(-11,-5,7,10,0,0,Math.PI*2); ctx.ellipse(11,-5,7,10,0,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle = '#ff637a'; ctx.fillRect(-3,13,6,9);
-    ctx.fillStyle = '#e9bf73'; ctx.fillRect(-17,27,7,14); ctx.fillRect(10,27,7,14);
-    ctx.fillStyle = '#ffd77a'; ctx.fillRect(-32,43,18,8); ctx.fillRect(15,43,18,8);
-    ctx.restore();
+    if (art.sprites.complete && art.sprites.naturalWidth) {
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(art.sprites, 0, 512, 512, 512, b.x - 26, b.y - 25 + Math.sin(b.anim * 3) * 4, 128, 128);
+    } else {
+      ctx.fillStyle = '#dfb36c'; ctx.fillRect(b.x, b.y, b.w, b.h);
+      ctx.fillStyle = '#201525'; ctx.fillRect(b.x + 15, b.y + 21, 12, 18); ctx.fillRect(b.x + 48, b.y + 21, 12, 18);
+    }
     const barW = 112, bx = b.x + b.w / 2 - barW / 2, by = b.y - 59;
     roundedRect(ctx,bx,by,barW,10,5,'rgba(15,10,24,.75)','rgba(255,255,255,.3)');
     roundedRect(ctx,bx+2,by+2,(barW-4)*(b.hp/b.maxHp),6,3,world.data.color);
@@ -349,25 +393,19 @@
   function drawPlayer() {
     const p = world.player;
     if (p.invulnerable > 0 && Math.floor(world.elapsed * 13) % 2 === 0) return;
-    ctx.save(); ctx.translate(p.x + p.w / 2, p.y); if (p.facing < 0) ctx.scale(-1,1);
-    const running = Math.abs(p.vx) > 30 && p.grounded, swing = running ? Math.sin(p.anim) * 9 : 0;
-    ctx.shadowColor = '#ff9947'; ctx.shadowBlur = 14;
-    // Small red explorer body with a recognizable golden skull helmet.
-    roundedRect(ctx,-13,21,26,24,7,'#bb4554','#ffd28c');
-    ctx.shadowBlur = 0;
-    ctx.fillStyle = '#f2c36e'; ctx.fillRect(-11,39,9,6); ctx.fillRect(3,39,9,6);
-    ctx.fillStyle = '#222138'; ctx.fillRect(-12,43+swing*.15,10,5); ctx.fillRect(3,43-swing*.15,11,5);
-    ctx.strokeStyle = '#e6ad68'; ctx.lineWidth = 6; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(-10,27); ctx.lineTo(-17,35+swing); ctx.moveTo(10,27); ctx.lineTo(16,33-swing); ctx.stroke();
-    if (p.punch > 0) { ctx.strokeStyle='#ffe28b'; ctx.lineWidth=8; ctx.beginPath(); ctx.moveTo(10,29); ctx.lineTo(31,27); ctx.stroke(); ctx.fillStyle='#fff3bb'; ctx.beginPath(); ctx.arc(32,27,7,0,Math.PI*2); ctx.fill(); }
-    ctx.shadowColor = '#ffd96b'; ctx.shadowBlur = 10;
-    ctx.fillStyle = '#e9bd70'; ctx.beginPath(); ctx.ellipse(0,12,17,17,0,0,Math.PI*2); ctx.fill();
-    ctx.shadowBlur = 0;
-    ctx.fillStyle='#241528'; ctx.beginPath(); ctx.ellipse(-7,12,4.5,6.5,0,0,Math.PI*2); ctx.ellipse(7,12,4.5,6.5,0,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle='#b77a55'; ctx.beginPath(); ctx.moveTo(0,15); ctx.lineTo(-3,21); ctx.lineTo(3,21); ctx.fill();
-    ctx.fillStyle='#fff0c1'; ctx.fillRect(-7,24,3,3); ctx.fillRect(-2,25,3,3); ctx.fillRect(3,24,3,3);
-    ctx.fillStyle='#e85a59'; ctx.fillRect(-15,4,30,5);
-    ctx.restore();
+    if (art.hero.complete && art.hero.naturalWidth) {
+      const running = Math.abs(p.vx) > 30 && p.grounded;
+      const frame = p.punch > 0 ? 6 : !p.grounded ? 5 : running ? Math.floor(p.anim / .15) % 4 : world.elapsed < 1.2 ? Math.floor(world.elapsed / .14) % 4 : 4;
+      ctx.save();
+      if (p.facing < 0) { ctx.translate((p.x + p.w / 2) * 2, 0); ctx.scale(-1, 1); }
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(art.hero, (frame % 4) * 444, Math.floor(frame / 4) * 444, 444, 444, p.x + p.w / 2 - 75, p.y + p.h - 144, 150, 150);
+      ctx.restore();
+    } else {
+      ctx.fillStyle = '#11131d'; ctx.fillRect(p.x + 5, p.y + 14, 24, 31);
+      ctx.fillStyle = '#f1b77b'; ctx.fillRect(p.x + 9, p.y, 18, 20);
+      ctx.fillStyle = '#16151b'; ctx.fillRect(p.x + 19, p.y + 8, 8, 4);
+    }
   }
   function drawGate() {
     const x = world.gateX, y = world.floor - 106;
@@ -439,6 +477,7 @@
   });
   $('overlay-menu').addEventListener('click', () => { cancelAnimationFrame(animationId); showScreen('home'); updateProgress(); });
   $('language-toggle').addEventListener('change', event => setLanguage(event.target.value));
+  $('music-play-button').addEventListener('click', () => $('spotify-player').scrollIntoView({ behavior:'smooth', block:'center' }));
   $('install-app').addEventListener('click', async () => { if (!deferredInstallPrompt) return; deferredInstallPrompt.prompt(); await deferredInstallPrompt.userChoice; deferredInstallPrompt = null; $('install-app').hidden = true; });
   window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); deferredInstallPrompt = event; $('install-app').hidden = false; });
   if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('./service-worker.js').catch(() => {});
