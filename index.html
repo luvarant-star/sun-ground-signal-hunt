@@ -7,15 +7,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Sun Ground">
-  <meta name="description" content="Run, jump and punch through ten cosmic worlds in Sun Ground — The Magical Skull.">
+  <meta name="description" content="Run, jump, punch and fire through ten cosmic worlds in Sun Ground — The Magical Skull.">
   <title>Sun Ground — The Magical Skull</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./sg-app-icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./exotic-automatic-cover.jpg">
   <link rel="preload" as="image" href="./exotic-automatic-cover.jpg">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./styles-game.css?v=20261101-12">
-  <script src="./app.js?v=20261101-8" defer></script>
+  <link rel="stylesheet" href="./styles-game.css?v=20261101-14">
+  <script src="./app.js?v=20261101-9" defer></script>
 </head>
 <body>
   <main class="app-shell">
@@ -33,7 +33,7 @@
       <div class="hero-copy">
         <p class="eyebrow" data-copy="eyebrow">A COSMIC PLATFORM ADVENTURE</p>
         <h1 id="home-title">The Magical<br><span>Skull.</span></h1>
-        <p class="intro" data-copy="intro">Run, jump and punch your way across ten strange worlds. Find the fragments of the Magical Skull and bring the signal back to life.</p>
+        <p class="intro" data-copy="intro">Run, jump, punch and fire across ten strange worlds. Find the Magical Skull fragments and bring the signal back to life.</p>
       </div>
       <figure class="cover-frame">
         <img class="cover-art" src="./exotic-automatic-cover.jpg" alt="Golden skull beneath a giant sun on the Exotic Automatic album cover">
@@ -58,39 +58,28 @@
     </section>
 
     <section class="screen game-screen" id="game-screen" aria-label="Platform game" hidden>
-      <div class="game-frame" id="game-frame">
-        <canvas id="game-canvas" width="960" height="540" aria-label="Sun Ground running through a cosmic platform level. Use arrow keys to move, space to jump, and X to punch."></canvas>
-        <div class="game-topline">
-          <button class="back-button" id="back-button" type="button"><span aria-hidden="true">←</span> <span data-copy="menu">MENU</span></button>
-          <div class="level-meta"><span id="level-number">LV. 01</span><span id="level-count">01 / 10</span></div>
+      <div class="game-topline">
+        <button class="back-button" id="back-button" type="button"><span aria-hidden="true">←</span> <span data-copy="menu">MENU</span></button>
+        <div class="level-meta"><span id="level-number">LV. 01</span><span id="track-name">Exotic Automatic</span></div>
+        <div class="game-actions">
+          <button class="music-hud-button" id="music-play-button" type="button" aria-expanded="false" aria-controls="music-popover" aria-label="Listen to this level’s song">♫ <span data-copy="song">SONG</span></button>
           <button class="pause-button" id="pause-button" type="button" aria-label="Pause game">Ⅱ</button>
         </div>
-        <div class="game-hud" aria-label="Game status">
-          <div class="player-hud">
-            <span class="hud-avatar" aria-hidden="true"></span>
-            <span class="hud-player-copy"><b>SUN GROUND</b><span class="hud-lives"><span id="life-count">× 3</span><span class="health" id="health" aria-label="Three lives">♥ ♥ ♥</span></span></span>
-          </div>
-          <div class="title-lockup" aria-label="Sun Ground: Exotic Automatic, The Magical Skull"><strong>SUN GROUND</strong><span>EXOTIC AUTOMATIC</span><em>THE MAGICAL SKULL</em></div>
-          <div class="skull-counter"><span class="hud-skull" aria-hidden="true"></span><span id="shard-count">0/10</span></div>
-          <button class="music-hud-button" id="music-play-button" type="button" aria-expanded="false" aria-controls="music-popover" aria-label="Listen to this level’s song">♫ SONG</button>
-          <div class="music-popover" id="music-popover" hidden>
-            <div class="music-popover-heading"><span class="music-kicker" data-copy="musicHint">LEVEL SONG · PLAY ON BANDCAMP</span><button id="music-close-button" type="button" aria-label="Close song player">×</button></div>
-            <strong id="music-track-title">Exotic Automatic</strong>
-            <iframe id="bandcamp-player" title="Sun Ground track player" src="" width="100%" height="42" frameborder="0" allow="autoplay"></iframe>
-            <a id="bandcamp-track-link" href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noopener noreferrer" data-copy="openBandcamp">Open track on Bandcamp ↗</a>
-          </div>
-          <div class="level-banner"><span id="stage-biome">LV.01</span><i>—</i><strong id="track-name">Exotic Automatic</strong></div>
-        </div>
-        <div class="canvas-hint" id="canvas-hint" data-copy="hint">MOVE → · JUMP SPACE · PUNCH X</div>
+      </div>
+      <div class="game-frame" id="game-frame">
+        <canvas id="game-canvas" width="960" height="540" tabindex="0" aria-label="Sun Ground running through a cosmic platform level. Arrow keys move, space jumps, X punches, C fires, and E uses switches." aria-describedby="play-tip"></canvas>
         <div class="game-overlay" id="game-overlay" hidden>
           <div class="overlay-card"><p class="eyebrow" id="overlay-kicker">SIGNAL LOST</p><h2 id="overlay-title">Try again</h2><p id="overlay-copy"></p><button class="primary-button" id="overlay-action" type="button"><span>CONTINUE</span><span class="button-mark">↗</span></button><button class="overlay-menu" id="overlay-menu" type="button" data-copy="return">Return to world map</button></div>
         </div>
-        <nav class="game-level-list" id="game-level-list" aria-label="Choose a level"></nav>
-        <p class="skull-objective">TROVA I 10 FRAMMENTI E RICOMPONI IL TESCHIO MAGICO</p>
       </div>
-      <div class="game-status"><span id="gem-count">✦ 0 / 23</span><span id="boss-status">BOSS · AHEAD</span><span id="distance-status">0 m</span></div>
+      <div class="music-popover" id="music-popover" hidden>
+        <div class="music-popover-heading"><span class="music-kicker" data-copy="musicHint">LEVEL SONG · PLAY ON BANDCAMP</span><button id="music-close-button" type="button" aria-label="Close song player">×</button></div>
+        <strong id="music-track-title">Exotic Automatic</strong>
+        <iframe id="bandcamp-player" title="Sun Ground track player" src="" width="100%" height="42" frameborder="0" allow="autoplay"></iframe>
+        <a id="bandcamp-track-link" href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noopener noreferrer" data-copy="openBandcamp">Open track on Bandcamp ↗</a>
+      </div>
+      <div class="game-status" aria-live="polite"><span id="life-count">♥ 3</span><span id="gem-count">✦ 0 / 30</span><span id="weapon-count">PULSE 8</span><span id="boss-status">BOSS · AHEAD</span><span id="distance-status">0 m</span></div>
       <div id="game-progress" hidden aria-hidden="true"></div>
-      <p class="play-tip" data-copy="tip">Punch enemies or stomp them. Hit the boss with a punch, then enter the glowing gate.</p>
       <div class="touch-controls" id="touch-controls" aria-label="Touch controls">
         <div class="move-controls">
           <button class="control-button direction-button" type="button" data-control="left" aria-label="Move left">←</button>
@@ -98,11 +87,13 @@
           <button class="control-button run-button" type="button" data-control="run" aria-label="Run" data-copy="run">RUN</button>
         </div>
         <div class="action-controls">
+          <button class="control-button interact-button" id="interact-button" type="button" data-control="interact" aria-label="Use switch" data-copy="interact" hidden>USE</button>
           <button class="control-button punch-button" type="button" data-control="punch" aria-label="Punch" data-copy="punch">PUNCH</button>
+          <button class="control-button fire-button" type="button" data-control="fire" aria-label="Shoot energy pulse" data-copy="shoot">SHOOT</button>
           <button class="control-button jump-button" type="button" data-control="jump" aria-label="Jump" data-copy="jump">JUMP</button>
         </div>
       </div>
-      <section class="support-card game-support"><span data-copy="optional">OPTIONAL · SUPPORT THE MUSIC</span><a href="https://sunground3.bandcamp.com/album/exotic-automatic-2" target="_blank" rel="noopener noreferrer"><span data-copy="album">Exotic Automatic on Bandcamp</span><b>↗</b></a></section>
+      <p class="play-tip" id="play-tip" data-copy="tip">Aim at the boss and shoot with C / SHOOT. Punch with X up close or use the glowing lift switch with E / USE.</p>
     </section>
     <footer class="site-footer"><span>SG / EA</span><span data-copy="footer">RUN · JUMP · FIND THE SKULL</span></footer>
   </main>
